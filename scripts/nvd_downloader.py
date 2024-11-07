@@ -15,7 +15,7 @@ logging.info("Extracting CVE IDs from Initial Dataset JSON.")
 cve_ids = []
 
 for mapping in dataset:
-    cve_ids.append(mapping["ID"].replace("_", "-"))
+    cve_ids.append(mapping["ID"])
 
 # Request each CVE from NVD.
 logging.info("Beginning NVD Downloader...")

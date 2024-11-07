@@ -11,7 +11,7 @@ output_data = []
 for _, row in df.iterrows():
     # Extract ID and Description
     entry = {
-        "ID": row["ID"],
+        "ID": row["ID"].replace("_", "-"),
         "Description": row["Description"],
         "Tactics": {}
     }
