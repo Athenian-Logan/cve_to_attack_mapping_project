@@ -1,0 +1,6 @@
+- https://pypi.org/project/pattern/0.0.1a0/
+    - Listed in dependencies as a different version, the only available version was a pre-release, so changed to this.
+    - As a follow-up issue, this now requires numpy>=1.26.4, so numpy has been updated to this version.
+    - It also depends on scikit-learn>=1.5.0, so this has been updated.
+- Needed to install pattern separately: pip3 install git+https://github.com/clips/pattern.git
+    - The PyPi version was completely wrong...

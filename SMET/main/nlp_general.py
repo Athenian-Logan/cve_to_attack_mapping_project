@@ -22,7 +22,7 @@ import pickle
 from nltk.stem.wordnet import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 from sklearn.feature_extraction.text import TfidfVectorizer
-from pattern.en import lexeme, pluralize
+# from pattern.text.__init__ import lexeme, pluralize
 from numpy.linalg import norm
 from numpy import dot
 
