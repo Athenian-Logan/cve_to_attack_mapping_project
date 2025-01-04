@@ -107,10 +107,9 @@ def preprocess_cpe(cpe):
     component_type_code = match.group(1)  # a, o, h
     vendor_name = match.group(2)          # Vendor
     product_name = match.group(3)         # Product
-    version = match.group(4)              # Version
     
     # Map component type
     component_type = component_type_map.get(component_type_code, "Unknown Component Type")
     
-    # Construct a human-readable description
-    return f"The CVE affects the {vendor_name.capitalize()} {product_name.capitalize()} (Version {version}) on {component_type}."
+    # Construct a human-readable description without the version
+    return f"The CVE affects the {vendor_name.capitalize()} {product_name.capitalize()} {component_type}."
