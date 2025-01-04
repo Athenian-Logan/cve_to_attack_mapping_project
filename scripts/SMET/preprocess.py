@@ -28,14 +28,14 @@ def preprocess_cvss_v2(cvss):
     availability_impact = impact_map.get(vectors.group(6), "Unknown")
 
     # Construct Natural Lanugage CVSS V2 Description
-    return f"""
-            The CVE is exploited via the {attack_vector} Attack Vector. 
-            The Attack Complexity is {access_complexity}.
-            The attacker requires {authentication} Authentication.
-            There is {confidentiality_impact} impact on Confidentiality.
-            There is {integrity_impact} impact on Integrity.
-            There is {availability_impact} impact on Availability.
-            """
+    return (
+        f"The CVE is exploited via the {attack_vector} Attack Vector.\n"
+        f"The Attack Complexity is {access_complexity}.\n"
+        f"The attacker requires {authentication} Authentication.\n"
+        f"There is {confidentiality_impact} impact on Confidentiality.\n"
+        f"There is {integrity_impact} impact on Integrity.\n"
+        f"There is {availability_impact} impact on Availability."
+    )
 
 def preprocess_cvss_v3x(cvss):
     if cvss is None:
@@ -67,16 +67,16 @@ def preprocess_cvss_v3x(cvss):
     availability_impact = impact_map.get(vectors.group(8), "Unknown")
 
     # Construct Natural Language CVSS V3.x Description
-    return f"""
-            The CVE is exploited via the {attack_vector} Attack Vector. 
-            The Attack Complexity is {attack_complexity}.
-            The attacker requires {privilleges} Privilleges.
-            The attacker {interaction} User Interaction.
-            The Scope of the attack is {scope}.
-            There is {confidentiality_impact} impact on Confidentiality.
-            There is {integrity_impact} impact on Integrity.
-            There is {availability_impact} impact on Availability.
-            """
+    return(
+            f"The CVE is exploited via the {attack_vector} Attack Vector.\n" 
+            f"The Attack Complexity is {attack_complexity}.\n"
+            f"The attacker requires {privilleges} Privilleges.\n"
+            f"The attacker {interaction} User Interaction.\n"
+            f"The Scope of the attack is {scope}.\n"
+            f"There is {confidentiality_impact} impact on Confidentiality.\n"
+            f"There is {integrity_impact} impact on Integrity.\n"
+            f"There is {availability_impact} impact on Availability.\n"
+        )
 
 def preprocess_cwe_ids(ids):
     processed_weaknesses = []
