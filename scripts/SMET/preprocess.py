@@ -79,19 +79,23 @@ def preprocess_cvss_v3x(cvss):
         )
 
 def preprocess_cwe_ids(ids):
+    if not ids:
+        return []
+    
     processed_weaknesses = []
     for id in ids:
-        print(id)
         if id == "NVD-CWE-noinfo" or id == "NVD-CWE-Other":
             continue
         digits = re.findall(r'\d+', id)
         weakness = db.get(digits[0])
-        print(weakness.name)
         processed_weaknesses.append(f"The CVE is affected by {weakness.name}: {weakness.description}\n")
         
     return ''.join(processed_weaknesses)
 
 def preprocess_cpe(cpe):
+    if not cpe:
+        return "No weakness information known for CVE."
+    
     # Define a CPE pattern for parsing
     cpe_pattern = r'cpe:2\.3:([aho]):([^:]+):([^:]+):([^:]+):([^:]*):([^:]*):([^:]*):([^:]*):([^:]*):([^:]*):([^:]*):([^:]*)'
     

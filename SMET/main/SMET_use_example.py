@@ -12,7 +12,6 @@ from SMET import map_text,map_attack_vector
 #For inputs that consist of a few lines, such as a CVE entry of a paragraph from a CTI report use map_text() 
 #In cases where the input is long, like a full CTI report, segmented the text into multiple paragraphs or sentences and processed each separately
 
-
 #map attack vectors to ATT&CK
 AV1 = 'take screenshot'
 mapping1 = map_attack_vector(AV1)

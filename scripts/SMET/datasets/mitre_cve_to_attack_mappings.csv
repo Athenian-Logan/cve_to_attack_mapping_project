@@ -1,0 +1,1700 @@
+ID,Mapping
+CVE-2019-15243,Command and Scripting Interpreter
+CVE-2019-15243,Exploit Public-Facing Application
+CVE-2019-15243,Valid Accounts
+CVE-2019-15976,Exploitation for Privilege Escalation
+CVE-2019-15976,Command and Scripting Interpreter
+CVE-2019-15976,Exploit Public-Facing Application
+CVE-2019-15956,Endpoint Denial of Service
+CVE-2019-15956,Account Manipulation
+CVE-2019-15956,Exploit Public-Facing Application
+CVE-2019-15956,Valid Accounts
+CVE-2019-15958,Command and Scripting Interpreter
+CVE-2019-15958,Exploit Public-Facing Application
+CVE-2019-12660,Hijack Execution Flow
+CVE-2019-12660,Impair Defenses
+CVE-2019-12660,Valid Accounts
+CVE-2019-1753,Exploitation for Privilege Escalation
+CVE-2019-1753,Command and Scripting Interpreter
+CVE-2019-1753,Exploit Public-Facing Application
+CVE-2019-1753,Valid Accounts
+CVE-2019-1860,Man-in-the-Middle
+CVE-2019-1860,Data from Local System
+CVE-2019-1831,Masquerading
+CVE-2019-1831,Phishing
+CVE-2019-1942,Command and Scripting Interpreter
+CVE-2019-1942,Data from Local System
+CVE-2019-1942,Stored Data Manipulation
+CVE-2019-1942,External Remote Services
+CVE-2019-1942,Valid Accounts
+CVE-2019-15972,Command and Scripting Interpreter
+CVE-2019-15972,Data from Local System
+CVE-2019-15972,Stored Data Manipulation
+CVE-2019-15972,External Remote Services
+CVE-2019-15972,Valid Accounts
+CVE-2019-16009,Stage Capabilities
+CVE-2019-16009,Malicious Link
+CVE-2019-1879,Exploitation for Privilege Escalation
+CVE-2019-1879,Command and Scripting Interpreter
+CVE-2019-1879,Valid Accounts
+CVE-2019-1863,Exploitation for Privilege Escalation
+CVE-2019-1863,Stored Data Manipulation
+CVE-2019-1863,Exploit Public-Facing Application
+CVE-2019-1863,Valid Accounts
+CVE-2020-3403,Exploitation for Privilege Escalation
+CVE-2020-3403,Command and Scripting Interpreter
+CVE-2020-3403,Valid Accounts
+CVE-2019-1941,JavaScript
+CVE-2019-1941,Man-in-the-Middle
+CVE-2019-1941,Malicious Link
+CVE-2020-3292,Application or System Exploitation
+CVE-2020-3292,Command and Scripting Interpreter
+CVE-2020-3292,Exploit Public-Facing Application
+CVE-2020-3292,Valid Accounts
+CVE-2018-15397,System Shutdown/Reboot
+CVE-2018-15397,Exploit Public-Facing Application
+CVE-2020-3253,Command and Scripting Interpreter
+CVE-2020-3253,Valid Accounts
+CVE-2019-1838,JavaScript
+CVE-2019-1838,Man-in-the-Middle
+CVE-2019-1838,Malicious Link
+CVE-2020-3233,JavaScript
+CVE-2020-3233,Man-in-the-Middle
+CVE-2020-3233,Malicious Link
+CVE-2018-15401,Stage Capabilities
+CVE-2018-15401,Malicious Link
+CVE-2019-15249,Command and Scripting Interpreter
+CVE-2019-15249,Exploit Public-Facing Application
+CVE-2019-15249,Valid Accounts
+CVE-2019-15280,JavaScript
+CVE-2019-15280,Man-in-the-Middle
+CVE-2019-15280,Drive-by Compromise
+CVE-2019-15288,Stage Capabilities
+CVE-2019-15288,External Remote Services
+CVE-2019-15288,Valid Accounts
+CVE-2019-1781,Stage Capabilities
+CVE-2019-1781,Command and Scripting Interpreter
+CVE-2019-1781,Valid Accounts
+CVE-2020-3460,Transmitted Data Manipulation
+CVE-2020-3460,Man in the Browser
+CVE-2020-3137,JavaScript
+CVE-2020-3137,Man-in-the-Middle
+CVE-2020-3137,Malicious Link
+CVE-2020-3312,Data from Local System
+CVE-2020-3312,Exploit Public-Facing Application
+CVE-2019-1768,Stage Capabilities
+CVE-2019-1768,Command and Scripting Interpreter
+CVE-2019-1768,Valid Accounts
+CVE-2020-3379,Stage Capabilities
+CVE-2020-3379,Valid Accounts
+CVE-2019-1724,Remote Service Session Hijacking
+CVE-2019-1817,System Shutdown/Reboot
+CVE-2019-1817,Exploit Public-Facing Application
+CVE-2020-3477,Data from Local System
+CVE-2020-3477,Valid Accounts
+CVE-2019-1794,Path Interception by Search Order Hijacking
+CVE-2019-1794,Valid Accounts
+CVE-2019-1620,Ingress Tool Transfer
+CVE-2019-1620,Command and Scripting Interpreter
+CVE-2020-3216,Exploitation for Privilege Escalation
+CVE-2020-3216,Command and Scripting Interpreter
+CVE-2020-3306,Endpoint Denial of Service
+CVE-2020-3306,Exploit Public-Facing Application
+CVE-2019-1886,Service Stop
+CVE-2019-1711,Service Stop
+CVE-2020-3375,Command and Scripting Interpreter
+CVE-2020-3375,Exploit Public-Facing Application
+CVE-2019-1857,Stage Capabilities
+CVE-2019-1857,Malicious Link
+CVE-2019-1703,Service Exhaustion Flood
+CVE-2019-15963,Data from Local System
+CVE-2019-15963,Valid Accounts
+CVE-2019-1689,Ingress Tool Transfer
+CVE-2019-1689,Stored Data Manipulation
+CVE-2019-1689,Account Access Removal
+CVE-2020-3476,Stored Data Manipulation
+CVE-2020-3476,Valid Accounts
+CVE-2018-15466,Stage Capabilities
+CVE-2018-15466,Data from Local System
+CVE-2019-15287,Command and Scripting Interpreter
+CVE-2019-15287,Malicious File
+CVE-2019-15998,External Remote Services
+CVE-2019-15998,Valid Accounts
+CVE-2019-1889,Exploitation for Privilege Escalation
+CVE-2019-1889,Valid Accounts
+CVE-2020-3134,Service Stop
+CVE-2019-1736,System Firmware
+CVE-2020-3120,Endpoint Denial of Service
+CVE-2019-1764,Exploitation for Privilege Escalation
+CVE-2019-1764,Malicious Link
+CVE-2019-1943,Transmitted Data Manipulation
+CVE-2019-1943,Drive-by Compromise
+CVE-2019-1943,Man-in-the-Middle
+CVE-2019-1665,JavaScript
+CVE-2019-1665,Man-in-the-Middle
+CVE-2019-1665,Malicious Link
+CVE-2019-15994,JavaScript
+CVE-2019-15994,Man-in-the-Middle
+CVE-2019-15994,Malicious Link
+CVE-2019-1747,Exploit via Radio Interfaces
+CVE-2019-1747,Service Stop
+CVE-2019-15959,Command and Scripting Interpreter
+CVE-2019-15959,Replication Through Removable Media
+CVE-2019-15974,Transmitted Data Manipulation
+CVE-2019-15974,Drive-by Compromise
+CVE-2019-1772,Command and Scripting Interpreter
+CVE-2019-1772,Phishing
+CVE-2019-1772,Malicious File
+CVE-2020-3133,Exploit Public-Facing Application
+CVE-2020-3133,Spearphishing Attachment
+CVE-2019-12696,Exploit Public-Facing Application
+CVE-2019-12696,Malicious File
+CVE-2020-3387,Exploitation for Privilege Escalation
+CVE-2020-3387,Exploit Public-Facing Application
+CVE-2020-3387,External Remote Services
+CVE-2018-15393,JavaScript
+CVE-2018-15393,Man-in-the-Middle
+CVE-2018-15393,Malicious Link
+CVE-2019-1594,Application or System Exploitation
+CVE-2019-1594,Exploit Public-Facing Application
+CVE-2020-3440,Stored Data Manipulation
+CVE-2020-3440,Phishing
+CVE-2020-3440,Malicious File
+CVE-2019-1876,Exploit Public-Facing Application
+CVE-2019-1876,Exploitation for Privilege Escalation
+CVE-2020-3121,JavaScript
+CVE-2020-3121,Man-in-the-Middle
+CVE-2020-3121,Malicious Link
+CVE-2019-1612,Command and Scripting Interpreter
+CVE-2019-1612,Exploitation for Privilege Escalation
+CVE-2019-1612,Valid Accounts
+CVE-2019-1612,External Remote Services
+CVE-2019-1715,Valid Accounts
+CVE-2019-1715,Man-in-the-Middle
+CVE-2019-1715,Network Sniffing
+CVE-2019-1715,Brute Force
+CVE-2019-1609,Command and Scripting Interpreter
+CVE-2019-1609,Exploitation for Privilege Escalation
+CVE-2019-1609,Valid Accounts
+CVE-2019-1836,Stored Data Manipulation
+CVE-2019-1836,External Remote Services
+CVE-2019-15289,Application or System Exploitation
+CVE-2019-15289,Exploit Public-Facing Application
+CVE-2018-15444,Command and Scripting Interpreter
+CVE-2018-15444,Data from Local System
+CVE-2018-15444,External Remote Services
+CVE-2019-1611,Command and Scripting Interpreter
+CVE-2019-1611,Exploitation for Privilege Escalation
+CVE-2019-1611,Valid Accounts
+CVE-2020-3407,Application or System Exploitation
+CVE-2020-3407,Exploit Public-Facing Application
+CVE-2020-3237,Stored Data Manipulation
+CVE-2020-3237,External Remote Services
+CVE-2018-15376,Hijack Execution Flow
+CVE-2018-15376,Application or System Exploitation
+CVE-2018-15376,Phishing
+CVE-2018-15376,Replication Through Removable Media
+CVE-2018-15376,Malicious File
+CVE-2019-15276,Application or System Exploitation
+CVE-2019-15276,Drive-by Compromise
+CVE-2019-15276,Exploit Public-Facing Application
+CVE-2019-15276,Phishing
+CVE-2020-3416,ROMMONkit
+CVE-2020-3416,Valid Accounts
+CVE-2020-3126,Taint Shared Content
+CVE-2020-3126,Malicious File
+CVE-2020-3126,Exploit Public-Facing Application
+CVE-2020-3356,JavaScript
+CVE-2020-3356,Man-in-the-Middle
+CVE-2020-3356,Malicious Link
+CVE-2019-1915,Exploitation for Privilege Escalation
+CVE-2019-1915,Account Manipulation
+CVE-2019-1915,Drive-by Compromise
+CVE-2019-1915,Exploit Public-Facing Application
+CVE-2019-1915,Phishing
+CVE-2019-1915,Malicious File
+CVE-2019-1746,Application or System Exploitation
+CVE-2019-1746,Exploit Public-Facing Application
+CVE-2020-3397,Application or System Exploitation
+CVE-2020-3397,Exploit Public-Facing Application
+CVE-2019-1812,Command and Scripting Interpreter
+CVE-2019-1812,Abuse Elevation Control Mechanism
+CVE-2019-1812,Valid Accounts
+CVE-2020-3322,Application or System Exploitation
+CVE-2020-3322,Phishing
+CVE-2020-3322,Malicious File
+CVE-2020-3198,Hijack Execution Flow
+CVE-2020-3198,Application or System Exploitation
+CVE-2020-3198,Drive-by Compromise
+CVE-2020-3198,Exploit Public-Facing Application
+CVE-2020-3198,External Remote Services
+CVE-2020-3198,Phishing
+CVE-2020-3198,Malicious File
+CVE-2020-3198,Replication Through Removable Media
+CVE-2020-3309,Hijack Execution Flow
+CVE-2020-3309,Stored Data Manipulation
+CVE-2020-3309,Exploit Public-Facing Application
+CVE-2020-3309,External Remote Services
+CVE-2020-3177,Data from Local System
+CVE-2020-3177,Exploit Public-Facing Application
+CVE-2020-3510,Application or System Exploitation
+CVE-2020-3510,Exploit Public-Facing Application
+CVE-2020-3513,ROMMONkit
+CVE-2020-3513,Valid Accounts
+CVE-2020-3409,Application or System Exploitation
+CVE-2020-3409,Exploit Public-Facing Application
+CVE-2020-3349,JavaScript
+CVE-2020-3349,Man-in-the-Middle
+CVE-2020-3349,Malicious Link
+CVE-2018-15392,Application or System Exploitation
+CVE-2018-15392,Exploit Public-Facing Application
+CVE-2018-15462,Endpoint Denial of Service
+CVE-2018-15462,Exploit Public-Facing Application
+CVE-2019-1704,Endpoint Denial of Service
+CVE-2019-1704,Exploit Public-Facing Application
+CVE-2020-3244,Exploitation for Defense Evasion
+CVE-2020-3244,Exploit Public-Facing Application
+CVE-2020-3240,Data from Local System
+CVE-2020-3240,Web Shell
+CVE-2020-3240,/etc/passwd and /etc/shadow
+CVE-2020-3240,Credentials In Files
+CVE-2020-3240,Command and Scripting Interpreter
+CVE-2020-3240,External Remote Services
+CVE-2019-1790,Command and Scripting Interpreter
+CVE-2019-1790,Exploitation for Privilege Escalation
+CVE-2019-1790,Valid Accounts
+CVE-2020-5364,Default Accounts
+CVE-2020-5364,Data from Local System
+CVE-2019-3707,Exploit Public-Facing Application
+CVE-2019-3735,Exploitation for Privilege Escalation
+CVE-2019-3735,Valid Accounts
+CVE-2018-11048,Command and Scripting Interpreter
+CVE-2018-11048,Data from Local System
+CVE-2018-11048,Application or System Exploitation
+CVE-2018-11048,External Remote Services
+CVE-2019-3754,JavaScript
+CVE-2019-3754,Man-in-the-Middle
+CVE-2019-3754,Malicious Link
+CVE-2020-5374,Default Accounts
+CVE-2018-15771,Default Accounts
+CVE-2018-15771,Data from Local System
+CVE-2018-15782,Exploitation for Privilege Escalation
+CVE-2018-15782,Phishing
+CVE-2018-15782,Malicious File
+CVE-2019-3723,Data Destruction
+CVE-2019-3723,Command and Scripting Interpreter
+CVE-2019-3723,Hijack Execution Flow
+CVE-2019-3723,Exploit Public-Facing Application
+CVE-2018-11045,Valid Accounts
+CVE-2018-11045,Brute Force
+CVE-2020-5345,Exploit Public-Facing Application
+CVE-2020-5345,Stored Data Manipulation
+CVE-2020-5336,JavaScript
+CVE-2020-5336,Man-in-the-Middle
+CVE-2020-5336,Malicious Link
+CVE-2018-15795,Valid Accounts
+CVE-2018-15795,Brute Force
+CVE-2020-5365,Default Accounts
+CVE-2020-5365,Brute Force
+CVE-2019-3717,Abuse Elevation Control Mechanism
+CVE-2019-3717,Hardware Additions
+CVE-2019-3732,Data from Local System
+CVE-2019-3732,Exploit Public-Facing Application
+CVE-2019-3731,Data from Local System
+CVE-2019-3731,Exploit Public-Facing Application
+CVE-2020-5326,Exploitation for Privilege Escalation
+CVE-2020-5326,System Firmware
+CVE-2018-15776,Command and Scripting Interpreter
+CVE-2018-15776,Exploit Public-Facing Application
+CVE-2019-18573,Remote Service Session Hijacking
+CVE-2019-3727,Command and Scripting Interpreter
+CVE-2019-3727,Exploitation for Privilege Escalation
+CVE-2019-3728,Service Stop
+CVE-2019-3790,Remote Service Session Hijacking
+CVE-2019-3790,Valid Accounts
+CVE-2019-3719,Command and Scripting Interpreter
+CVE-2019-3719,Malicious File
+CVE-2018-15764,Command and Scripting Interpreter
+CVE-2018-15764,Exploit Public-Facing Application
+CVE-2018-11084,Resource Hijacking
+CVE-2020-5339,JavaScript
+CVE-2020-5339,Man in the Browser
+CVE-2020-5339,Drive-by Compromise
+CVE-2018-15784,Man-in-the-Middle
+CVE-2020-5386,Data from Local System
+CVE-2019-3704,Command and Scripting Interpreter
+CVE-2019-3704,Exploitation for Privilege Escalation
+CVE-2019-3704,Valid Accounts
+CVE-2019-3799,Data from Local System
+CVE-2019-3799,Exploit Public-Facing Application
+CVE-2019-18578,JavaScript
+CVE-2019-18578,Man in the Browser
+CVE-2019-18578,Drive-by Compromise
+CVE-2020-5340,JavaScript
+CVE-2020-5340,Man in the Browser
+CVE-2020-5340,Drive-by Compromise
+CVE-2020-5358,Exploitation for Privilege Escalation
+CVE-2020-5371,Exploitation for Privilege Escalation
+CVE-2020-5371,Data from Local System
+CVE-2019-3758,Exploit Public-Facing Application
+CVE-2019-3758,Create Account
+CVE-2018-11051,Data from Local System
+CVE-2018-11051,Exploit Public-Facing Application
+CVE-2020-5378,System Firmware
+CVE-2019-3767,Data from Local System
+CVE-2018-15800,Valid Accounts
+CVE-2018-15800,Brute Force
+CVE-2018-11059,JavaScript
+CVE-2018-11059,Man in the Browser
+CVE-2018-11059,Drive-by Compromise
+CVE-2019-3775,Account Manipulation
+CVE-2018-11075,JavaScript
+CVE-2018-11075,Man in the Browser
+CVE-2018-11075,Malicious File
+CVE-2020-5376,System Firmware
+CVE-2018-15761,Exploitation for Privilege Escalation
+CVE-2018-15761,Valid Accounts
+CVE-2019-3787,Unsecured Credentials
+CVE-2019-3787,Valid Accounts
+CVE-2019-3787,Account Manipulation
+CVE-2018-15797,Exploitation for Privilege Escalation
+CVE-2018-15797,Unsecured Credentials
+CVE-2018-15772,Endpoint Denial of Service
+CVE-2020-5331,Data from Local System
+CVE-2020-5362,Exploitation for Privilege Escalation
+CVE-2020-5362,Account Manipulation
+CVE-2019-18571,JavaScript
+CVE-2019-18571,Man in the Browser
+CVE-2019-18571,Malicious File
+CVE-2019-3782,Credentials In Files
+CVE-2019-3782,Account Manipulation
+CVE-2020-5379,System Firmware
+CVE-2018-11088,Unsecured Credentials
+CVE-2018-11088,Exploitation for Privilege Escalation
+CVE-2018-11062,Default Accounts
+CVE-2018-15758,Exploitation for Privilege Escalation
+CVE-2018-15758,Exploit Public-Facing Application
+CVE-2019-3780,Credentials In Files
+CVE-2019-3780,Exploitation for Privilege Escalation
+CVE-2020-5369,Exploitation for Privilege Escalation
+CVE-2020-5366,Data from Local System
+CVE-2020-5366,Exploit Public-Facing Application
+CVE-2019-3798,Exploitation for Privilege Escalation
+CVE-2019-3798,Create Account
+CVE-2020-5373,Exploit Public-Facing Application
+CVE-2020-5373,Data from Local System
+CVE-2019-3788,Masquerading
+CVE-2019-3788,Spearphishing Link
+CVE-2018-11060,Exploitation for Privilege Escalation
+CVE-2018-11067,Masquerading
+CVE-2018-11067,Spearphishing Link
+CVE-2020-5328,Exploitation for Privilege Escalation
+CVE-2019-3784,Remote Service Session Hijacking
+CVE-2019-3762,Subvert Trust Controls
+CVE-2019-3762,Digital Certificates
+CVE-2019-18582,Command and Scripting Interpreter
+CVE-2018-11049,Hijack Execution Flow
+CVE-2020-5350,Command and Scripting Interpreter
+CVE-2020-5350,Account Manipulation
+CVE-2018-15801,Application Access Token
+CVE-2019-18581,Impair Defenses
+CVE-2019-18581,Command and Scripting Interpreter
+CVE-2020-5332,Command and Scripting Interpreter
+CVE-2019-3778,Masquerading
+CVE-2019-3778,Spearphishing Link
+CVE-2018-15774,Exploitation for Privilege Escalation
+CVE-2018-15780,Exploit Public-Facing Application
+CVE-2018-15780,Data from Local System
+CVE-2019-3786,Data from Local System
+CVE-2019-3786,Stored Data Manipulation
+CVE-2019-3706,Exploit Public-Facing Application
+CVE-2018-11072,Dynamic-link Library Injection
+CVE-2018-11073,JavaScript
+CVE-2018-11073,Man in the Browser
+CVE-2018-11073,Drive-by Compromise
+CVE-2018-11087,Man-in-the-Middle
+CVE-2019-3708,JavaScript
+CVE-2019-3708,Man in the Browser
+CVE-2019-3708,Malicious Link
+CVE-2018-15767,Sudo and Sudo Caching
+CVE-2018-11069,Weaken Encryption
+CVE-2018-11069,Brute Force
+CVE-2019-3763,Unsecured Credentials
+CVE-2019-3763,Valid Accounts
+CVE-2019-3750,Data Destruction
+CVE-2020-15105,Unsecured Credentials
+CVE-2020-15105,Valid Accounts
+CVE-2020-15188,Command and Scripting Interpreter
+CVE-2020-15188,External Remote Services
+CVE-2020-5250,Masquerading
+CVE-2020-5250,Install Insecure or Malicious Configuration
+CVE-2019-16768,Data from Local System
+CVE-2020-15147,Command and Scripting Interpreter
+CVE-2020-15147,External Remote Services
+CVE-2020-15118,Command and Scripting Interpreter
+CVE-2020-15118,Man in the Browser
+CVE-2020-5210,Hijack Execution Flow
+CVE-2020-5210,Application or System Exploitation
+CVE-2020-11055,Command and Scripting Interpreter
+CVE-2020-11055,Man in the Browser
+CVE-2020-5283,Command and Scripting Interpreter
+CVE-2020-5283,Man in the Browser
+CVE-2020-15211,Hijack Execution Flow
+CVE-2020-15211,Exploit Public-Facing Application
+CVE-2020-5220,Data from Local System
+CVE-2020-5220,Exploit Public-Facing Application
+CVE-2020-11021,Data from Local System
+CVE-2020-11021,Exploit Public-Facing Application
+CVE-2020-5269,JavaScript
+CVE-2020-5269,Man-in-the-Middle
+CVE-2020-5269,Malicious Link
+CVE-2020-11030,JavaScript
+CVE-2020-11030,Man-in-the-Middle
+CVE-2020-11030,Malicious Link
+CVE-2020-11036,JavaScript
+CVE-2020-11036,Man in the Browser
+CVE-2020-11036,Drive-by Compromise
+CVE-2020-15100,Hijack Execution Flow
+CVE-2020-15100,Application or System Exploitation
+CVE-2020-15100,Valid Accounts
+CVE-2020-15094,Command and Scripting Interpreter
+CVE-2020-15094,Network Sniffing
+CVE-2020-15140,Command and Scripting Interpreter
+CVE-2020-15140,External Remote Services
+CVE-2020-11087,Data from Local System
+CVE-2020-11087,Exploitation for Defense Evasion
+CVE-2020-11023,JavaScript
+CVE-2020-11023,Man-in-the-Middle
+CVE-2020-11023,Malicious Link
+CVE-2020-5290,Remote Service Session Hijacking
+CVE-2020-5290,Drive-by Compromise
+CVE-2020-11090,Application or System Exploitation
+CVE-2020-5270,Masquerading
+CVE-2020-5270,JavaScript
+CVE-2020-5270,Man-in-the-Middle
+CVE-2020-5270,Data from Local System
+CVE-2020-5270,Spearphishing Link
+CVE-2020-5254,Hijack Execution Flow
+CVE-2020-5254,Exploit Public-Facing Application
+CVE-2020-15096,Command and Scripting Interpreter
+CVE-2020-15096,Exploit Public-Facing Application
+CVE-2020-11013,Exploit Public-Facing Application
+CVE-2020-15095,Unsecured Credentials
+CVE-2020-15233,Masquerading
+CVE-2020-15233,Spearphishing Link
+CVE-2020-5252,Exploit Public-Facing Application
+CVE-2020-11019,Data from Local System
+CVE-2020-11019,Application or System Exploitation
+CVE-2020-11019,Exploitation for Defense Evasion
+CVE-2020-15182,Exploitation for Privilege Escalation
+CVE-2020-15182,Malicious Link
+CVE-2020-5264,JavaScript
+CVE-2020-5264,Man-in-the-Middle
+CVE-2020-5264,Malicious Link
+CVE-2020-11078,Exploit Public-Facing Application
+CVE-2020-11050,Exploit Public-Facing Application
+CVE-2020-15170,Exploit Public-Facing Application
+CVE-2020-15170,Install Insecure or Malicious Configuration
+CVE-2020-5295,Data from Local System
+CVE-2020-5295,External Remote Services
+CVE-2020-15189,Web Shell
+CVE-2020-15189,Command and Scripting Interpreter
+CVE-2020-15189,External Remote Services
+CVE-2020-15137,Data from Local System
+CVE-2020-15137,Application or System Exploitation
+CVE-2020-15137,Exploit Public-Facing Application
+CVE-2020-11035,Valid Accounts
+CVE-2020-11035,Man-in-the-Middle
+CVE-2020-11035,Network Sniffing
+CVE-2020-11035,Brute Force
+CVE-2020-5217,Command and Scripting Interpreter
+CVE-2020-5217,Man in the Browser
+CVE-2020-5261,Exploit Public-Facing Application
+CVE-2020-5261,Network Sniffing
+CVE-2020-11054,Exploit Public-Facing Application
+CVE-2020-11054,Drive-by Compromise
+CVE-2020-4068,Hijack Execution Flow
+CVE-2020-4068,Application or System Exploitation
+CVE-2020-4068,Drive-by Compromise
+CVE-2020-4068,Exploit Public-Facing Application
+CVE-2020-4068,External Remote Services
+CVE-2020-4068,Phishing
+CVE-2020-4068,Malicious File
+CVE-2020-4068,Replication Through Removable Media
+CVE-2020-15109,Exploit Public-Facing Application
+CVE-2020-15109,Data Manipulation
+CVE-2020-15109,External Remote Services
+CVE-2020-11082,JavaScript
+CVE-2020-11082,Man-in-the-Middle
+CVE-2020-11082,Malicious Link
+CVE-2020-15093,Valid Accounts
+CVE-2020-15093,Man-in-the-Middle
+CVE-2020-15093,Network Sniffing
+CVE-2020-15093,Brute Force
+CVE-2020-5225,Exploit Public-Facing Application
+CVE-2020-5225,Data Manipulation
+CVE-2020-5225,External Remote Services
+CVE-2020-5266,JavaScript
+CVE-2020-5266,Man-in-the-Middle
+CVE-2020-5266,Drive-by Compromise
+CVE-2020-15208,Hijack Execution Flow
+CVE-2020-15208,Application or System Exploitation
+CVE-2020-11010,Command and Scripting Interpreter
+CVE-2020-11010,Data from Local System
+CVE-2020-11010,Web Shell
+CVE-2020-11010,Create Account
+CVE-2020-11010,Exploit Public-Facing Application
+CVE-2020-11010,Stored Data Manipulation
+CVE-2020-11010,External Remote Services
+CVE-2019-16784,Exploit Public-Facing Application
+CVE-2019-16784,Exploitation for Privilege Escalation
+CVE-2019-16784,Python
+CVE-2020-15143,Command and Scripting Interpreter
+CVE-2020-15143,External Remote Services
+CVE-2020-11039,Hijack Execution Flow
+CVE-2020-11039,Data from Local System
+CVE-2020-11039,Application or System Exploitation
+CVE-2020-15199,Hijack Execution Flow
+CVE-2020-15199,Application or System Exploitation
+CVE-2019-16760,Exploit Public-Facing Application
+CVE-2019-16760,Install Insecure or Malicious Configuration
+CVE-2020-15179,Command and Scripting Interpreter
+CVE-2020-15179,Man in the Browser
+CVE-2020-5271,JavaScript
+CVE-2020-5271,Man-in-the-Middle
+CVE-2020-5271,Malicious Link
+CVE-2020-5231,Default Accounts
+CVE-2020-5231,Create Account
+CVE-2020-5279,Exploit Public-Facing Application
+CVE-2020-11059,Data from Local System
+CVE-2020-15183,Command and Scripting Interpreter
+CVE-2020-15183,Man in the Browser
+CVE-2020-11044,Application or System Exploitation
+CVE-2020-5284,Data from Local System
+CVE-2020-15162,Command and Scripting Interpreter
+CVE-2020-15162,Man in the Browser
+CVE-2020-11073,Command and Scripting Interpreter
+CVE-2020-11073,Malicious File
+CVE-2020-5267,Command and Scripting Interpreter
+CVE-2020-5267,Man in the Browser
+CVE-2020-11068,Hijack Execution Flow
+CVE-2020-11068,Application or System Exploitation
+CVE-2020-5297,Web Shell
+CVE-2020-5297,Command and Scripting Interpreter
+CVE-2020-5241,Command and Scripting Interpreter
+CVE-2020-5241,Man in the Browser
+CVE-2020-5253,Hijack Execution Flow
+CVE-2020-5253,Application or System Exploitation
+CVE-2020-5253,Install Insecure or Malicious Configuration
+CVE-2020-15132,Gather Victim Identity Information
+CVE-2019-16782,Remote Service Session Hijacking
+CVE-2019-16782,Brute Force
+CVE-2020-11045,Data from Local System
+CVE-2020-11083,Man in the Browser
+CVE-2020-5281,Command and Scripting Interpreter
+CVE-2020-6986,Denial of Service
+CVE-2020-6986,Endpoint Denial of Service
+CVE-2018-17934,Masquerading
+CVE-2018-17934,Data from Local System
+CVE-2018-17934,Exploitation for Client Execution
+CVE-2018-17934,Indirect Command Execution
+CVE-2020-12029,Web Shell
+CVE-2020-12029,Command and Scripting Interpreter
+CVE-2020-12029,External Remote Services
+CVE-2018-7520,Credentials In Files
+CVE-2018-7499,Hijack Execution Flow
+CVE-2018-7499,Application or System Exploitation
+CVE-2019-6522,Data from Local System
+CVE-2019-6522,Application or System Exploitation
+CVE-2019-10980,Hijack Execution Flow
+CVE-2019-10980,Application or System Exploitation
+CVE-2019-6538,Hijack Execution Flow
+CVE-2019-6538,Application or System Exploitation
+CVE-2019-6538,Data from Local System
+CVE-2019-6538,Man-in-the-Middle
+CVE-2019-6538,Wireless Compromise
+CVE-2019-6538,Exploit via Radio Interfaces
+CVE-2018-7526,Data from Local System
+CVE-2018-5445,Data from Local System
+CVE-2018-5454,Exploitation for Client Execution
+CVE-2018-14819,Hijack Execution Flow
+CVE-2020-6960,Command and Scripting Interpreter
+CVE-2020-12014,Command and Scripting Interpreter
+CVE-2019-13511,Data from Local System
+CVE-2019-13511,Malicious Link
+CVE-2020-12038,Application or System Exploitation
+CVE-2020-12038,Malicious Link
+CVE-2019-6563,Steal Web Session Cookie
+CVE-2019-6563,Valid Accounts
+CVE-2019-6563,Brute Force
+CVE-2018-19007,Command and Scripting Interpreter
+CVE-2018-19007,External Remote Services
+CVE-2018-18990,Data from Local System
+CVE-2018-14781,Exploit Public-Facing Application
+CVE-2018-14781,Network Sniffing
+CVE-2018-10633,Default Accounts
+CVE-2018-10610,Hijack Execution Flow
+CVE-2018-10610,Application or System Exploitation
+CVE-2018-10610,Data from Local System
+CVE-2018-10610,Man-in-the-Middle
+CVE-2018-14809,Hijack Execution Flow
+CVE-2018-14809,Application or System Exploitation
+CVE-2018-14809,Data from Local System
+CVE-2018-14809,Man-in-the-Middle
+CVE-2018-18995,Device Restart/Shutdown
+CVE-2018-18995,System Shutdown/Reboot
+CVE-2018-18995,Unauthorized Command Message
+CVE-2018-18995,Modify Parameter
+CVE-2018-18995,Data from Information Repositories
+CVE-2018-5459,Unauthorized Command Message
+CVE-2018-5459,Data from Local System
+CVE-2018-5459,Data Destruction
+CVE-2018-5459,Stored Data Manipulation
+CVE-2019-13555,Endpoint Denial of Service
+CVE-2019-13555,Loss of Availability
+CVE-2020-12008,Unsecured Credentials
+CVE-2020-12008,Valid Accounts
+CVE-2020-12008,Network Sniffing
+CVE-2019-10990,Default Accounts
+CVE-2018-8852,Remote Service Session Hijacking
+CVE-2019-10971,DLL Search Order Hijacking
+CVE-2018-10590,File and Directory Discovery
+CVE-2018-10590,Exploit Public-Facing Application
+CVE-2020-16200,Resource Hijacking
+CVE-2020-16200,Loss of Availability
+CVE-2018-10636,Hijack Execution Flow
+CVE-2018-10636,Application or System Exploitation
+CVE-2018-10636,Exploitation for Privilege Escalation
+CVE-2018-19010,Endpoint Denial of Service
+CVE-2018-19010,Exploit Public-Facing Application
+CVE-2018-7500,Exploitation for Privilege Escalation
+CVE-2019-18234,Command and Scripting Interpreter
+CVE-2019-18234,Data from Local System
+CVE-2019-18234,Web Shell
+CVE-2019-18234,Create Account
+CVE-2019-18234,Exploit Public-Facing Application
+CVE-2019-18234,Stored Data Manipulation
+CVE-2019-18234,External Remote Services
+CVE-2020-6964,Exploit Public-Facing Application
+CVE-2020-6964,Exploitation for Privilege Escalation
+CVE-2020-6964,Command and Scripting Interpreter
+CVE-2020-6993,Data from Local System
+CVE-2020-6993,Exploit Public-Facing Application
+CVE-2020-14510,Default Accounts
+CVE-2020-14510,Exploitation for Privilege Escalation
+CVE-2020-14510,Command and Scripting Interpreter
+CVE-2020-14508,Command and Scripting Interpreter
+CVE-2020-14508,Endpoint Denial of Service
+CVE-2020-14508,Exploit Public-Facing Application
+CVE-2018-7494,Hijack Execution Flow
+CVE-2018-7494,Application or System Exploitation
+CVE-2020-7004,Exploitation for Privilege Escalation
+CVE-2018-5451,Masquerading
+CVE-2020-10603,Command and Scripting Interpreter
+CVE-2020-10603,External Remote Services
+CVE-2018-17889,Command and Scripting Interpreter
+CVE-2019-13522,Hijack Execution Flow
+CVE-2019-13522,Malicious File
+CVE-2020-12024,Replication Through Removable Media
+CVE-2018-17924,Block Command Message
+CVE-2018-17924,Block Reporting Message
+CVE-2018-17924,Unauthorized Command Message
+CVE-2020-12000,Command and Scripting Interpreter
+CVE-2020-12000,External Remote Services
+CVE-2018-17910,Hijack Execution Flow
+CVE-2018-10589,Indirect Command Execution
+CVE-2018-8835,Hijack Execution Flow
+CVE-2018-8835,Malicious File
+CVE-2018-17908,Exploitation for Privilege Escalation
+CVE-2018-17908,Impair Defenses
+CVE-2018-17900,Unsecured Credentials
+CVE-2018-17900,Valid Accounts
+CVE-2020-16211,Data from Local System
+CVE-2020-16211,Malicious File
+CVE-2018-10620,Hijack Execution Flow
+CVE-2018-17911,Native Code
+CVE-2019-6549,Unsecured Credentials
+CVE-2019-6549,Valid Accounts
+CVE-2018-17892,Impair Defenses
+CVE-2018-14802,Native Code
+CVE-2018-18987,Command and Scripting Interpreter
+CVE-2018-18987,Hijack Execution Flow
+CVE-2018-18987,Application or System Exploitation
+CVE-2020-16198,Masquerading
+CVE-2019-18263,Brute Force
+CVE-2020-10602,Application or System Exploitation
+CVE-2019-10987,Native Code
+CVE-2019-13541,Native Code
+CVE-2020-0884,Steal Application Access Token
+CVE-2020-0884,Network Sniffing
+CVE-2020-1025,Exploit Public-Facing Application
+CVE-2019-0911,Hijack Execution Flow
+CVE-2019-0911,Application or System Exploitation
+CVE-2019-0911,Drive-by Compromise
+CVE-2019-0911,Malicious File
+CVE-2020-1111,Exploitation for Privilege Escalation
+CVE-2020-1111,Data from Local System
+CVE-2020-1111,Data Manipulation
+CVE-2020-1111,Data Destruction
+CVE-2020-1111,Create Account
+CVE-2018-8355,Hijack Execution Flow
+CVE-2018-8355,Application or System Exploitation
+CVE-2018-8355,Data from Local System
+CVE-2018-8355,Data Manipulation
+CVE-2018-8355,Data Destruction
+CVE-2018-8355,Create Account
+CVE-2018-8355,Drive-by Compromise
+CVE-2018-8355,Malicious File
+CVE-2019-1087,Exploitation for Privilege Escalation
+CVE-2020-0671,Hijack Execution Flow
+CVE-2020-0671,Application or System Exploitation
+CVE-2020-0671,Data from Local System
+CVE-2020-0671,Data Manipulation
+CVE-2020-0671,Data Destruction
+CVE-2020-0671,Create Account
+CVE-2019-1270,Data Manipulation
+CVE-2019-1270,Data Destruction
+CVE-2019-1270,Indirect Command Execution
+CVE-2020-0898,Hijack Execution Flow
+CVE-2020-0898,Application or System Exploitation
+CVE-2019-1118,Hijack Execution Flow
+CVE-2019-1118,Application or System Exploitation
+CVE-2019-1118,Data from Local System
+CVE-2019-1118,Data Manipulation
+CVE-2019-1118,Data Destruction
+CVE-2019-1118,Create Account
+CVE-2019-1118,Drive-by Compromise
+CVE-2019-1118,Malicious File
+CVE-2020-1456,Command and Scripting Interpreter
+CVE-2020-1456,Data from Local System
+CVE-2020-1456,Data Manipulation
+CVE-2020-1456,Data Destruction
+CVE-2020-1456,Install Insecure or Malicious Configuration
+CVE-2020-1456,Masquerading
+CVE-2019-1086,Exploitation for Privilege Escalation
+CVE-2020-1109,Hijack Execution Flow
+CVE-2020-1109,Application or System Exploitation
+CVE-2020-1109,Data from Local System
+CVE-2020-1109,Data Manipulation
+CVE-2020-1109,Data Destruction
+CVE-2020-1109,Create Account
+CVE-2019-0576,Hijack Execution Flow
+CVE-2019-0576,Application or System Exploitation
+CVE-2019-0576,Malicious File
+CVE-2020-1347,Exploitation for Privilege Escalation
+CVE-2020-1163,Data Destruction
+CVE-2020-1068,Data Manipulation
+CVE-2020-1495,Hijack Execution Flow
+CVE-2020-1495,Application or System Exploitation
+CVE-2020-1495,Data from Local System
+CVE-2020-1495,Data Manipulation
+CVE-2020-1495,Data Destruction
+CVE-2020-1495,Create Account
+CVE-2020-1495,Malicious File
+CVE-2020-1495,Phishing
+CVE-2020-1425,Hijack Execution Flow
+CVE-2020-1425,Application or System Exploitation
+CVE-2018-8248,Hijack Execution Flow
+CVE-2018-8248,Application or System Exploitation
+CVE-2018-8248,Data from Local System
+CVE-2018-8248,Data Manipulation
+CVE-2018-8248,Data Destruction
+CVE-2018-8248,Create Account
+CVE-2018-8248,Drive-by Compromise
+CVE-2018-8248,Malicious File
+CVE-2020-0758,Exploitation for Privilege Escalation
+CVE-2020-0758,Account Manipulation
+CVE-2020-1141,Data from Local System
+CVE-2020-1141,Exploitation for Defense Evasion
+CVE-2018-8111,Hijack Execution Flow
+CVE-2018-8111,Application or System Exploitation
+CVE-2018-8111,Data from Local System
+CVE-2018-8111,Data Manipulation
+CVE-2018-8111,Data Destruction
+CVE-2018-8111,Create Account
+CVE-2018-8111,Malicious File
+CVE-2018-8111,Phishing
+CVE-2018-8607,Command and Scripting Interpreter
+CVE-2018-8607,Data from Local System
+CVE-2018-8607,Data Manipulation
+CVE-2018-8607,Data Destruction
+CVE-2018-8607,Install Insecure or Malicious Configuration
+CVE-2018-8607,Masquerading
+CVE-2019-1021,Exploitation for Privilege Escalation
+CVE-2020-1569,Hijack Execution Flow
+CVE-2020-1569,Application or System Exploitation
+CVE-2020-1569,Data from Local System
+CVE-2020-1569,Data Manipulation
+CVE-2020-1569,Data Destruction
+CVE-2020-1569,Create Account
+CVE-2020-1569,Malicious File
+CVE-2020-1569,Phishing
+CVE-2019-1423,Data Manipulation
+CVE-2019-1423,Exploitation for Privilege Escalation
+CVE-2020-16874,Hijack Execution Flow
+CVE-2020-16874,Application or System Exploitation
+CVE-2020-16874,Data from Local System
+CVE-2020-16874,Data Manipulation
+CVE-2020-16874,Data Destruction
+CVE-2020-16874,Create Account
+CVE-2020-16874,Malicious File
+CVE-2019-1013,Data from Local System
+CVE-2019-1013,Malicious File
+CVE-2019-1013,Phishing
+CVE-2019-0609,Hijack Execution Flow
+CVE-2019-0609,Application or System Exploitation
+CVE-2019-0609,Data from Local System
+CVE-2019-0609,Data Manipulation
+CVE-2019-0609,Data Destruction
+CVE-2019-0609,Create Account
+CVE-2019-0609,Malicious File
+CVE-2019-0609,Phishing
+CVE-2020-1190,Exploitation for Privilege Escalation
+CVE-2018-8353,Hijack Execution Flow
+CVE-2018-8353,Application or System Exploitation
+CVE-2018-8353,Data from Local System
+CVE-2018-8353,Data Manipulation
+CVE-2018-8353,Data Destruction
+CVE-2018-8353,Create Account
+CVE-2018-8353,Malicious File
+CVE-2018-8353,Phishing
+CVE-2018-8110,Hijack Execution Flow
+CVE-2018-8110,Application or System Exploitation
+CVE-2018-8110,Data from Local System
+CVE-2018-8110,Data Manipulation
+CVE-2018-8110,Data Destruction
+CVE-2018-8110,Create Account
+CVE-2018-8110,Malicious File
+CVE-2018-8110,Phishing
+CVE-2018-8575,Exploitation for Privilege Escalation
+CVE-2018-8575,Data from Local System
+CVE-2018-8575,Data Manipulation
+CVE-2018-8575,Data Destruction
+CVE-2018-8575,Create Account
+CVE-2018-8575,Malicious File
+CVE-2018-8575,Phishing
+CVE-2019-1031,Command and Scripting Interpreter
+CVE-2019-1031,Data from Local System
+CVE-2019-1031,Data Manipulation
+CVE-2019-1031,Data Destruction
+CVE-2019-1031,Install Insecure or Malicious Configuration
+CVE-2019-1031,Masquerading
+CVE-2019-1402,Exploitation for Privilege Escalation
+CVE-2020-0955,Data from Local System
+CVE-2020-0981,Access Token Manipulation
+CVE-2020-0981,Exploitation for Privilege Escalation
+CVE-2020-0981,Virtualization/Sandbox Evasion
+CVE-2018-8160,Data from Local System
+CVE-2018-8160,Brute Force
+CVE-2018-8160,Phishing
+CVE-2019-1106,Hijack Execution Flow
+CVE-2019-1106,Application or System Exploitation
+CVE-2019-1106,Drive-by Compromise
+CVE-2019-1106,Exploitation for Client Execution
+CVE-2019-1035,Hijack Execution Flow
+CVE-2019-1035,Application or System Exploitation
+CVE-2019-1035,Malicious File
+CVE-2019-1035,Exploitation for Client Execution
+CVE-2018-8431,Exploit Public-Facing Application
+CVE-2018-8431,Data Manipulation
+CVE-2018-8489,Virtualization/Sandbox Evasion
+CVE-2019-0926,Hijack Execution Flow
+CVE-2019-0926,Application or System Exploitation
+CVE-2019-0926,Drive-by Compromise
+CVE-2019-0926,Exploitation for Client Execution
+CVE-2019-1052,Hijack Execution Flow
+CVE-2019-1052,Application or System Exploitation
+CVE-2019-1052,Drive-by Compromise
+CVE-2019-1052,Exploitation for Client Execution
+CVE-2020-1471,Exploitation for Privilege Escalation
+CVE-2020-0636,Exploitation for Privilege Escalation
+CVE-2014-1812,OS Credential Dumping
+CVE-2014-1812,Credentials In Files
+CVE-2020-11652,Data from Local System
+CVE-2020-11652,Exploit Public-Facing Application
+CVE-2017-16651,Data from Local System
+CVE-2017-16651,Exploit Public-Facing Application
+CVE-2015-0984,Data from Local System
+CVE-2015-0984,Exploit Public-Facing Application
+CVE-2015-0984,Unsecured Credentials
+CVE-2019-9670,Data from Local System
+CVE-2019-9670,Credentials In Files
+CVE-2018-15869,Implant Internal Image
+CVE-2020-6808,Match Legitimate Name or Location
+CVE-2018-11749,Network Sniffing
+CVE-2018-11749,Unsecured Credentials
+CVE-2012-6685,Network Service Scanning
+CVE-2016-0099,Process Injection
+CVE-2013-3336,Process Injection
+CVE-2020-6820,Process Injection
+CVE-2020-6820,Drive-by Compromise
+CVE-2019-9978,Process Injection
+CVE-2019-9978,Drive-by Compromise
+CVE-2015-2945,Command and Scripting Interpreter
+CVE-2015-2945,Exploitation for Privilege Escalation
+CVE-2014-4114,Command and Scripting Interpreter
+CVE-2014-4114,Exploitation for Privilege Escalation
+CVE-2014-4114,Exploitation for Defense Evasion
+CVE-2019-1458,Command and Scripting Interpreter
+CVE-2019-1458,Exploit Public-Facing Application
+CVE-2010-3888,Command and Scripting Interpreter
+CVE-2010-3888,Exploit Public-Facing Application
+CVE-2019-13538,JavaScript
+CVE-2019-13538,Man in the Browser
+CVE-2015-6475,JavaScript
+CVE-2015-6475,Man in the Browser
+CVE-2020-8835,Exploitation for Privilege Escalation
+CVE-2020-8467,Exploitation for Privilege Escalation
+CVE-2020-12659,Exploitation for Privilege Escalation
+CVE-2020-10751,Exploitation for Privilege Escalation
+CVE-2020-1027,Exploitation for Privilege Escalation
+CVE-2019-1215,Exploitation for Privilege Escalation
+CVE-2019-1214,Exploitation for Privilege Escalation
+CVE-2019-0859,Exploitation for Privilege Escalation
+CVE-2018-9862,Exploitation for Privilege Escalation
+CVE-2018-9488,Exploitation for Privilege Escalation
+CVE-2018-8599,Exploitation for Privilege Escalation
+CVE-2018-5463,Exploitation for Privilege Escalation
+CVE-2018-11776,Exploitation for Privilege Escalation
+CVE-2017-1274,Exploitation for Privilege Escalation
+CVE-2017-0263,Exploitation for Privilege Escalation
+CVE-2016-5195,Exploitation for Privilege Escalation
+CVE-2015-7910,Exploitation for Privilege Escalation
+CVE-2015-2387,Exploitation for Privilege Escalation
+CVE-2015-2360,Exploitation for Privilege Escalation
+CVE-2015-0016,Exploitation for Privilege Escalation
+CVE-2014-4113,Exploitation for Privilege Escalation
+CVE-2014-1807,Exploitation for Privilege Escalation
+CVE-2014-0322,Exploitation for Privilege Escalation
+CVE-2012-0181,Exploitation for Privilege Escalation
+CVE-2010-2884,Exploitation for Privilege Escalation
+CVE-2010-2743,Exploitation for Privilege Escalation
+CVE-2009-1612,Exploitation for Privilege Escalation
+CVE-2020-5539,Exploitation for Privilege Escalation
+CVE-2020-5539,Stored Data Manipulation
+CVE-2020-5539,Data from Local System
+CVE-2017-13289,Exploitation for Privilege Escalation
+CVE-2017-13289,Valid Accounts
+CVE-2019-15821,Exploitation for Privilege Escalation
+CVE-2019-15821,External Remote Services
+CVE-2019-15821,Create Account
+CVE-2019-15821,Data Manipulation
+CVE-2013-0707,Exploitation for Privilege Escalation
+CVE-2013-0707,Drive-by Compromise
+CVE-2013-0707,Exploitation for Client Execution
+CVE-2020-10817,Exploitation for Privilege Escalation
+CVE-2020-10817,Exploitation for Defense Evasion
+CVE-2019-5786,Exploitation for Privilege Escalation
+CVE-2019-5786,Exploitation for Defense Evasion
+CVE-2017-0213,Exploitation for Privilege Escalation
+CVE-2017-0213,Exploitation for Defense Evasion
+CVE-2019-2215,Exploitation for Privilege Escalation
+CVE-2019-2215,Exploit OS Vulnerability
+CVE-2019-0808,Exploitation for Privilege Escalation
+CVE-2019-0808,Virtualization/Sandbox Evasion
+CVE-2017-7533,Exploitation for Privilege Escalation
+CVE-2017-7533,Endpoint Denial of Service
+CVE-2020-8649,Exploitation for Privilege Escalation
+CVE-2020-8649,Application or System Exploitation
+CVE-2020-12652,Exploitation for Privilege Escalation
+CVE-2020-12652,Application or System Exploitation
+CVE-2014-6324,Exploitation for Privilege Escalation
+CVE-2014-6324,Golden Ticket
+CVE-2019-5954,Exploitation for Privilege Escalation
+CVE-2019-5954,Stored Data Manipulation
+CVE-2008-4996,Exploitation for Privilege Escalation
+CVE-2008-4996,Stored Data Manipulation
+CVE-2017-15211,Exploitation for Privilege Escalation
+CVE-2017-15211,Phishing
+CVE-2010-1592,Exploitation for Privilege Escalation
+CVE-2010-1592,DLL Side-Loading
+CVE-2017-11368,Valid Accounts
+CVE-2017-11368,Exploitation for Credential Access
+CVE-2016-5645,Valid Accounts
+CVE-2016-5645,System Firmware
+CVE-2011-3172,Local Accounts
+CVE-2013-0629,File and Directory Discovery
+CVE-2013-0629,Valid Accounts
+CVE-2016-3298,File and Directory Discovery
+CVE-2016-3298,Drive-by Compromise
+CVE-2017-6922,File and Directory Discovery
+CVE-2017-6922,Exploitation for Defense Evasion
+CVE-2015-1769,Replication Through Removable Media
+CVE-2015-1769,Exploitation for Privilege Escalation
+CVE-2020-7456,Replication Through Removable Media
+CVE-2020-7456,Exploitation for Client Execution
+CVE-2020-12464,Replication Through Removable Media
+CVE-2020-12464,Exploitation for Client Execution
+CVE-2020-15393,Replication Through Removable Media
+CVE-2020-15393,OS Exhaustion Flood
+CVE-2020-9804,Replication Through Removable Media
+CVE-2020-9804,Application or System Exploitation
+CVE-2020-11957,Brute Force
+CVE-2019-19735,Brute Force
+CVE-2018-1956,Brute Force
+CVE-2018-12520,Brute Force
+CVE-2019-11219,Brute Force
+CVE-2019-11219,Exploit Public-Facing Application
+CVE-2019-18872,Password Guessing
+CVE-2020-9819,Local Email Collection
+CVE-2020-9819,Stored Data Manipulation
+CVE-2020-9819,Data Destruction
+CVE-2015-7912,Exploit Public-Facing Application
+CVE-2015-7912,Command and Scripting Interpreter
+CVE-2015-7935,External Remote Services
+CVE-2015-7935,Data from Local System
+CVE-2014-9938,External Remote Services
+CVE-2014-9938,Unix Shell
+CVE-2016-6367,External Remote Services
+CVE-2016-6367,Exploitation for Privilege Escalation
+CVE-2016-6367,Execution Guardrails
+CVE-2010-2772,External Remote Services
+CVE-2010-2772,Exploit Public-Facing Application
+CVE-2012-5958,External Remote Services
+CVE-2012-5958,Exploitation for Client Execution
+CVE-2016-5180,External Remote Services
+CVE-2016-5180,Exploitation for Client Execution
+CVE-2016-5180,Application or System Exploitation
+CVE-2019-11510,External Remote Services
+CVE-2019-11510,Exploitation for Credential Access
+CVE-2019-11510,File and Directory Discovery
+CVE-2018-7506,External Remote Services
+CVE-2018-7506,Private Keys
+CVE-2015-1701,Exploitation for Privilege Escalation
+CVE-2013-6129,Create Account
+CVE-2013-6129,Account Discovery
+CVE-2013-6129,Exploit Public-Facing Application
+CVE-2015-4051,Create Account
+CVE-2015-4051,Application or System Exploitation
+CVE-2011-3056,Man in the Browser
+CVE-2012-4681,Drive-by Compromise
+CVE-2012-4681,Command and Scripting Interpreter
+CVE-2012-4681,Exploitation for Privilege Escalation
+CVE-2012-4681,Process Discovery
+CVE-2012-4681,Virtualization/Sandbox Evasion
+CVE-2012-4681,Execution Guardrails
+CVE-2012-0158,Drive-by Compromise
+CVE-2012-0158,Command and Scripting Interpreter
+CVE-2012-0158,Event Triggered Execution
+CVE-2012-0158,Compromise Client Software Binary
+CVE-2012-0158,Defacement
+CVE-2012-0158,Data Manipulation
+CVE-2012-0158,Exploit Public-Facing Application
+CVE-2020-6418,Drive-by Compromise
+CVE-2020-6418,Exploitation for Client Execution
+CVE-2020-5902,Drive-by Compromise
+CVE-2020-5902,Exploitation for Client Execution
+CVE-2019-7286,Drive-by Compromise
+CVE-2019-7286,Exploitation for Client Execution
+CVE-2019-18935,Drive-by Compromise
+CVE-2019-18935,Exploitation for Client Execution
+CVE-2019-17026,Drive-by Compromise
+CVE-2019-17026,Exploitation for Client Execution
+CVE-2019-13720,Drive-by Compromise
+CVE-2019-13720,Exploitation for Client Execution
+CVE-2019-11886,Drive-by Compromise
+CVE-2019-11886,Exploitation for Client Execution
+CVE-2018-9206,Drive-by Compromise
+CVE-2018-9206,Exploitation for Client Execution
+CVE-2018-8174,Drive-by Compromise
+CVE-2018-8174,Exploitation for Client Execution
+CVE-2018-8120,Drive-by Compromise
+CVE-2018-8120,Exploitation for Client Execution
+CVE-2018-0798,Drive-by Compromise
+CVE-2018-0798,Exploitation for Client Execution
+CVE-2016-4656,Drive-by Compromise
+CVE-2016-4656,Exploitation for Client Execution
+CVE-2016-1409,Drive-by Compromise
+CVE-2016-1409,Exploitation for Client Execution
+CVE-2015-2590,Drive-by Compromise
+CVE-2015-2590,Exploitation for Client Execution
+CVE-2015-2425,Drive-by Compromise
+CVE-2015-2425,Exploitation for Client Execution
+CVE-2014-2817,Drive-by Compromise
+CVE-2014-2817,Exploitation for Client Execution
+CVE-2014-0324,Drive-by Compromise
+CVE-2014-0324,Exploitation for Client Execution
+CVE-2014-0307,Drive-by Compromise
+CVE-2014-0307,Exploitation for Client Execution
+CVE-2013-5211,Drive-by Compromise
+CVE-2013-5211,Exploitation for Client Execution
+CVE-2013-2471,Drive-by Compromise
+CVE-2013-2471,Exploitation for Client Execution
+CVE-2013-1493,Drive-by Compromise
+CVE-2013-1493,Exploitation for Client Execution
+CVE-2013-0625,Drive-by Compromise
+CVE-2013-0625,Exploitation for Client Execution
+CVE-2013-0422,Drive-by Compromise
+CVE-2013-0422,Exploitation for Client Execution
+CVE-2011-3402,Drive-by Compromise
+CVE-2011-3402,Exploitation for Client Execution
+CVE-2010-1423,Drive-by Compromise
+CVE-2010-1423,Exploitation for Client Execution
+CVE-2010-1165,Drive-by Compromise
+CVE-2010-1165,Exploitation for Client Execution
+CVE-2009-1862,Drive-by Compromise
+CVE-2009-1862,Exploitation for Client Execution
+CVE-2009-1807,Drive-by Compromise
+CVE-2009-1807,Exploitation for Client Execution
+CVE-2009-1151,Drive-by Compromise
+CVE-2009-1151,Exploitation for Client Execution
+CVE-2015-1641,Drive-by Compromise
+CVE-2015-1641,Exploitation for Client Execution
+CVE-2015-1641,Process Injection
+CVE-2020-11901,Drive-by Compromise
+CVE-2020-11901,Exploitation for Client Execution
+CVE-2020-11901,JavaScript
+CVE-2016-7256,Drive-by Compromise
+CVE-2016-7256,Exploitation for Client Execution
+CVE-2016-7256,Token Impersonation/Theft
+CVE-2016-3714,Drive-by Compromise
+CVE-2016-3714,Exploitation for Client Execution
+CVE-2016-3714,Malicious Link
+CVE-2015-0071,Drive-by Compromise
+CVE-2015-0071,Exploitation for Client Execution
+CVE-2015-0071,Malicious Link
+CVE-2014-4123,Drive-by Compromise
+CVE-2014-4123,Exploitation for Client Execution
+CVE-2014-4123,Malicious File
+CVE-2014-0266,Drive-by Compromise
+CVE-2014-0266,Exploitation for Client Execution
+CVE-2014-0266,Malicious File
+CVE-2010-1885,Drive-by Compromise
+CVE-2010-1885,Exploitation for Client Execution
+CVE-2010-1885,Malicious File
+CVE-2009-3459,Drive-by Compromise
+CVE-2009-3459,Exploitation for Client Execution
+CVE-2009-3459,Malicious File
+CVE-2020-13125,Drive-by Compromise
+CVE-2020-13125,Exploitation for Client Execution
+CVE-2020-13125,Malicious File
+CVE-2020-13125,Application or System Exploitation
+CVE-2014-7187,Drive-by Compromise
+CVE-2014-7187,Exploitation for Client Execution
+CVE-2014-7187,Malicious File
+CVE-2014-7187,Application or System Exploitation
+CVE-2011-3544,Drive-by Compromise
+CVE-2011-3544,Exploitation for Client Execution
+CVE-2011-3544,Virtualization/Sandbox Evasion
+CVE-2016-0034,Drive-by Compromise
+CVE-2016-0034,Exploitation for Client Execution
+CVE-2016-0034,Application or System Exploitation
+CVE-2015-7756,Drive-by Compromise
+CVE-2015-7756,Exploitation for Client Execution
+CVE-2015-7756,Application or System Exploitation
+CVE-2015-2426,Drive-by Compromise
+CVE-2015-2426,Exploitation for Client Execution
+CVE-2015-2426,Application or System Exploitation
+CVE-2018-0802,Drive-by Compromise
+CVE-2015-2424,Drive-by Compromise
+CVE-2012-2539,Drive-by Compromise
+CVE-2017-0022,Drive-by Compromise
+CVE-2017-0022,Security Software Discovery
+CVE-2019-6703,Exploit Public-Facing Application
+CVE-2019-16759,Exploit Public-Facing Application
+CVE-2019-15107,Exploit Public-Facing Application
+CVE-2019-1132,Exploit Public-Facing Application
+CVE-2019-10973,Exploit Public-Facing Application
+CVE-2019-0880,Exploit Public-Facing Application
+CVE-2018-8611,Exploit Public-Facing Application
+CVE-2018-7602,Exploit Public-Facing Application
+CVE-2018-7600,Exploit Public-Facing Application
+CVE-2018-2893,Exploit Public-Facing Application
+CVE-2018-2628,Exploit Public-Facing Application
+CVE-2018-1000861,Exploit Public-Facing Application
+CVE-2018-0101,Exploit Public-Facing Application
+CVE-2017-9841,Exploit Public-Facing Application
+CVE-2017-8291,Exploit Public-Facing Application
+CVE-2017-3881,Exploit Public-Facing Application
+CVE-2017-3066,Exploit Public-Facing Application
+CVE-2017-11774,Exploit Public-Facing Application
+CVE-2017-0199,Exploit Public-Facing Application
+CVE-2017-0005,Exploit Public-Facing Application
+CVE-2016-9192,Exploit Public-Facing Application
+CVE-2015-4902,Exploit Public-Facing Application
+CVE-2015-0072,Exploit Public-Facing Application
+CVE-2014-8551,Exploit Public-Facing Application
+CVE-2014-6287,Exploit Public-Facing Application
+CVE-2014-6120,Exploit Public-Facing Application
+CVE-2014-5279,Exploit Public-Facing Application
+CVE-2014-1809,Exploit Public-Facing Application
+CVE-2014-0050,Exploit Public-Facing Application
+CVE-2013-7372,Exploit Public-Facing Application
+CVE-2013-7102,Exploit Public-Facing Application
+CVE-2013-5057,Exploit Public-Facing Application
+CVE-2013-1289,Exploit Public-Facing Application
+CVE-2013-0641,Exploit Public-Facing Application
+CVE-2013-0632,Exploit Public-Facing Application
+CVE-2013-0631,Exploit Public-Facing Application
+CVE-2012-2520,Exploit Public-Facing Application
+CVE-2012-1723,Exploit Public-Facing Application
+CVE-2012-1557,Exploit Public-Facing Application
+CVE-2012-0874,Exploit Public-Facing Application
+CVE-2011-2900,Exploit Public-Facing Application
+CVE-2011-0096,Exploit Public-Facing Application
+CVE-2010-3916,Exploit Public-Facing Application
+CVE-2010-3653,Exploit Public-Facing Application
+CVE-2010-0817,Exploit Public-Facing Application
+CVE-2009-2265,Exploit Public-Facing Application
+CVE-2009-1308,Exploit Public-Facing Application
+CVE-2019-5910,Exploit Public-Facing Application
+CVE-2019-5910,Data from Local System
+CVE-2020-6974,Exploit Public-Facing Application
+CVE-2020-6974,Data from Local System
+CVE-2020-6974,Data Manipulation
+CVE-2020-11738,Exploit Public-Facing Application
+CVE-2020-11738,Process Injection
+CVE-2020-9380,Exploit Public-Facing Application
+CVE-2020-9380,Command and Scripting Interpreter
+CVE-2020-10189,Exploit Public-Facing Application
+CVE-2020-10189,Command and Scripting Interpreter
+CVE-2019-2729,Exploit Public-Facing Application
+CVE-2019-2729,Command and Scripting Interpreter
+CVE-2019-2725,Exploit Public-Facing Application
+CVE-2019-2725,Command and Scripting Interpreter
+CVE-2018-10611,Exploit Public-Facing Application
+CVE-2018-10611,Command and Scripting Interpreter
+CVE-2017-18362,Exploit Public-Facing Application
+CVE-2017-18362,Command and Scripting Interpreter
+CVE-2016-5062,Exploit Public-Facing Application
+CVE-2016-5062,Command and Scripting Interpreter
+CVE-2015-6480,Exploit Public-Facing Application
+CVE-2015-6480,Command and Scripting Interpreter
+CVE-2014-6293,Exploit Public-Facing Application
+CVE-2014-6293,Command and Scripting Interpreter
+CVE-2012-6498,Exploit Public-Facing Application
+CVE-2012-6498,Command and Scripting Interpreter
+CVE-2012-6498,Web Shell
+CVE-2014-0295,Exploit Public-Facing Application
+CVE-2014-0295,PowerShell
+CVE-2016-9684,Exploit Public-Facing Application
+CVE-2016-9684,Unix Shell
+CVE-2014-7186,Exploit Public-Facing Application
+CVE-2014-7186,Unix Shell
+CVE-2014-6277,Exploit Public-Facing Application
+CVE-2014-6277,Unix Shell
+CVE-2014-6271,Exploit Public-Facing Application
+CVE-2014-6271,Unix Shell
+CVE-2012-1795,Exploit Public-Facing Application
+CVE-2012-1795,Unix Shell
+CVE-2020-9459,Exploit Public-Facing Application
+CVE-2020-9459,JavaScript
+CVE-2020-9459,Steal Web Session Cookie
+CVE-2020-9459,Data Manipulation
+CVE-2020-9459,Defacement
+CVE-2011-1331,Exploit Public-Facing Application
+CVE-2011-1331,Exploitation for Privilege Escalation
+CVE-2013-0640,Exploit Public-Facing Application
+CVE-2013-0640,Exploitation for Privilege Escalation
+CVE-2013-0640,Valid Accounts
+CVE-2017-12637,Exploit Public-Facing Application
+CVE-2017-12637,File and Directory Discovery
+CVE-2013-1904,Exploit Public-Facing Application
+CVE-2013-1904,File and Directory Discovery
+CVE-2019-11708,Exploit Public-Facing Application
+CVE-2019-11708,External Remote Services
+CVE-2019-11708,Exploitation for Defense Evasion
+CVE-2020-13126,Exploit Public-Facing Application
+CVE-2020-13126,Exploitation for Client Execution
+CVE-2017-10271,Exploit Public-Facing Application
+CVE-2017-10271,Exploitation for Client Execution
+CVE-2016-6909,Exploit Public-Facing Application
+CVE-2016-6909,Exploitation for Client Execution
+CVE-2014-6278,Exploit Public-Facing Application
+CVE-2014-6278,Exploitation for Client Execution
+CVE-2010-5326,Exploit Public-Facing Application
+CVE-2010-5326,Exploitation for Client Execution
+CVE-2009-3041,Exploit Public-Facing Application
+CVE-2009-3041,Exploitation for Client Execution
+CVE-2020-11897,Exploit Public-Facing Application
+CVE-2020-11897,Exploitation for Client Execution
+CVE-2020-11897,Endpoint Denial of Service
+CVE-2020-11896,Exploit Public-Facing Application
+CVE-2020-11896,Exploitation for Client Execution
+CVE-2020-11896,Endpoint Denial of Service
+CVE-2018-7496,Exploit Public-Facing Application
+CVE-2018-7496,Exploitation for Defense Evasion
+CVE-2017-1001000,Exploit Public-Facing Application
+CVE-2017-1001000,External Defacement
+CVE-2019-8540,Exploit Public-Facing Application
+CVE-2019-8540,Application or System Exploitation
+CVE-2019-0604,Exploit Public-Facing Application
+CVE-2019-0604,Application or System Exploitation
+CVE-2018-19207,Exploit Public-Facing Application
+CVE-2018-19207,Application or System Exploitation
+CVE-2014-3413,Exploit Public-Facing Application
+CVE-2014-3413,Application or System Exploitation
+CVE-2012-1675,Exploit Public-Facing Application
+CVE-2012-1675,Application or System Exploitation
+CVE-2011-4862,Exploit Public-Facing Application
+CVE-2011-4862,Application or System Exploitation
+CVE-2018-2894,Exploit Public-Facing Application
+CVE-2018-2894,Web Shell
+CVE-2012-6081,Exploit Public-Facing Application
+CVE-2012-6081,Web Shell
+CVE-2011-4106,Exploit Public-Facing Application
+CVE-2011-4106,Web Shell
+CVE-2018-15961,Exploit Public-Facing Application
+CVE-2018-15961,Web Shell
+CVE-2018-15961,Defacement
+CVE-2015-8562,Exploit Public-Facing Application
+CVE-2015-8562,Steal Application Access Token
+CVE-2015-8562,Abuse Elevation Control Mechanism
+CVE-2015-8562,Unsecured Credentials
+CVE-2013-3900,Exploit Public-Facing Application
+CVE-2013-3900,Steal Web Session Cookie
+CVE-2015-1539,Exploit Public-Facing Application
+CVE-2015-1539,Abuse Elevation Control Mechanism
+CVE-2010-3765,Exploit Public-Facing Application
+CVE-2010-3765,Abuse Elevation Control Mechanism
+CVE-2014-7235,Exploit Public-Facing Application
+CVE-2014-7235,Use Alternate Authentication Material
+CVE-2012-3015,Exploit Public-Facing Application
+CVE-2012-3015,Man-in-the-Middle
+CVE-2012-3015,Data from Information Repositories
+CVE-2014-1761,Exploit Public-Facing Application
+CVE-2014-1761,System Services
+CVE-2013-4335,Exploit Public-Facing Application
+CVE-2013-4335,Data from Local System
+CVE-2013-4335,Data Manipulation
+CVE-2013-4335,Application or System Exploitation
+CVE-2019-9019,Hardware Additions
+CVE-2019-9019,Exploitation for Client Execution
+CVE-2013-3893,Indirect Command Execution
+CVE-2013-3893,Command and Scripting Interpreter
+CVE-2013-3893,Exploitation for Client Execution
+CVE-2020-9818,Exploitation for Client Execution
+CVE-2020-1631,Exploitation for Client Execution
+CVE-2020-1350,Exploitation for Client Execution
+CVE-2020-0938,Exploitation for Client Execution
+CVE-2019-9791,Exploitation for Client Execution
+CVE-2019-1579,Exploitation for Client Execution
+CVE-2019-11932,Exploitation for Client Execution
+CVE-2019-0903,Exploitation for Client Execution
+CVE-2019-0803,Exploitation for Client Execution
+CVE-2018-8833,Exploitation for Client Execution
+CVE-2018-8589,Exploitation for Client Execution
+CVE-2018-7513,Exploitation for Client Execution
+CVE-2018-20838,Exploitation for Client Execution
+CVE-2018-18956,Exploitation for Client Execution
+CVE-2018-10376,Exploitation for Client Execution
+CVE-2017-5613,Exploitation for Client Execution
+CVE-2017-2404,Exploitation for Client Execution
+CVE-2017-12824,Exploitation for Client Execution
+CVE-2016-9299,Exploitation for Client Execution
+CVE-2016-2208,Exploitation for Client Execution
+CVE-2015-3864,Exploitation for Client Execution
+CVE-2014-7169,Exploitation for Client Execution
+CVE-2014-5334,Exploitation for Client Execution
+CVE-2014-0593,Exploitation for Client Execution
+CVE-2013-3897,Exploitation for Client Execution
+CVE-2013-3163,Exploitation for Client Execution
+CVE-2012-2311,Exploitation for Client Execution
+CVE-2012-1856,Exploitation for Client Execution
+CVE-2011-3192,Exploitation for Client Execution
+CVE-2011-2005,Exploitation for Client Execution
+CVE-2010-4398,Exploitation for Client Execution
+CVE-2010-2568,Exploitation for Client Execution
+CVE-2010-2152,Exploitation for Client Execution
+CVE-2010-1297,Exploitation for Client Execution
+CVE-2010-0842,Exploitation for Client Execution
+CVE-2010-0480,Exploitation for Client Execution
+CVE-2009-1800,Exploitation for Client Execution
+CVE-2009-1671,Exploitation for Client Execution
+CVE-2009-0824,Exploitation for Client Execution
+CVE-2008-2992,Exploitation for Client Execution
+CVE-2017-5638,Exploitation for Client Execution
+CVE-2017-5638,Exploitation for Privilege Escalation
+CVE-2015-1494,Exploitation for Client Execution
+CVE-2015-1494,Exploitation for Privilege Escalation
+CVE-2015-1494,Exploitation for Defense Evasion
+CVE-2015-1494,Virtualization/Sandbox Evasion
+CVE-2020-6819,Exploitation for Client Execution
+CVE-2020-6819,Drive-by Compromise
+CVE-2020-10257,Exploitation for Client Execution
+CVE-2020-10257,Drive-by Compromise
+CVE-2017-15919,Exploitation for Client Execution
+CVE-2017-15919,Drive-by Compromise
+CVE-2017-0222,Exploitation for Client Execution
+CVE-2017-0222,Drive-by Compromise
+CVE-2017-0149,Exploitation for Client Execution
+CVE-2017-0149,Drive-by Compromise
+CVE-2016-9079,Exploitation for Client Execution
+CVE-2016-9079,Drive-by Compromise
+CVE-2016-7189,Exploitation for Client Execution
+CVE-2016-7189,Drive-by Compromise
+CVE-2016-3393,Exploitation for Client Execution
+CVE-2016-3393,Drive-by Compromise
+CVE-2015-5123,Exploitation for Client Execution
+CVE-2015-5123,Drive-by Compromise
+CVE-2015-2502,Exploitation for Client Execution
+CVE-2015-2502,Drive-by Compromise
+CVE-2015-2419,Exploitation for Client Execution
+CVE-2015-2419,Drive-by Compromise
+CVE-2014-6332,Exploitation for Client Execution
+CVE-2014-6332,Drive-by Compromise
+CVE-2014-1815,Exploitation for Client Execution
+CVE-2014-1815,Drive-by Compromise
+CVE-2013-2465,Exploitation for Client Execution
+CVE-2013-2465,Drive-by Compromise
+CVE-2013-2423,Exploitation for Client Execution
+CVE-2013-2423,Drive-by Compromise
+CVE-2012-3213,Exploitation for Client Execution
+CVE-2012-3213,Drive-by Compromise
+CVE-2010-3971,Exploitation for Client Execution
+CVE-2010-3971,Drive-by Compromise
+CVE-2009-1136,Exploitation for Client Execution
+CVE-2009-1136,Drive-by Compromise
+CVE-2014-1776,Exploitation for Client Execution
+CVE-2014-1776,Drive-by Compromise
+CVE-2014-1776,Endpoint Denial of Service
+CVE-2013-3918,Exploitation for Client Execution
+CVE-2013-3918,Drive-by Compromise
+CVE-2013-3918,Endpoint Denial of Service
+CVE-2020-2883,Exploitation for Client Execution
+CVE-2020-2883,Exploit Public-Facing Application
+CVE-2020-0601,Exploitation for Client Execution
+CVE-2020-0601,Exploit Public-Facing Application
+CVE-2019-10149,Exploitation for Client Execution
+CVE-2019-10149,Exploit Public-Facing Application
+CVE-2018-20062,Exploitation for Client Execution
+CVE-2018-20062,Exploit Public-Facing Application
+CVE-2016-6366,Exploitation for Client Execution
+CVE-2016-6366,Exploit Public-Facing Application
+CVE-2019-3396,Exploitation for Client Execution
+CVE-2019-3396,Exploit Public-Facing Application
+CVE-2019-3396,File and Directory Discovery
+CVE-2018-20250,Exploitation for Client Execution
+CVE-2018-20250,Malicious File
+CVE-2017-8464,Exploitation for Client Execution
+CVE-2017-8464,Malicious File
+CVE-2017-11882,Exploitation for Client Execution
+CVE-2017-11882,Malicious File
+CVE-2017-11826,Exploitation for Client Execution
+CVE-2017-11826,Malicious File
+CVE-2017-0261,Exploitation for Client Execution
+CVE-2017-0261,Malicious File
+CVE-2015-6585,Exploitation for Client Execution
+CVE-2015-6585,Malicious File
+CVE-2015-1642,Exploitation for Client Execution
+CVE-2015-1642,Malicious File
+CVE-2015-0096,Exploitation for Client Execution
+CVE-2015-0096,Malicious File
+CVE-2014-7247,Exploitation for Client Execution
+CVE-2014-7247,Malicious File
+CVE-2014-6352,Exploitation for Client Execution
+CVE-2014-6352,Malicious File
+CVE-2013-1331,Exploitation for Client Execution
+CVE-2013-1331,Malicious File
+CVE-2010-1424,Exploitation for Client Execution
+CVE-2010-1424,Malicious File
+CVE-2010-0840,Exploitation for Client Execution
+CVE-2010-0840,Malicious File
+CVE-2009-4324,Exploitation for Client Execution
+CVE-2009-4324,Malicious File
+CVE-2009-0556,Exploitation for Client Execution
+CVE-2009-0556,Malicious File
+CVE-2019-13510,Exploitation for Client Execution
+CVE-2019-13510,Application or System Exploitation
+CVE-2015-7925,System Shutdown/Reboot
+CVE-2015-7925,System Firmware
+CVE-2015-7925,Stored Data Manipulation
+CVE-2019-13541,Malicious File
+CVE-2019-13541,Exploitation for Client Execution
+CVE-2019-13527,Malicious File
+CVE-2019-13527,Exploitation for Client Execution
+CVE-2017-8570,Malicious File
+CVE-2017-8570,Exploitation for Client Execution
+CVE-2017-0262,Malicious File
+CVE-2017-0262,Exploitation for Client Execution
+CVE-2016-7193,Malicious File
+CVE-2016-7193,Exploitation for Client Execution
+CVE-2015-2509,Malicious File
+CVE-2015-2509,Exploitation for Client Execution
+CVE-2014-0810,Malicious File
+CVE-2014-0810,Exploitation for Client Execution
+CVE-2013-3644,Malicious File
+CVE-2013-3644,Exploitation for Client Execution
+CVE-2010-3915,Malicious File
+CVE-2010-3915,Exploitation for Client Execution
+CVE-2010-3333,Malicious File
+CVE-2010-3333,Exploitation for Client Execution
+CVE-2010-2862,Malicious File
+CVE-2010-2862,Exploitation for Client Execution
+CVE-2010-0028,Malicious File
+CVE-2010-0028,Exploitation for Client Execution
+CVE-2009-3129,Malicious File
+CVE-2009-3129,Exploitation for Client Execution
+CVE-2009-0927,Malicious File
+CVE-2009-0927,Exploitation for Client Execution
+CVE-2020-1206,Exploitation of Remote Services
+CVE-2017-8543,Exploitation of Remote Services
+CVE-2017-0176,Exploitation of Remote Services
+CVE-2010-2729,Exploitation of Remote Services
+CVE-2008-4250,Exploitation of Remote Services
+CVE-2017-14323,Exploitation of Remote Services
+CVE-2017-14323,Network Service Scanning
+CVE-2017-14323,Command and Scripting Interpreter
+CVE-2014-0751,Exploitation of Remote Services
+CVE-2014-0751,Exploit Public-Facing Application
+CVE-2014-0751,Exploitation for Defense Evasion
+CVE-2014-0751,Data from Local System
+CVE-2014-0751,Exploitation for Credential Access
+CVE-2014-0751,Unsecured Credentials
+CVE-2014-0751,External Remote Services
+CVE-2018-8414,Exploitation of Remote Services
+CVE-2018-8414,Exploit Public-Facing Application
+CVE-2018-8414,Application or System Exploitation
+CVE-2020-8468,Exploitation for Defense Evasion
+CVE-2018-6112,Exploitation for Defense Evasion
+CVE-2015-7755,Exploitation for Defense Evasion
+CVE-2018-0560,Exploitation for Defense Evasion
+CVE-2018-0560,Masquerading
+CVE-2018-8337,Exploitation for Defense Evasion
+CVE-2018-8337,Data Manipulation
+CVE-2018-8337,Data Destruction
+CVE-2018-20753,Exploitation for Credential Access
+CVE-2018-13379,Exploitation for Credential Access
+CVE-2016-6415,Exploitation for Credential Access
+CVE-2019-7287,Exploit OS Vulnerability
+CVE-2015-1805,Exploit OS Vulnerability
+CVE-2015-1805,Exploitation for Privilege Escalation
+CVE-2017-12817,Access Stored Application Data
+CVE-2016-4655,Drive-by Compromise
+CVE-2017-0493,Lockscreen Bypass
+CVE-2017-0493,Data from Local System
+CVE-2019-3568,Exploit via Radio Interfaces
+CVE-2019-9081,Virtualization/Sandbox Evasion
+CVE-2019-9081,Exploitation for Privilege Escalation
+CVE-2019-9081,Exploitation for Client Execution
+CVE-2019-11707,Endpoint Denial of Service
+CVE-2017-14934,Endpoint Denial of Service
+CVE-2009-2055,Endpoint Denial of Service
+CVE-2017-16115,Application Exhaustion Flood
+CVE-2020-8648,Application or System Exploitation
+CVE-2020-14059,Application or System Exploitation
+CVE-2020-12888,Application or System Exploitation
+CVE-2020-12655,Application or System Exploitation
+CVE-2020-11884,Application or System Exploitation
+CVE-2020-11668,Application or System Exploitation
+CVE-2019-16302,Application or System Exploitation
+CVE-2019-11869,Application or System Exploitation
+CVE-2018-21091,Application or System Exploitation
+CVE-2018-15454,Application or System Exploitation
+CVE-2018-14679,Application or System Exploitation
+CVE-2017-9142,Application or System Exploitation
+CVE-2017-10910,Application or System Exploitation
+CVE-2017-10810,Application or System Exploitation
+CVE-2011-1752,Application or System Exploitation
+CVE-2020-12653,Application or System Exploitation
+CVE-2020-12653,Exploitation for Privilege Escalation
+CVE-2020-11608,Application or System Exploitation
+CVE-2020-11608,Exploitation for Privilege Escalation
+CVE-2020-12769,Application or System Exploitation
+CVE-2013-4854,Application or System Exploitation
+CVE-2014-4148,Server Software Component
+CVE-2014-4148,Exploitation for Privilege Escalation
+CVE-2014-4148,Create Account
+CVE-2014-4148,Exploit Public-Facing Application
+CVE-2016-3088,Web Shell
+CVE-2016-3088,Exploit Public-Facing Application
+CVE-2013-5576,Web Shell
+CVE-2013-5576,Exploit Public-Facing Application
+CVE-2016-3351,Software Discovery
+CVE-2020-11651,Steal Application Access Token
+CVE-2020-11651,Exploitation for Privilege Escalation
+CVE-2020-11651,Command and Scripting Interpreter
+CVE-2020-5300,Steal Application Access Token
+CVE-2020-5300,Exploitation for Privilege Escalation
+CVE-2013-5054,Steal Application Access Token
+CVE-2013-5054,Exploitation for Credential Access
+CVE-2013-7246,Abuse Elevation Control Mechanism
+CVE-2013-7246,Exploitation for Defense Evasion
+CVE-2017-14486,Abuse Elevation Control Mechanism
+CVE-2017-14486,Application or System Exploitation
+CVE-2013-5065,Bypass User Account Control
+CVE-2013-5065,Exploitation for Privilege Escalation
+CVE-2008-0655,Bypass User Account Control
+CVE-2008-0655,Exploitation for Privilege Escalation
+CVE-2010-5290,Pass the Hash
+CVE-2010-5290,Credentials In Files
+CVE-2020-4408,Unsecured Credentials
+CVE-2019-13922,Unsecured Credentials
+CVE-2018-7259,Unsecured Credentials
+CVE-2018-7259,Network Sniffing
+CVE-2018-18641,Unsecured Credentials
+CVE-2018-18641,Steal Application Access Token
+CVE-2017-14487,Unsecured Credentials
+CVE-2017-14487,Phishing
+CVE-2017-14487,User Execution
+CVE-2017-14487,Loss of Safety
+CVE-2014-4077,Subvert Trust Controls
+CVE-2014-4077,Man-in-the-Middle
+CVE-2014-4077,Code Signing
+CVE-2018-0622,Man-in-the-Middle
+CVE-2015-7931,Man-in-the-Middle
+CVE-2014-3566,Man-in-the-Middle
+CVE-2018-16179,Man-in-the-Middle
+CVE-2018-16179,Exploitation for Defense Evasion
+CVE-2019-12258,Remote Service Session Hijacking
+CVE-2018-10299,Runtime Data Manipulation
+CVE-2020-1020,Phishing
+CVE-2020-1020,Exploitation for Client Execution
+CVE-2017-8759,Phishing
+CVE-2017-8759,Exploitation for Client Execution
+CVE-2017-11847,Phishing
+CVE-2017-11847,Exploitation for Client Execution
+CVE-2013-3906,Phishing
+CVE-2013-3906,Exploitation for Client Execution
+CVE-2012-6467,Phishing
+CVE-2012-6467,Exploitation for Client Execution
+CVE-2019-6340,Spearphishing Attachment
+CVE-2019-6340,Exploitation for Client Execution
+CVE-2020-4100,Hijack Execution Flow
+CVE-2020-0688,Hijack Execution Flow
+CVE-2020-0688,Exploitation for Privilege Escalation
+CVE-2019-0708,Hijack Execution Flow
+CVE-2019-0708,Exploitation for Privilege Escalation
+CVE-2018-10657,DLL Search Order Hijacking
+CVE-2009-0238,DLL Search Order Hijacking
+CVE-2018-11049,Path Interception by Search Order Hijacking
+CVE-2012-1854,Path Interception by Search Order Hijacking
+CVE-2019-0797,Stage Capabilities
+CVE-2018-8453,Stage Capabilities
+CVE-2018-8440,Stage Capabilities
+CVE-2018-19320,Stage Capabilities
+CVE-2016-7255,Stage Capabilities
+CVE-2016-0728,Stage Capabilities
+CVE-2016-0167,Stage Capabilities
+CVE-2016-0165,Stage Capabilities
+CVE-2015-6175,Stage Capabilities
+CVE-2015-2546,Stage Capabilities
+CVE-2014-4076,Stage Capabilities
+CVE-2013-6282,Stage Capabilities
+CVE-2013-3660,Stage Capabilities
+CVE-2012-2319,Stage Capabilities
+CVE-2011-1249,Stage Capabilities
+CVE-2010-3081,Stage Capabilities
+CVE-2010-0232,Stage Capabilities
+CVE-2008-3431,Stage Capabilities
+CVE-2010-3338,Stage Capabilities
+CVE-2010-3338,Scheduled Task
+CVE-2018-14847,Default Credentials
+CVE-2018-14847,Valid Accounts
+CVE-2018-18665,Loss of Productivity and Revenue
+CVE-2018-18667,Loss of Productivity and Revenue
+CVE-2018-18667,Data Manipulation
+CVE-2018-17877,Loss of Productivity and Revenue
+CVE-2018-17877,Data Manipulation
+CVE-2018-19831,Loss of Productivity and Revenue
+CVE-2018-19831,Data Manipulation
+CVE-2018-19831,Exploitation for Privilege Escalation
+CVE-2018-19830,Loss of Productivity and Revenue
+CVE-2018-19830,Data Manipulation
+CVE-2018-19830,Exploitation for Privilege Escalation
+CVE-2018-19833,Loss of Productivity and Revenue
+CVE-2018-19833,Stored Data Manipulation
+CVE-2019-13533,Unauthorized Command Message
+CVE-2019-13533,Network Sniffing
+CVE-2019-10980,Project File Infection
+CVE-2019-10980,Exploitation for Client Execution
