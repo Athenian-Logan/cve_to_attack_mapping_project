@@ -1,6 +1,10 @@
 import os
 import pandas as pd
 from SMET import map_text
+import time
+
+# Get program start time to track execution time at the end.
+start_time = time.time()
 
 # Suppress tokenizer warnings
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -24,7 +28,7 @@ for row in enriched_data.itertuples(index=False):
     # Prepare enriched CVE data
     print(row.ID)
     enriched_cve_data = []
-    for attr in [row.Description, row._2, row._3, row._4]:  # Adjust column access if needed
+    for attr in [row.Description, row._2, row._3, row._4]:
         if pd.notna(attr):  # Check if the value is not NaN
             enriched_cve_data.extend(str(attr).split('. '))  # Convert to string and split
 
@@ -54,7 +58,11 @@ processed_df = pd.DataFrame({
 })
 
 # Save the DataFrame to an Excel file
-output_path = "scripts/SMET/datasets/smet_mapped_cves.xlsx"
+# output_path = "scripts/SMET/datasets/smet_description_only_mapped_cves.xlsx"
+output_path = "scripts/SMET/datasets/smet_enriched_mapped_cves.xlsx"
 processed_df.to_excel(output_path, index=False)
 
+# Recorded --- 35.22 minutes --- of runtime over enriched dataset
+# Recorded --- xx.xx minutes --- of runtime over description only dataset
+print("--- %.2f minutes ---" % ((time.time() - start_time) / 60))
 print(f"SMET Mappings saved to {output_path}")
