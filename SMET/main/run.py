@@ -11,6 +11,9 @@ nlp.load_model('dep')
 nlp.load_model('sentencizer')"""
 
 
+# THE PROGRAM IS CURRENTLY SET TO DESCRIPTION ONLY...
+
+
 # Get program start time to track execution time at the end.
 start_time = time.time()
 
@@ -45,8 +48,8 @@ for row in enriched_data.itertuples(index=False):
         if pd.notna(attr):  # Check if the value is not NaN
             enriched_cve_data.extend(str(attr).split('. '))  # Convert to string and split
 
-    enriched_cve_data_combined = ' '.join(enriched_cve_data)
-    # enriched_cve_data_combined = row.Description # For AV testing purposes
+    # enriched_cve_data_combined = ' '.join(enriched_cve_data)
+    enriched_cve_data_combined = row.Description # For AV testing purposes
 
     """sents = nlp.seperate_sentences(enriched_cve_data_combined)
     for sent in sents:
@@ -124,11 +127,11 @@ processed_df = pd.DataFrame({
 })
 
 # Save the DataFrame to an Excel file
-# output_path = "scripts/SMET/datasets/smet_description_only_mapped_cves.xlsx"
-output_path = "scripts/SMET/datasets/smet_enriched_mapped_cves.xlsx"
+output_path = "scripts/SMET/datasets/smet_description_only_mapped_cves.xlsx"
+# output_path = "scripts/SMET/datasets/smet_enriched_mapped_cves.xlsx"
 processed_df.to_excel(output_path, index=False)
 
-# Recorded --- 35.22 minutes --- & --- 27.45 minutes --- of runtime over enriched dataset
-# Recorded --- xx.xx minutes --- of runtime over description only dataset
+# Recorded --- 31.34 minutes --- of runtime over enriched dataset
+# Recorded --- 12.27 minutes --- of runtime over description only dataset
 print("--- %.2f minutes ---" % ((time.time() - start_time) / 60))
 print(f"SMET Mappings saved to {output_path}")
