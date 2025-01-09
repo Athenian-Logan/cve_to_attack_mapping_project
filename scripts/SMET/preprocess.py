@@ -16,7 +16,7 @@ def preprocess_cvss_v2(cvss):
     # Mappings for each Vector Value
     attack_vector_map = {'L': 'Local', 'A': 'Adjacent Network', 'N': 'Network'}
     complexity_map = {'H': 'High', 'M': 'Medium', 'L': 'Low'}
-    auth_map = {'S': 'Single', 'M': 'Multiple', 'N': 'None'}
+    auth_map = {'S': 'Single', 'M': 'Multiple', 'N': 'No'}
     impact_map = {'N': 'no', 'P': 'partial', 'C': 'complete'}
     
     # Retrieve Mapping for Matched Value
@@ -29,12 +29,12 @@ def preprocess_cvss_v2(cvss):
 
     # Construct Natural Lanugage CVSS V2 Description
     return (
-        f"Exploited by {attack_vector} Attack Vector.\n"
-        f"{access_complexity} Attack Complexity.\n"
-        f"{authentication} Authentication Required.\n"
-        f"{confidentiality_impact} Confidentiality Impact.\n"
-        f"{integrity_impact} Integrity Impact.\n"
-        f"{availability_impact} Availability Impact."
+        f"The CVE is Exploited by the {attack_vector} Attack Vector.\n"
+        f"The CVE has {access_complexity} Attack Complexity.\n"
+        f"The CVE requires {authentication} Authentication.\n"
+        f"The CVE has {confidentiality_impact} Confidentiality Impact.\n"
+        f"The CVE has {integrity_impact} Integrity Impact.\n"
+        f"The CVE has {availability_impact} Availability Impact."
     )
 
 def preprocess_cvss_v3x(cvss):
@@ -68,14 +68,14 @@ def preprocess_cvss_v3x(cvss):
 
     # Construct Natural Language CVSS V3.x Description
     return(
-            f"Exploited by {attack_vector} Attack Vector.\n" 
-            f"{attack_complexity} Attack Complexity.\n"
-            f"{privilleges} Privilleges Required.\n"
-            f"{interaction} User Interaction.\n"
-            f"Scope is {scope}.\n"
-            f"{confidentiality_impact} Confidentiality Impact.\n"
-            f"{integrity_impact} Integrity Impact.\n"
-            f"{availability_impact} Availability Impact.\n"
+            f"The CVE is Exploited by the {attack_vector} Attack Vector.\n" 
+            f"The CVE has {attack_complexity} Attack Complexity.\n"
+            f"The CVE {privilleges} Privilleges.\n"
+            f"the CVE {interaction} User Interaction.\n"
+            f"The CVE scope is {scope}.\n"
+            f"The CVE has {confidentiality_impact} Confidentiality Impact.\n"
+            f"The CVE has {integrity_impact} Integrity Impact.\n"
+            f"The CVE has {availability_impact} Availability Impact.\n"
         )
 
 def preprocess_cwe_ids(ids):
@@ -116,4 +116,4 @@ def preprocess_cpe(cpe):
     component_type = component_type_map.get(component_type_code, "Unknown Component Type")
     
     # Construct a human-readable description without the version
-    return f"Affects the {vendor_name.capitalize()} {product_name.capitalize()} {component_type}."
+    return f"The CVE affects {vendor_name.capitalize()} {product_name.capitalize()} {component_type}."

@@ -87,3 +87,4 @@ plt.legend()
 # Show the bar chart
 plt.tight_layout()
 plt.show()
+ 
