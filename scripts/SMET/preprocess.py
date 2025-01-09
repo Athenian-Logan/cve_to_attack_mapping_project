@@ -70,7 +70,7 @@ def preprocess_cvss_v3x(cvss):
     return(
             f"The CVE is Exploited by the {attack_vector} Attack Vector.\n" 
             f"The CVE has {attack_complexity} Attack Complexity.\n"
-            f"The CVE {privilleges} Privilleges.\n"
+            f"The CVE Requires {privilleges} Privilleges.\n"
             f"the CVE {interaction} User Interaction.\n"
             f"The CVE scope is {scope}.\n"
             f"The CVE has {confidentiality_impact} Confidentiality Impact.\n"
