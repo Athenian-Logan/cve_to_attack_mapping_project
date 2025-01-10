@@ -50,6 +50,8 @@ for row in enriched_data.itertuples(index=False):
 
     # Rank and filter techniques
     selected_techniques = [(tech, score) for tech, score in enriched_possible_techniques if score > 0.1]  # Threshold can be tuned
+    # if len(selected_techniques) == 0:
+    #    selected_techniques.extend(enriched_possible_techniques[0:3]) # Take the top three ranked, in absence of threshold being met.
     print(selected_techniques)
 
     # Sort techniques by score in descending order and select the top 3
@@ -82,7 +84,7 @@ processed_df = pd.DataFrame({
 output_path = "scripts/SMET/datasets/smet_enriched_mapped_cves.xlsx"
 processed_df.to_excel(output_path, index=False)
 
-# Recorded --- 25.08 minutes --- of runtime over enriched dataset
+# Recorded --- 24.41 minutes --- of runtime over enriched dataset
 # Recorded --- 12.27 minutes --- of runtime over description only dataset
 print("--- %.2f minutes ---" % ((time.time() - start_time) / 60))
 print(f"SMET Mappings saved to {output_path}")
