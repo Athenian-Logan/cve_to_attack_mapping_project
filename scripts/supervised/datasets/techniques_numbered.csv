@@ -1,0 +1,121 @@
+index,name
+0,Command and Scripting Interpreter
+1,Exploit Public-Facing Application
+2,Valid Accounts
+3,Exploitation for Privilege Escalation
+4,Endpoint Denial of Service
+5,Account Manipulation
+6,Hijack Execution Flow
+7,Impair Defenses
+8,Man-in-the-Middle
+9,Data from Local System
+10,Masquerading
+11,Phishing
+12,Stored Data Manipulation
+13,External Remote Services
+14,Stage Capabilities
+15,Malicious Link
+16,JavaScript
+17,Application or System Exploitation
+18,System Shutdown/Reboot
+19,Drive-by Compromise
+20,Transmitted Data Manipulation
+21,Man in the Browser
+22,Remote Service Session Hijacking
+23,Path Interception by Search Order Hijacking
+24,Ingress Tool Transfer
+25,Service Stop
+26,Service Exhaustion Flood
+27,Account Access Removal
+28,Malicious File
+29,System Firmware
+30,Exploit via Radio Interfaces
+31,Replication Through Removable Media
+32,Spearphishing Attachment
+33,Network Sniffing
+34,Brute Force
+35,ROMMONkit
+36,Taint Shared Content
+37,Abuse Elevation Control Mechanism
+38,Exploitation for Defense Evasion
+39,Web Shell
+40,/etc/passwd and /etc/shadow
+41,Credentials In Files
+42,Default Accounts
+43,Data Destruction
+44,Hardware Additions
+45,Resource Hijacking
+46,Create Account
+47,Unsecured Credentials
+48,Spearphishing Link
+49,Subvert Trust Controls
+50,Digital Certificates
+51,Application Access Token
+52,Dynamic-link Library Injection
+53,Sudo and Sudo Caching
+54,Weaken Encryption
+55,Install Insecure or Malicious Configuration
+56,Data Manipulation
+57,Python
+58,Gather Victim Identity Information
+59,Denial of Service
+60,Exploitation for Client Execution
+61,Indirect Command Execution
+62,Wireless Compromise
+63,Steal Web Session Cookie
+64,Device Restart/Shutdown
+65,Unauthorized Command Message
+66,Modify Parameter
+67,Data from Information Repositories
+68,Loss of Availability
+69,DLL Search Order Hijacking
+70,File and Directory Discovery
+71,Block Command Message
+72,Block Reporting Message
+73,Native Code
+74,Steal Application Access Token
+75,Access Token Manipulation
+76,Virtualization/Sandbox Evasion
+77,OS Credential Dumping
+78,Implant Internal Image
+79,Match Legitimate Name or Location
+80,Network Service Scanning
+81,Process Injection
+82,Exploit OS Vulnerability
+83,Golden Ticket
+84,DLL Side-Loading
+85,Exploitation for Credential Access
+86,Local Accounts
+87,OS Exhaustion Flood
+88,Password Guessing
+89,Local Email Collection
+90,Unix Shell
+91,Execution Guardrails
+92,Private Keys
+93,Account Discovery
+94,Process Discovery
+95,Event Triggered Execution
+96,Compromise Client Software Binary
+97,Defacement
+98,Token Impersonation/Theft
+99,Security Software Discovery
+100,PowerShell
+101,External Defacement
+102,Use Alternate Authentication Material
+103,System Services
+104,Exploitation of Remote Services
+105,Access Stored Application Data
+106,Lockscreen Bypass
+107,Application Exhaustion Flood
+108,Server Software Component
+109,Software Discovery
+110,Bypass User Account Control
+111,Pass the Hash
+112,User Execution
+113,Loss of Safety
+114,Code Signing
+115,Runtime Data Manipulation
+116,Scheduled Task
+117,Default Credentials
+118,Loss of Productivity and Revenue
+119,Project File Infection
