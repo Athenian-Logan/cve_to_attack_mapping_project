@@ -364,7 +364,7 @@ def main():
 
     print("Using device:", torch.cuda.get_device_name() if torch.cuda.is_available() else "CPU")
 
-    project_dir = 'scripts/supervised/datasets/enriched_to_technique/'
+    project_dir = 'cve_to_attack_mapping_project\\scripts\\supervised\\datasets\\enriched_to_technique\\'
     config = Config()
 
     # Read CSV files
