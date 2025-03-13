@@ -2,9 +2,14 @@ import pandas as pd
 
 """train_val_data (training_validation) should contain 80% of full data, test_data should contain 20%."""
 
-full_dataset = "scripts/supervised/datasets/enriched_to_technique/enriched_full_data.csv"
-train_val_dataset = "scripts/supervised/datasets/enriched_to_technique/enriched_train_val_data.csv"
-test_dataset = "scripts/supervised/datasets/enriched_to_technique/enriched_test_data.csv"
+"""
+full_dataset = "scripts/supervised/datasets/enriched_to_tactic/enriched_full_data.csv"
+train_val_dataset = "scripts/supervised/datasets/enriched_to_tactic/enriched_train_val_data.csv"
+test_dataset = "scripts/supervised/datasets/enriched_to_tactic/enriched_test_data.csv"
+"""
+full_dataset = "scripts/supervised/datasets/enriched_simple_cwe_to_tactic/enriched_full_data.csv"
+train_val_dataset = "scripts/supervised/datasets/enriched_simple_cwe_to_tactic/enriched_train_val_data.csv"
+test_dataset = "scripts/supervised/datasets/enriched_simple_cwe_to_tactic/enriched_test_data.csv"
 
 full_df = pd.read_csv(full_dataset)
 full_df_size = len(full_df.index)

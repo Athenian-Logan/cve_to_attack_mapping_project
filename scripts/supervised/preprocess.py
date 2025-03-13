@@ -77,7 +77,7 @@ def preprocess_cvss_v3x(cvss):
             f"The CVE has {integrity_impact} Integrity Impact.\n"
             f"The CVE has {availability_impact} Availability Impact.\n"
         )
-
+"""
 def preprocess_cwe_ids(ids):
     if not ids:
         return []
@@ -91,6 +91,20 @@ def preprocess_cwe_ids(ids):
         processed_weaknesses.append(f"The CVE is affected by {weakness.name}: {weakness.description}\n")
         
     return ''.join(processed_weaknesses)
+"""
+def preprocess_cwe_ids(ids):
+    if not ids:
+        return []
+    
+    processed_weaknesses = []
+    for id in ids:
+        if id == "NVD-CWE-noinfo" or id == "NVD-CWE-Other":
+            continue
+        digits = re.findall(r'\d+', id)
+        weakness = db.get(digits[0])
+        processed_weaknesses.append(weakness.name)
+        
+    return ', '.join(processed_weaknesses)
 
 def preprocess_cpe(cpe):
     if not cpe:
