@@ -1,5 +1,7 @@
 import re
 from cwe2.database import Database
+import requests
+from bs4 import BeautifulSoup
 
 db = Database()
 
@@ -77,7 +79,7 @@ def preprocess_cvss_v3x(cvss):
             f"The CVE has {integrity_impact} Integrity Impact.\n"
             f"The CVE has {availability_impact} Availability Impact.\n"
         )
-"""
+
 def preprocess_cwe_ids(ids):
     if not ids:
         return []
@@ -91,8 +93,10 @@ def preprocess_cwe_ids(ids):
         processed_weaknesses.append(f"The CVE is affected by {weakness.name}: {weakness.description}\n")
         
     return ''.join(processed_weaknesses)
+
 """
 def preprocess_cwe_ids(ids):
+    # Simple CWE
     if not ids:
         return []
     
@@ -105,6 +109,7 @@ def preprocess_cwe_ids(ids):
         processed_weaknesses.append(weakness.name)
         
     return ', '.join(processed_weaknesses)
+"""
 
 def preprocess_cpe(cpe):
     if not cpe:
@@ -131,3 +136,56 @@ def preprocess_cpe(cpe):
     
     # Construct a human-readable description without the version
     return f"The CVE affects {vendor_name.capitalize()} {product_name.capitalize()} {component_type}."
+
+def get_capec_title(capec_id):
+    url = f"https://capec.mitre.org/data/definitions/{capec_id}.html"
+    try:
+        response = requests.get(url, timeout=5)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, 'html.parser')
+        # The title is typically contained in the <title> tag.
+        title_tag = soup.find('title')
+        if title_tag:
+            # The title usually comes in a format like "CAPEC-13 | Some CAPEC Title"
+            title_text = title_tag.get_text(strip=True)
+            match = re.search(r':\s*(.*?)\s*\(', title_text)
+            if match:
+                return match.group(1)
+        return None
+
+    except Exception as e:
+        print(f"Error retrieving CAPEC title for id {capec_id}: {e}")
+    return None
+
+# caching mechanism to avoid repeated requests.
+_capec_cache = {}
+
+def get_capec_title_cached(capec_id):
+    if capec_id in _capec_cache:
+        return _capec_cache[capec_id]
+    title = get_capec_title(capec_id)
+    _capec_cache[capec_id] = title
+    return title
+
+def preprocess_capec(cwe_ids):
+    if not cwe_ids:
+        return ""
+    
+    capec_titles = set()  # using a set to avoid duplicate titles
+    for cwe in cwe_ids:
+        if cwe in ["NVD-CWE-noinfo", "NVD-CWE-Other"]:
+            continue
+        digits = re.findall(r'\d+', cwe)
+        if digits:
+            # Get the CWE object (weakness)
+            weakness = db.get(digits[0])
+            if weakness and weakness.related_attack_patterns:
+                # The related_attack_patterns field is expected to be in a format like "::13::146::176::..."
+                for item in weakness.related_attack_patterns.split("::"):
+                    if item.isdigit():
+                        capec_title = get_capec_title_cached(item)
+                        if capec_title:
+                            capec_titles.add(capec_title)
+    if not capec_titles:
+        return None
+    return ', '.join(sorted(capec_titles))

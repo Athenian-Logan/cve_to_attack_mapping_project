@@ -18,11 +18,6 @@ with open(f"cve_to_attack_mapping_project/scripts/json_dumps/{specified_csv}_rel
 
 # Functions for extracting CWE, CVSS, and CPE information
 def format_cwe_info(weaknesses_info):
-    # Need to change this. Get CWE ID from NVD Info, search for on CWE download or site.
-    # Then get associated CAPEC Mapping.
-    # Call format CAPEC Info and add this info to dataset.
-    # Get Technique mapping from CAPEC and fill in Tactic Mapping.
-    # Do not use the specific technique mapping? Maybe, idk ask oluwafemi opinion.
     formatted_weaknesses = []
     for weakness in weaknesses_info:
         for cwe in weakness.get("description", []):

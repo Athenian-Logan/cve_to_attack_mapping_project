@@ -2,7 +2,7 @@ import json
 import csv
 
 # Load the JSON data
-json_file = "scripts/json_dumps/cve-10.21.2021_attack-9.0-enterprise_json.json"  # Replace with your JSON file path
+json_file = "scripts/json_dumps/cve-10.21.2021_attack-9.0-enterprise_json.json"  
 csv_file = "scripts/SMET/datasets/mitre_cve_to_attack_mappings.csv"  # Output CSV file path
 
 with open(json_file, 'r') as file:

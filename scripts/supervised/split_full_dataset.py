@@ -7,9 +7,14 @@ full_dataset = "scripts/supervised/datasets/enriched_to_tactic/enriched_full_dat
 train_val_dataset = "scripts/supervised/datasets/enriched_to_tactic/enriched_train_val_data.csv"
 test_dataset = "scripts/supervised/datasets/enriched_to_tactic/enriched_test_data.csv"
 """
+"""
 full_dataset = "scripts/supervised/datasets/enriched_simple_cwe_to_tactic/enriched_full_data.csv"
 train_val_dataset = "scripts/supervised/datasets/enriched_simple_cwe_to_tactic/enriched_train_val_data.csv"
 test_dataset = "scripts/supervised/datasets/enriched_simple_cwe_to_tactic/enriched_test_data.csv"
+"""
+full_dataset = "scripts/supervised/datasets/enriched_with_capec_tactic/enriched_full_data.csv"
+train_val_dataset = "scripts/supervised/datasets/enriched_with_capec_tactic/enriched_train_val_data.csv"
+test_dataset = "scripts/supervised/datasets/enriched_with_capec_tactic/enriched_test_data.csv"
 
 full_df = pd.read_csv(full_dataset)
 full_df_size = len(full_df.index)

@@ -19,7 +19,6 @@ def parse_f1_scores(text):
                 print(f"Warning: Could not convert {score_str.strip()} to float for class '{class_name.strip()}'")
     return scores
 
-
 def compare_f1_scores(text1, text2):
     """
     Compare the F1 scores from two different variables.
@@ -208,6 +207,60 @@ Initial Access: 0.6151832460732984
 Reconnaissance: 0.3673469387755102
 """
 
+preserved_os_with_epss_and_capec = """
+F1 scores per class
+Defense Evasion: 0.9751021924934968
+Discovery: 0.9635930588635591
+Persistence: 0.9355400696864111
+Privilege Escalation: 0.9312913907284768
+Command and Control: 0.9289256198347108
+Lateral Movement: 0.9076396807297605
+Credential Access: 0.8796433878157504
+Execution: 0.860885839051778
+Collection: 0.7958115183246073
+Resource Development: 0.7114093959731543
+Initial Access: 0.5723905723905723
+Impact: 0.3229166666666667
+Reconnaissance: 0.19402985074626866
+Exfiltration: 0.0
+"""
+
+preserved_os_with_epss_post_finetuning = """
+F1 scores per class
+Defense Evasion: 0.9840609840609841
+Discovery: 0.9791599871753768
+Command and Control: 0.9642857142857143
+Privilege Escalation: 0.9510849577050386
+Lateral Movement: 0.9497435897435897
+Persistence: 0.9486571879936809
+Credential Access: 0.9181141439205955
+Execution: 0.8994871794871795
+Collection: 0.8433734939759037
+Exfiltration: 0.810126582278481
+Impact: 0.72
+Initial Access: 0.6743886743886743
+Resource Development: 0.6578947368421053
+Reconnaissance: 0.46153846153846156
+"""
+
+extended_uncleaned_cpe = """
+F1 scores per class
+Defense Evasion: 0.9794552169898431
+Discovery: 0.9719029374201787
+Command and Control: 0.9641693811074918
+Persistence: 0.942300039793076
+Lateral Movement: 0.9418960244648318
+Privilege Escalation: 0.9411329137356534
+Credential Access: 0.8945362134688691
+Execution: 0.8941053729786124
+Collection: 0.8020176544766708
+Initial Access: 0.6392572944297082
+Impact: 0.6312849162011173
+Resource Development: 0.5793103448275863
+Reconnaissance: 0.3576158940397351
+Exfiltration: 0.0
+"""
+
 if __name__ == "__main__":
     #print("Comparing Description Only & Extended Cleaned CPE -> Product")
     #compare_f1_scores(description_only, extended_cleaned_cpe_product)
@@ -230,13 +283,13 @@ if __name__ == "__main__":
     plot_f1_scores(extended_cleaned_cpe_product, extended_cleaned_cpe_product_important_os_name,
                    "Extended Cleaned CPE", "Extended Cleaned CPE (OS Name Preserved)")"""
     
-    print("Comparing Extended Cleaned CPE Preserve OS Name vs Extended Cleaned CPE Preserve OS Name with EPSS")
-    compare_f1_scores(extended_cleaned_cpe_product_important_os_name, preserved_os_with_epss)
+    print("Extended Dataset - Uncleaned CPE vs Cleaned CPE (Preserving OS Name)")
+    compare_f1_scores(extended_uncleaned_cpe, extended_cleaned_cpe_product_important_os_name)
     print('*'*50)
 
     # Plot the two datasets with the specified colors and labels.
-    plot_f1_scores(extended_cleaned_cpe_product_important_os_name, preserved_os_with_epss,
-                   "Extended Cleaned CPE Preserve OS Name", "Extended Cleaned CPE Preserve OS Name with EPSS")
+    plot_f1_scores(extended_uncleaned_cpe, extended_cleaned_cpe_product_important_os_name,
+                   "Uncleaned CPE", "Cleaned CPE (Preserving OS Name)")
 
     #print("Comparing Description Only -> With EPSS")
     #print('*'*50)

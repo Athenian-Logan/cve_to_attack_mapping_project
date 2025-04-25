@@ -65,8 +65,9 @@ def clean_abstract(text):
 
     return updated_text
 
+"""
 def clean_cpe(text):
-    """Replace general product names with 'Product' while preserving OS names."""
+    # Replace general product names with 'Product' while preserving OS names.
 
     # OS names to preserve
     os_keywords = ["Windows", "MacOS", "Linux", "Mac_os_x", "Linux_kernel"]
@@ -88,6 +89,18 @@ def clean_cpe(text):
         
         # Generalise other product names
         return f"The CVE affects {vendor} Product {component}."
+
+    return text  # Return original text if no match
+"""
+
+def clean_cpe(text):
+    # regex to match vendor product and component
+    product_pattern = r"The CVE affects (?P<vendor>[a-zA-Z0-9_ \-\\\/]+) (?P<product>[a-zA-Z0-9_ \-\\\/]+) (?P<component>Operating System|Application|Hardware)\."
+
+    match = re.search(product_pattern, text)
+    if match:
+        return f"The CVE affects {match.group('vendor')} Product {match.group('component')}."
+        # return f"The CVE affects {match.group('component')}."
 
     return text  # Return original text if no match
 
@@ -170,10 +183,35 @@ class TransformerDataset(Dataset):
         text = " ".join([
             str(self.texts[index]),
             str(self.epss[index]),
+            str(None),
+            str(None),
+            str(None)
+        ])
+        """text = " ".join([
+            str(self.texts[index]),
+            str(self.epss[index]),
             str(self.cvss[index]),
             str(self.cwe[index]),
             str(self.cpe[index])
-        ])
+        ])"""
+        """text = " ".join([
+            str(self.texts[index]),
+            str(None),
+            str(None),
+            str(self.cpe[index])
+        ]) # Temporary, Description & x (change each run) only."""
+        """text = " ".join([
+            str(self.texts[index]),
+            str(self.cvss[index]),
+            str(None),
+            str(self.cpe[index])
+        ]) # Temporary, Remove CWE maybe remove noise?"""
+        """text = " ".join([
+            str(self.texts[index]),
+            str(None),
+            str(None),
+            str(None)
+        ]) # Temporary, Description only."""
         tokenized = self.tokenizer.encode_plus(
             text,
             max_length=self.max_length,

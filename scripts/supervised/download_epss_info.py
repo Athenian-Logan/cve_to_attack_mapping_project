@@ -3,20 +3,20 @@ import requests
 import time
 
 # File paths
-input_file = "scripts/supervised/datasets/enriched_to_tactic/enriched_full_data.csv"
-output_file = "scripts/supervised/datasets/enriched_with_epss_to_tactic/enriched_full_data.csv"
+input_file = "scripts/supervised/datasets/enriched_with_capec_tactic/enriched_full_data.csv"
+output_file = "scripts/supervised/datasets/enriched_with_capec_tactic/enriched_full_data.csv"
 
 # Load the CSV file into a DataFrame
 df = pd.read_csv(input_file, encoding="utf-8")
 
 # Extract CVE IDs from the first column
-cve_list = df.iloc[:, 0].tolist()  # Assuming first column contains CVE IDs
+cve_list = df.iloc[:, 0].tolist()
 
 # Dictionary to store EPSS scores
 epss_scores = {}
 
 # Fetch EPSS scores in chunks
-chunk_size = 50  # Adjust if necessary
+chunk_size = 50
 for i in range(0, len(cve_list), chunk_size):
     chunk = cve_list[i:i + chunk_size]
     url = f"https://api.first.org/data/v1/epss?cve={','.join(chunk)}"
@@ -45,8 +45,8 @@ for i in range(0, len(cve_list), chunk_size):
     
     time.sleep(1)  # To avoid hitting rate limits
 
-# Insert the EPSS column before the label columns.
-# This example inserts it as the third column (index 2). Adjust as needed.
+# Insert the EPSS column somewhere before the label columns.
+# This inserts it as the third column (index 2).
 df.insert(2, "EPSS", df.iloc[:, 0].map(epss_scores))
 
 # Save the updated DataFrame

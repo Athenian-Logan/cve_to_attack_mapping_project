@@ -1,7 +1,7 @@
 import csv
 import json
 
-### Extract Relevant CVEs from nvd_json_dump ###
+# Extract Relevant CVEs from nvd_json_dump
 
 # Specify the name of the input CSV file
 specified_csv_name = "train_val_data"

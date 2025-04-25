@@ -60,12 +60,17 @@ for _, row in original_df.iterrows():
     if not (preprocessed_cwe_ids and (preprocessed_cvss_v3 or preprocessed_cvss_v2) and cpe_info):
         continue
 
+    capec_titles_preprocessed = preprocess_capec(cwe_ids)
+    if capec_titles_preprocessed is None:
+        continue
+
     enriched_records[cve_id] = {
         'ID': cve_id,
         'Text': description,
         'CVSS': preprocessed_cvss_v3 if preprocessed_cvss_v3 else preprocessed_cvss_v2,
         'CWE': preprocessed_cwe_ids,
-        'CPE': preprocess_cpe(cpe_info)
+        'CPE': preprocess_cpe(cpe_info),
+        'CAPEC': capec_titles_preprocessed
     }
 
 # Convert enriched data to DataFrame
@@ -75,11 +80,11 @@ enriched_df = pd.DataFrame.from_dict(enriched_records, orient='index')
 final_df = original_df.merge(enriched_df, on=['ID', 'Text'], how='inner')
 
 # Reorder columns
-ordered_columns = ['ID', 'Text', 'CVSS', 'CWE', 'CPE'] + [col for col in original_df.columns if col not in ['ID', 'Text']]
+ordered_columns = ['ID', 'Text', 'CVSS', 'CWE', 'CPE', 'CAPEC'] + [col for col in original_df.columns if col not in ['ID', 'Text']]
 final_df = final_df[ordered_columns]
 
 # Save the final dataset
-output_file = "scripts/supervised/datasets/enriched_simple_cwe_to_tactic/enriched_full_data.csv"
+output_file = "scripts/supervised/datasets/enriched_with_capec_tactic/enriched_full_data.csv"
 final_df.to_csv(output_file, index=False)
 
 print(f"Data enrichment completed. File saved to {output_file}.")

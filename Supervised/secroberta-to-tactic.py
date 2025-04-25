@@ -116,7 +116,8 @@ def get_cwe(df):
     return df['CWE'].tolist()
 
 def get_cpe(df):
-    cpe = df['CPE'].apply(clean_cpe)
+    # cpe = df['CPE'].apply(clean_cpe)
+    cpe = df['CPE']
     # print(cpe.tolist())
     return cpe.tolist()
     # return df['CPE Description'].tolist()
