@@ -1,1 +1,319 @@
-.
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/bin/python /Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/Supervised/secroberta-to-tactic.py
+(.venv) ➜  cve_to_attack_mapping_project /Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/bin/python /Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/Supervised/secroberta-to-tactic.py
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: dlopen(/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/torchvision/image.so, 0x0006): Symbol not found: __ZN3c1017RegisterOperatorsD1Ev
+  Referenced from: <06D2C3BD-26E5-3AB9-A866-63839BE393A7> /Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/torchvision/image.so
+  Expected in:     <ECC148AF-20FF-3EEE-BC75-4DD3E7455393> /Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/torch/lib/libtorch_cpu.dylib
+  warn(f"Failed to load image Python extension: {e}")
+Using device: CPU
+Train data shape: (5856, 19)
+                  ID                                               Text                                               CVSS  ... Command and Control Exfiltration  Impact
+0     CVE-2023-23333  There is a command injection vulnerability in ...  The CVE is Exploited by the Network Attack Vec...  ...                   0            0       0
+1     CVE-2023-33148  Microsoft Office Elevation of Privilege Vulner...  The CVE is Exploited by the Local Attack Vecto...  ...                   0            0       0
+2     CVE-2021-35458  Online Pet Shop We App 1.0 is vulnerable to Un...  The CVE is Exploited by the Network Attack Vec...  ...                   0            0       0
+3     CVE-2023-23752  An issue was discovered in Joomla! 4.0.0 throu...  The CVE is Exploited by the Network Attack Vec...  ...                   0            0       0
+4     CVE-2021-44228  Apache Log4j2 2.0-beta9 through 2.15.0 (exclud...  The CVE is Exploited by the Network Attack Vec...  ...                   0            1       0
+...              ...                                                ...                                                ...  ...                 ...          ...     ...
+5851  CVE-2018-20890  cPanel before 74.0.0 allows arbitrary zone fil...  The CVE is Exploited by the Network Attack Vec...  ...                   0            0       0
+5852  CVE-2023-47800  Natus NeuroWorks and SleepWorks before 8.4 GMA...  The CVE is Exploited by the Network Attack Vec...  ...                   0            1       0
+5853  CVE-2022-22190  An Improper Access Control vulnerability in th...  The CVE is Exploited by the Network Attack Vec...  ...                   0            1       0
+5854  CVE-2022-23612  OpenMRS is a patient-based medical record syst...  The CVE is Exploited by the Network Attack Vec...  ...                   0            1       0
+5855  CVE-2022-46163  Travel support program is a rails app to suppo...  The CVE is Exploited by the Network Attack Vec...  ...                   0            1       0
+
+[5856 rows x 19 columns]
+Validation data shape: (5856, 19)
+Test data shape: (1471, 19)
+Train Data Transformer: <__main__.TransformerDataset object at 0x307caf970>
+Val Data Transformer: <__main__.TransformerDataset object at 0x307b867d0>
+Test Data Transformer: <__main__.TransformerDataset object at 0x307b86800>
+Train Dataloader: <torch.utils.data.dataloader.DataLoader object at 0x3087815a0>
+Val Dataloader: <torch.utils.data.dataloader.DataLoader object at 0x301aa1420>
+Test Dataloader: <torch.utils.data.dataloader.DataLoader object at 0x3087cbd00>
+input_ids shape: torch.Size([16, 320])
+attention_mask shape: torch.Size([16, 320])
+labels shape: torch.Size([16, 14])
+Epoch 0:   0%|                                                                                                                                                              | 0/366 [00:00<?, ?it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+        - Avoid using `tokenizers` before the fork if possible
+        - Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Epoch 0:  27%|████████████████████████████████████████▍                                                                                                           | 100/366 [04:28<12:14,  2.76s/it]-- Step: 100
+Val loss: 0.2707705353208578
+Val accuracy: 0.48992486338797814
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.602744629740933
+Val recall: 0.4083442838370565
+Val micro f1 score: 0.5524137547914004
+Val macro f1 score: 0.1377860364264017
+Val weighted f1 score: 0.43174925925720203
+Epoch 0:  55%|████████████████████████████████████████████████████████████████████████████████▊                                                                   | 200/366 [13:18<07:51,  2.84s/it]-- Step: 200
+Val loss: 0.20847221022176612
+Val accuracy: 0.5674521857923497
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.7559179786081365
+Val recall: 0.6222076215505913
+Val micro f1 score: 0.7196048632218845
+Val macro f1 score: 0.3252401960301503
+Val weighted f1 score: 0.6352633489485235
+Epoch 0:  73%|████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                                       | 269/366 [20:45<04:48,  2.98s/it]
+Epoch 0:  82%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                          | 300/366 [22:21<03:17,  2.99s/it]-- Step: 300
+
+Val loss: 0.17779867374465438
+Val accuracy: 0.6601775956284153
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.8034583328687723
+Val recall: 0.7426084099868594
+Val micro f1 score: 0.7906265028636383
+Val macro f1 score: 0.4704662123509669
+Val weighted f1 score: 0.7482341144975774
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 366/366 [29:43<00:00,  4.87s/it]
+Training loss: 0.24940571708024525
+Val loss: 0.16946504192803402
+Val accuracy: 0.6716188524590164
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.8122454298235525
+Val recall: 0.7403088042049935
+Val micro f1 score: 0.7938353148392778
+Val macro f1 score: 0.4713510816368521
+Val weighted f1 score: 0.7503068067154287
+--- Best Model. Val: -inf -> 0.7503068067154287
+Epoch 1:   3%|████▍                                                                                                                                                | 11/366 [00:31<17:10,  2.90s/it]
+Epoch 1:  27%|████████████████████████████████████████▍                                                                                                           | 100/366 [04:54<13:05,  2.95s/it]-- Step: 100
+Val loss: 0.15196785025420737
+Val accuracy: 0.6963797814207651
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.8406263660077138
+Val recall: 0.7748850197109067
+Val micro f1 score: 0.8259651580145321
+Val macro f1 score: 0.5258782718999002
+Val weighted f1 score: 0.7963221575664469
+Epoch 1:  55%|████████████████████████████████████████████████████████████████████████████████▊                                                                   | 200/366 [13:55<08:02,  2.91s/it]-- Step: 200
+Val loss: 0.1406076112354958
+Val accuracy: 0.7137978142076503
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.8709644722772852
+Val recall: 0.7959099868593955
+Val micro f1 score: 0.8407217836384142
+Val macro f1 score: 0.564618881240613
+Val weighted f1 score: 0.8115537496643488
+Epoch 1:  82%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                          | 300/366 [23:05<03:12,  2.92s/it]-- Step: 300
+Val loss: 0.1306856948007
+Val accuracy: 0.7382172131147541
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.8589939254644047
+Val recall: 0.8278580814717477
+Val micro f1 score: 0.8555423527414701
+Val macro f1 score: 0.5918789671520883
+Val weighted f1 score: 0.8274176415929461
+Epoch 1: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 366/366 [30:29<00:00,  5.00s/it]
+Training loss: 0.16090157119139947
+Val loss: 0.12330746556545705
+Val accuracy: 0.7575136612021858
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.8831543932450234
+Val recall: 0.837631406044678
+Val micro f1 score: 0.8676307954062101
+Val macro f1 score: 0.6136758760115039
+Val weighted f1 score: 0.8428778782795979
+--- Best Model. Val: 0.7503068067154287 -> 0.8428778782795979
+Epoch 2:  27%|████████████████████████████████████████▍                                                                                                           | 100/366 [05:02<13:18,  3.00s/it]-- Step: 100
+Val loss: 0.11608264450737037
+Val accuracy: 0.755464480874317
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.9041031057827684
+Val recall: 0.83919185282523
+Val micro f1 score: 0.8746789933230611
+Val macro f1 score: 0.6509634350499437
+Val weighted f1 score: 0.8588706509132392
+Epoch 2:  55%|████████████████████████████████████████████████████████████████████████████████▊                                                                   | 200/366 [14:15<08:19,  3.01s/it]-- Step: 200
+Val loss: 0.10683999607553248
+Val accuracy: 0.7718579234972678
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.9153297179625359
+Val recall: 0.8439553219448095
+Val micro f1 score: 0.8854803963808703
+Val macro f1 score: 0.6528856910395867
+Val weighted f1 score: 0.8645355465720341
+Epoch 2:  61%|█████████████████████████████████████████████████████████████████████████████████████████▊                                                          | 222/366 [19:36<07:48,  3.25s/it]
+Epoch 2:  82%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                          | 300/366 [23:36<03:29,  3.17s/it]-- Step: 300
+
+Val loss: 0.10687741999071641
+Val accuracy: 0.7739071038251366
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.9011342192601153
+Val recall: 0.8630913272010512
+Val micro f1 score: 0.8850429509853461
+Val macro f1 score: 0.673018435547691
+Val weighted f1 score: 0.8660827277527449
+Epoch 2: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 366/366 [31:13<00:00,  5.12s/it]
+Training loss: 0.12454757050616168
+
+Val loss: 0.0980068250391327
+Val accuracy: 0.7988387978142076
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.9064262616626251
+Val recall: 0.8825558475689882
+Val micro f1 score: 0.8995479658463084
+Val macro f1 score: 0.7101831160628526
+Val weighted f1 score: 0.8871521957378277
+--- Best Model. Val: 0.8428778782795979 -> 0.8871521957378277
+Epoch 3:  22%|████████████████████████████████▏                                                                                                                    | 79/366 [04:01<14:37,  3.06s/it]
+Epoch 3:  27%|████████████████████████████████████████▍                                                                                                           | 100/366 [05:05<13:34,  3.06s/it]-- Step: 100
+Val loss: 0.09074593091617679
+Val accuracy: 0.8002049180327869
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.9239549418293778
+Val recall: 0.8789421813403416
+Val micro f1 score: 0.9062195689910665
+Val macro f1 score: 0.7055412244036358
+Val weighted f1 score: 0.8929510485005586
+Epoch 3:  39%|█████████████████████████████████████████████████████████▊                                                                                          | 143/366 [11:34<12:16,  3.30s/it]
+Epoch 3:  49%|█████████████████████████████████████████████████████████████████████████▏                                                                          | 181/366 [13:32<10:14,  3.32s/it]
+Epoch 3:  55%|████████████████████████████████████████████████████████████████████████████████▊                                                                   | 200/366 [14:29<08:11,  2.96s/it]-- Step: 200
+
+Val loss: 0.0880717443597447
+Val accuracy: 0.7862021857923497
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.9509642437363668
+Val recall: 0.8547141918528253
+Val micro f1 score: 0.9044453135184461
+Val macro f1 score: 0.6744182072370201
+Val weighted f1 score: 0.8836436017123043
+Epoch 3:  64%|███████████████████████████████████████████████████████████████████████████████████████████████▍                                                    | 236/366 [20:39<06:22,  2.94s/it]
+Epoch 3:  82%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                          | 300/366 [23:48<03:13,  2.94s/it]-- Step: 300
+Val loss: 0.08262197063889741
+Val accuracy: 0.8181352459016393
+/Users/loganmcmahon/projects/university/cve_to_attack_mapping_project/.venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Val precision: 0.9386475564372733
+Val recall: 0.8878120893561103
+Val micro f1 score: 0.9181246815016137
+Val macro f1 score: 0.740685091176393
+Val weighted f1 score: 0.9063888474169991
+Epoch 3:  98%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌  | 360/366 [31:02<00:17,  2.96s/it]
+Epoch 3: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 366/366 [31:20<00:00,  5.14s/it]
+Training loss: 0.10028483303864308
+
+Val loss: 0.08091024682689153
+Val accuracy: 0.8234289617486339
+Val precision: 0.940573650840038
+Val recall: 0.8990637319316689
+Val micro f1 score: 0.9209607537963236
+Val macro f1 score: 0.7544144018059372
+Val weighted f1 score: 0.9116996808421225
+--- Best Model. Val: 0.8871521957378277 -> 0.9116996808421225
+Epoch 4:  27%|████████████████████████████████████████▍                                                                                                           | 100/366 [04:55<13:06,  2.96s/it]-- Step: 100
+
+Val loss: 0.07808544353678659
+Val accuracy: 0.8210382513661202
+Val precision: 0.9429154848423189
+Val recall: 0.8976675427069645
+Val micro f1 score: 0.9211191639979774
+Val macro f1 score: 0.7460458932629325
+Val weighted f1 score: 0.9097494555052549
+Epoch 4:  55%|████████████████████████████████████████████████████████████████████████████████▊                                                                   | 200/366 [14:04<08:06,  2.93s/it]-- Step: 200
+Val loss: 0.07568424010567897
+Val accuracy: 0.8304303278688525
+Val precision: 0.9453338143756834
+Val recall: 0.9055519053876478
+Val micro f1 score: 0.9262821859117066
+Val macro f1 score: 0.772970955248996
+Val weighted f1 score: 0.9182574201597543
+Epoch 4:  68%|█████████████████████████████████████████████████████████████████████████████████████████████████████                                               | 250/366 [20:47<05:39,  2.93s/it]
+Epoch 4:  82%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                          | 300/366 [23:14<03:14,  2.95s/it]-- Step: 300
+
+Val loss: 0.07449900955114452
+Val accuracy: 0.8326502732240437
+Val precision: 0.9548196624728013
+Val recall: 0.900131406044678
+Val micro f1 score: 0.9284594857893176
+Val macro f1 score: 0.7742131999104573
+Val weighted f1 score: 0.9203347476047408
+Epoch 4:  89%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                | 325/366 [28:43<02:02,  2.98s/it]
+Epoch 4: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 366/366 [30:44<00:00,  5.04s/it]
+Training loss: 0.08653105272723188
+
+Val loss: 0.07424886011940941
+Val accuracy: 0.8340163934426229
+Val precision: 0.9547192517363715
+Val recall: 0.9009526938239159
+Val micro f1 score: 0.9288345116633504
+Val macro f1 score: 0.7768987745778235
+Val weighted f1 score: 0.9207967219978418
+--- Best Model. Val: 0.9116996808421225 -> 0.9207967219978418
+------Validation results --------
+0.9207967219978418
+F1 scores per class
+Defense Evasion: 0.981044845122515
+Discovery: 0.9748006379585327
+Command and Control: 0.9640522875816994
+Persistence: 0.9456995640110979
+Privilege Escalation: 0.9452662721893491
+Lateral Movement: 0.9390243902439024
+Credential Access: 0.8939393939393939
+Execution: 0.8894709271870089
+Collection: 0.8075471698113208
+Resource Development: 0.6666666666666666
+Initial Access: 0.6534391534391535
+Impact: 0.6149425287356322
+Reconnaissance: 0.3870967741935484
+Exfiltration: 0.21359223300970873
+Recall scores per class
+Defense Evasion: 0.9846867749419954
+Discovery: 0.9769820971867008
+Command and Control: 0.9577922077922078
+Persistence: 0.9342208300704777
+Privilege Escalation: 0.9214131218457101
+Lateral Movement: 0.9112426035502958
+Execution: 0.8761609907120743
+Credential Access: 0.84688995215311
+Collection: 0.6918103448275862
+Initial Access: 0.5563063063063063
+Resource Development: 0.5257731958762887
+Impact: 0.47767857142857145
+Reconnaissance: 0.2608695652173913
+Exfiltration: 0.11956521739130435
+Precision scores per class
+Exfiltration: 1.0
+Defense Evasion: 0.9774297558728696
+Discovery: 0.9726288987905792
+Command and Control: 0.9703947368421053
+Privilege Escalation: 0.9703872437357631
+Collection: 0.9697885196374623
+Lateral Movement: 0.9685534591194969
+Persistence: 0.9574638844301766
+Credential Access: 0.946524064171123
+Resource Development: 0.9107142857142857
+Execution: 0.9031914893617021
+Impact: 0.8629032258064516
+Initial Access: 0.7916666666666666
+Reconnaissance: 0.75
+Accuracy scores per class
+Reconnaissance: 0.8340163934426229
+Resource Development: 0.8340163934426229
+Initial Access: 0.8340163934426229
+Execution: 0.8340163934426229
+Persistence: 0.8340163934426229
+Privilege Escalation: 0.8340163934426229
+Defense Evasion: 0.8340163934426229
+Credential Access: 0.8340163934426229
+Discovery: 0.8340163934426229
+Lateral Movement: 0.8340163934426229
+Collection: 0.8340163934426229
+Command and Control: 0.8340163934426229
+Exfiltration: 0.8340163934426229
+Impact: 0.8340163934426229
+2025-03-10 17:32:55.320 python[14649:224884] +[IMKClient subclass]: chose IMKClient_Modern
+2025-03-10 17:32:55.320 python[14649:224884] +[IMKInputSession subclass]: chose IMKInputSession_Modern
