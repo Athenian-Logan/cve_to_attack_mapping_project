@@ -46,6 +46,8 @@ from sklearn.metrics import (
 
 from sklearn.metrics import multilabel_confusion_matrix
 
+best_model = None
+
 ################################################################
 
 BEST_F1 = 0
@@ -361,7 +363,7 @@ def train(model, train_dataloader, val_dataloader, criterion, optimizer, schedul
 """# Run"""
 
 def run():
-    global train_data, val_data, test_data, train_dataloader, val_dataloader, test_dataloader, model
+    global train_data, val_data, test_data, train_dataloader, val_dataloader, test_dataloader, model, best_model
     torch.manual_seed(Config().SEED)
 
     criterion = nn.BCEWithLogitsLoss()
@@ -401,8 +403,8 @@ def run():
             if val_weighted_f1_score > max_val_weighted_f1_score:
                 best_model = copy.deepcopy(model)
 
-                model_name = 'secroberta_best_model'
-                torch.save(best_model.state_dict(), model_name + '.pt')
+                save_dir = 'Supervised/models/secroberta_best_model.pt'
+                torch.save(best_model.state_dict(), save_dir)
 
                 print(f'--- Best Model. Val: {max_val_weighted_f1_score} -> {val_weighted_f1_score}')
                 max_val_weighted_f1_score = val_weighted_f1_score
