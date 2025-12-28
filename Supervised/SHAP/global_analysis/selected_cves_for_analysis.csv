@@ -1,0 +1,201 @@
+Original_Index,CVE_ID,Text_Preview
+3649,CVE-2018-1000500,"Busybox contains a Missing SSL certificate validation vulnerability in The ""busybox wget"" applet tha"
+4211,CVE-2015-9241,Certain input passed into the If-Modified-Since or Last-Modified headers will cause an 'illegal acce
+960,CVE-2016-5062,The web server in Aternity before 9.0.1 does not require authentication for getMBeansFromURL loading
+23,CVE-2017-14008,"GE Centricity PACS RA1000, diagnostic image analysis, all current versions are affected these device"
+810,CVE-2019-12209,Yubico pam-u2f 1.0.7 attempts parsing of the configured authfile (default $HOME/.config/Yubico/u2f_k
+1670,CVE-2018-20307,Pulse Secure Virtual Traffic Manager 9.9 versions prior to 9.9r2 and 10.4r1 allow a remote authentic
+1176,CVE-2017-3066,"Adobe ColdFusion 2016 Update 3 and earlier, ColdFusion 11 update 11 and earlier, ColdFusion 10 Updat"
+2579,CVE-2016-6366,"Buffer overflow in Cisco Adaptive Security Appliance (ASA) Software through 9.4.2.3 on ASA 5500, ASA"
+4333,CVE-2019-13973,LayerBB 1.1.3 allows admin/general.php arbitrary file upload because the custom_logo filename suffix
+1897,CVE-2018-12479,A Improper Input Validation vulnerability in Open Build Service allows remote attackers to cause DoS
+2142,CVE-2018-1162,This vulnerability allows remote attackers to create a denial-of-service condition on vulnerable ins
+4922,CVE-2018-1896,"IBM Connections 5.0, 5.5, and 6.0 is vulnerable to possible host header injection attack that could "
+1094,CVE-2019-14671,Firefly III 4.7.17.3 is vulnerable to local file enumeration. An attacker can enumerate local files 
+2347,CVE-2019-13118,"In numbers.c in libxslt 1.1.33, a type holding grouping characters of an xsl:number instruction was "
+2663,CVE-2018-1312,"In Apache httpd 2.2.0 to 2.4.29, when generating an HTTP Digest authentication challenge, the nonce "
+1188,CVE-2014-5450,"Zarafa Collaboration Platform 4.1 uses world-readable permissions for /etc/zarafa/license, which all"
+1244,CVE-2019-1768,A vulnerability in the implementation of a specific CLI command for Cisco NX-OS Software could allow
+1144,CVE-2018-6114,Incorrect enforcement of CSP for <object> tags in Blink in Google Chrome prior to 66.0.3359.117 allo
+3075,CVE-2018-16224,Incorrect access control for the diagnostic files of the iSmartAlarm Cube One through 2.2.4.10 allow
+2940,CVE-2023-26559,A directory traversal vulnerability in Oxygen XML Web Author before 25.0.0.3 build 2023021715 and Ox
+501,CVE-2019-6519,"WebAccess/SCADA, Version 8.3. An improper authentication vulnerability exists that could allow a pos"
+3967,CVE-2019-3569,"HHVM, when used with FastCGI, would bind by default to all available interfaces. This behavior could"
+2240,CVE-2018-11409,Splunk through 7.0.1 allows information disclosure by appending __raw/services/server/info/server-in
+4309,CVE-2018-19522,"DriverAgent 2.2015.7.14, which includes DrvAgent64.sys 1.0.0.1, allows a user to send an IOCTL (0x80"
+1501,CVE-2018-8711,A local file inclusion issue was discovered in the WooCommerce Products Filter (aka WOOF) plugin bef
+4958,CVE-2018-9006,"In Advanced SystemCare Ultimate 11.0.1.58, the driver file (Monitor_win7_x64.sys) allows local users"
+2330,CVE-2018-15421,A vulnerability in the Cisco Webex Network Recording Player for Microsoft Windows and the Cisco Webe
+3906,CVE-2019-0346,Unencrypted communication error in SAP Business Objects Business Intelligence Platform (Central Mana
+5755,CVE-2018-1679,IBM Sterling B2B Integrator Standard Edition 5.2 through 5.2.6 could allow an unauthenticated user t
+408,CVE-2017-5452,Malicious sites can display a spoofed addressbar on a page when the existing location bar on the new
+2879,CVE-2020-15105,"Django Two-Factor Authentication before 1.12, stores the user's password in clear text in the user s"
+3318,CVE-2019-0092,"Insufficient input validation vulnerability in subsystem for Intel(R) AMT before versions 11.8.65, 1"
+4881,CVE-2021-20101,Machform prior to version 16 is vulnerable to HTTP host header injection due to improperly validated
+4941,CVE-2021-3493,The overlayfs implementation in the linux kernel did not properly validate with respect to user name
+3182,CVE-2021-21551,Dell dbutil_2_3.sys driver contains an insufficient access control vulnerability which may lead to e
+1650,CVE-2018-1453,IBM Security Identity Manager Virtual Appliance 7.0 allows an authenticated attacker to upload or tr
+4556,CVE-2019-3702,A Remote Code Execution issue in the DNS Query Web UI in Lifesize Icon LS_RM3_3.7.0 (2421) allows re
+4879,CVE-2017-10910,MQTT.js 2.x.x prior to 2.15.0 issue in handling PUBLISH tickets may lead to an attacker causing a de
+977,CVE-2015-9108,In Android before 2018-04-05 or earlier security patch level on Qualcomm Snapdragon Automobile and S
+5680,CVE-2017-9279,NetIQ Identity Manager before 4.5.6.1 allowed uploading files with double extensions or non-image co
+3316,CVE-2018-1853,IBM Tivoli Storage Manager (IBM Spectrum Protect 7.1 and 8.1) could allow a remote attacker to hijac
+1874,CVE-2018-1321,"An administrator with report and template entitlements in Apache Syncope 1.2.x before 1.2.11, 2.0.x "
+2986,CVE-2018-17019,"In Bro through 2.5.5, there is a DoS in IRC protocol names command parsing in analyzer/protocol/irc/"
+5378,CVE-2020-5279,"In PrestaShop between versions 1.5.0.0 and 1.7.6.5, there are improper access control since the the "
+5813,CVE-2014-6437,"Aztech ADSL DSL5018EN (1T1R), DSL705E, and DSL705EU devices allow remote attackers to obtain sensiti"
+1992,CVE-2019-5035,An exploitable information disclosure vulnerability exists in the Weave PASE pairing functionality o
+5619,CVE-2016-0708,"Applications deployed to Cloud Foundry, versions v166 through v227, may be vulnerable to a remote di"
+2031,CVE-2018-18567,AudioCodes 440HD and 450HD devices 3.1.2.89 and earlier allows man-in-the-middle attackers to obtain
+3558,CVE-2020-6986,"In all versions of Omron PLC CJ Series, an attacker can send a series of specific data packets withi"
+4270,CVE-2021-20075,Racom's MIDGE Firmware 4.4.40.105 contains an issue that allows for privilege escalation via configd
+1870,CVE-2018-6630,"In Micropoint proactive defense software 2.0.20266.0146, the driver file (mp110005.sys) allows local"
+4093,CVE-2016-8625,curl before version 7.51.0 uses outdated IDNA 2003 standard to handle International Domain Names and
+1315,CVE-2010-3333,"Stack-based buffer overflow in Microsoft Office XP SP3, Office 2003 SP3, Office 2007 SP2, Office 201"
+3829,CVE-2018-12188,"Insufficient input validation in Intel CSME before versions 11.8.60, 11.11.60, 11.22.60 or 12.0.20 o"
+4607,CVE-2018-1135,An issue was discovered in Moodle 3.x. Students who posted on forums and exported the posts to portf
+296,CVE-2019-3566,A bug in WhatsApp for Android's messaging logic would potentially allow a malicious individual who h
+177,CVE-2014-6278,GNU Bash through 4.3 bash43-026 does not properly parse function definitions in the values of enviro
+4768,CVE-2019-10276,Western Bridge Cobub Razor 0.8.0 has a file upload vulnerability via the web/assets/swf/uploadify.ph
+4770,CVE-2019-6716,An unauthenticated Insecure Direct Object Reference (IDOR) in Wicket Core in LogonBox Nervepoint Acc
+1789,CVE-2017-16835,"The ""Photo,Video Locker-Calculator"" application 12.0 for Android has android:allowBackup=""true"" in A"
+2458,CVE-2018-12461,Fixed issues with NetIQ eDirectory prior to 9.1.1 when checking certificate revocation.
+676,CVE-2019-13383,"In CentOS-WebPanel.com (aka CWP) CentOS Web Panel 0.9.8.846, the Login process allows attackers to c"
+599,CVE-2016-10788,cPanel before 60.0.25 allows arbitrary code execution via Maketext in PostgreSQL adminbin (SEC-188).
+4801,CVE-2020-15211,"In TensorFlow Lite before versions 1.15.4, 2.0.3, 2.1.2, 2.2.1 and 2.3.1, saved models in the flatbu"
+1726,CVE-2018-14328,"Brynamics ""Online Trade - Online trading and cryptocurrency investment system"" allows remote attacke"
+1867,CVE-2017-5817,A Remote Code Execution vulnerability in HPE Intelligent Management Center (iMC) PLAT version 7.3 E0
+3366,CVE-2018-18281,"Since Linux kernel version 3.2, the mremap() syscall performs TLB flushes after dropping pagetable l"
+5357,CVE-2019-1072,A remote code execution vulnerability exists when Azure DevOps Server and Team Foundation Server (TF
+4195,CVE-2019-1943,"A vulnerability in the web interface of Cisco Small Business 200, 300, and 500 Series Switches softw"
+4416,CVE-2021-44321,"Mini-Inventory-and-Sales-Management-System is affected by Cross Site Request Forgery (CSRF), where a"
+5722,CVE-2016-10826,cPanel before 55.9999.141 allows attackers to bypass Two Factor Authentication via DNS clustering re
+2718,CVE-2018-20812,An information exposure issue where IPv6 DNS traffic would be sent outside of the VPN tunnel (when T
+3470,CVE-2017-18592,The woocommerce-catalog-enquiry plugin before 3.1.0 for WordPress has an incorrect wp_upload directo
+2572,CVE-2019-14475,eQ-3 Homematic CCU2 2.47.15 and prior and CCU3 3.47.15 and prior use session IDs for authentication 
+5464,CVE-2017-5456,A mechanism to bypass file system access protections in the sandbox using the file system request co
+1086,CVE-2019-9170,"An issue was discovered in GitLab Community and Enterprise Edition before 11.6.10, 11.7.x before 11."
+3265,CVE-2020-15118,"In Wagtail before versions 2.7.4 and 2.9.3, when a form page type is made available to Wagtail edito"
+5123,CVE-2019-3913,Command manipulation in LabKey Server Community Edition before 18.3.0-61806.763 allows an authentica
+3002,CVE-2019-0044,Receipt of a specific packet on the out-of-band management interface fxp0 may cause the system to cr
+5815,CVE-2018-1000022,Electrum Technologies GmbH Electrum Bitcoin Wallet version prior to version 3.0.5 contains a Missing
+5659,CVE-2020-15490,An issue was discovered on Wavlink WL-WN530HG4 M30HG4.V5030.191116 devices. Multiple buffer overflow
+1873,CVE-2014-5131,Avolve Software ProjectDox 8.1 makes it easier for remote authenticated users to obtain sensitive in
+4434,CVE-2018-8059,"The Djelibeybi configuration examples for use of NGINX in SUSE Portus 2.3, when applied to certain c"
+4763,CVE-2018-1650,IBM QRadar SIEM 7.2 and 7.3 uses hard-coded credentials which could allow an attacker to bypass the 
+3161,CVE-2018-12373,dDecrypted S/MIME parts hidden with CSS or the plaintext HTML tag can leak plaintext when included i
+5094,CVE-2021-20656,Exposure of information through directory listing in SolarView Compact SV-CPT-MC310 prior to Ver.6.5
+4831,CVE-2016-8641,A privilege escalation vulnerability was found in nagios 4.2.x that occurs in daemon-init.in when cr
+4295,CVE-2018-0337,A vulnerability in the role-based access-checking mechanisms of Cisco NX-OS Software could allow an 
+3047,CVE-2017-13305,A information disclosure vulnerability in the Upstream kernel encrypted-keys. Product: Android. Vers
+812,CVE-2019-7941,Adobe Campaign Classic version 18.10.5-8984 and earlier versions have an Information Exposure Throug
+5077,CVE-2019-11892,A potential improper access control vulnerability exists in the JSON-RPC interface of the Bosch Smar
+5044,CVE-2018-6210,"D-Link DIR-620 devices, with a certain Rostelekom variant of firmware 1.0.37, have a hardcoded roste"
+4088,CVE-2016-6547,The Zizai Tech Nut mobile app stores the account password used to authenticate to the cloud API in c
+1297,CVE-2019-6725,The rpWLANRedirect.asp ASP page is accessible without authentication on ZyXEL P-660HN-T1 V2 (2.00(AA
+1883,CVE-2018-0279,A vulnerability in the Secure Copy Protocol (SCP) server of Cisco Enterprise NFV Infrastructure Soft
+1407,CVE-2021-22173,Memory leak in USB HID dissector in Wireshark 3.4.0 to 3.4.2 allows denial of service via packet inj
+1612,CVE-2018-15454,A vulnerability in the Session Initiation Protocol (SIP) inspection engine of Cisco Adaptive Securit
+2104,CVE-2018-1454,"IBM InfoSphere Information Server 11.3, 11.5, and 11.7 could allow a remote attacker to obtain sensi"
+3941,CVE-2018-13820,"A hardcoded passphrase, in CA Unified Infrastructure Management 8.5.1, 8.5, and 8.4.7, allows attack"
+2417,CVE-2019-13406,A broken access control vulnerability found in Advan VD-1 firmware versions up to 230. An attacker c
+5644,CVE-2019-5351,A remote code execution vulnerability was identified in HPE Intelligent Management Center (IMC) PLAT
+5798,CVE-2021-41674,An SQL Injection vulnerability exists in Sourcecodester E-Negosyo System 1.0 via the user_email para
+2422,CVE-2023-21839,Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  
+1918,CVE-2019-5344,A remote code execution vulnerability was identified in HPE Intelligent Management Center (IMC) PLAT
+3858,CVE-2018-0839,"Microsoft Edge in Microsoft Windows 10 1703 allows information disclosure, due to how Edge handles o"
+4176,CVE-2019-0258,"SAP Disclosure Management, version 10.01, does not perform necessary authorization checks for an aut"
+4897,CVE-2018-9948,This vulnerability allows remote attackers to disclose sensitive information on vulnerable installat
+1379,CVE-2019-11321,An issue was discovered in Motorola CX2 1.01 and M2 1.01. The router opens TCP port 8010. Users can 
+805,CVE-2018-1990,"IBM Cloud App Management V2018.2.0, V2018.4.0, and V2018.4.1 could allow an attacker to obtain sensi"
+1351,CVE-2018-2451,"XS Command-Line Interface (CLI) user sessions with the SAP HANA Extended Application Services (XS), "
+2622,CVE-2018-4417,A validation issue was addressed with improved input sanitization. This issue affected versions prio
+1197,CVE-2018-5157,"Same-origin protections for the PDF viewer can be bypassed, allowing a malicious site to intercept m"
+1480,CVE-2021-34733,A vulnerability in the CLI of Cisco Prime Infrastructure and Cisco Evolved Programmable Network (EPN
+4727,CVE-2017-12520,A Remote Code Execution vulnerability in HPE Intelligent Management Center (iMC) PLAT version PLAT 7
+1471,CVE-2023-45868,The Learning Module in ILIAS 7.25 (2023-09-12 release) allows an attacker (with basic user privilege
+1862,CVE-2018-15797,"Cloud Foundry NFS volume release, 1.2.x prior to 1.2.5, 1.5.x prior to 1.5.4, 1.7.x prior to 1.7.3, "
+4648,CVE-2022-27419,rtl_433 21.12 was discovered to contain a stack overflow in the function acurite_00275rm_decode at /
+3918,CVE-2019-3735,"Dell SupportAssist for Business PCs version 2.0 and Dell SupportAssist for Home PCs version 2.2, 2.2"
+1212,CVE-2018-6982,VMware ESXi 6.7 without ESXi670-201811401-BG and VMware ESXi 6.5 without ESXi650-201811301-BG contai
+3761,CVE-2018-12196,"Insufficient input validation in Intel(R) AMT in Intel(R) CSME before version 11.8.60, 11.11.60, 11."
+5524,CVE-2018-6633,"In Micropoint proactive defense software 2.0.20266.0146, the driver file (mp110005.sys) allows local"
+4765,CVE-2019-6133,"In PolicyKit (aka polkit) 0.115, the ""start time"" protection mechanism can be bypassed because fork("
+5628,CVE-2018-16307,"An ""Out-of-band resource load"" issue was discovered on Xiaomi MIWiFi Xiaomi_55DD Version 2.8.50 devi"
+1728,CVE-2018-10870,redhat-certification does not properly sanitize paths in rhcertStore.py:__saveResultsFile. A remote 
+3803,CVE-2017-7539,"An assertion-failure flaw was found in Qemu before 2.10.1, in the Network Block Device (NBD) server'"
+5325,CVE-2018-1999025,A man in the middle vulnerability exists in Jenkins TraceTronic ECU-TEST Plugin 2.3 and earlier in A
+783,CVE-2018-15125,Sensitive Information Disclosure in Zipato Zipabox Smart Home Controller allows remote attacker get 
+4245,CVE-2019-9949,"Western Digital My Cloud Cloud, Mirror Gen2, EX2 Ultra, EX2100, EX4100, DL2100, DL4100, PR2100 and P"
+3320,CVE-2019-1861,A vulnerability in the software update feature of Cisco Industrial Network Director could allow an a
+2321,CVE-2017-17312,Some Huawei Firewall products USG2205BSR V300R001C10SPC600; USG2220BSR V300R001C00; USG5120BSR V300R
+2586,CVE-2018-5088,"In K7 AntiVirus 15.1.0306, the driver file (K7FWHlpr.sys) allows local users to cause a denial of se"
+1433,CVE-2018-4198,An issue was discovered in certain Apple products. iOS before 11.4 is affected. macOS before 10.13.5
+3834,CVE-2019-5890,An issue was discovered in OverIT Geocall 6.3 before build 2:346977. Weak authentication and session
+3715,CVE-2018-6008,Arbitrary File Download exists in the Jtag Members Directory 5.3.7 component for Joomla! via the dow
+538,CVE-2018-1000141,"I, Librarian version 4.9 and earlier contains an Incorrect Access Control vulnerability in ajaxdiscu"
+2135,CVE-2014-7169,GNU Bash through 4.3 bash43-025 processes trailing strings after certain malformed function definiti
+3523,CVE-2018-20152,"In WordPress before 4.9.9 and 5.x before 5.0.1, authors could bypass intended restrictions on post t"
+2086,CVE-2014-5132,Avolve Software ProjectDox 8.1 allows remote attackers to enumerate users via vectors related to ema
+101,CVE-2017-12118,An exploitable improper authorization vulnerability exists in miner_stop API of cpp-ethereum's JSON-
+3235,CVE-2018-15818,An issue was discovered in Repute ARForms 3.5.1 and prior. An attacker is able to delete any file on
+319,CVE-2018-6460,Hotspot Shield runs a webserver with a static IP address 127.0.0.1 and port 895. The web server uses
+2548,CVE-2018-18996,LCDS Laquis SCADA prior to version 4.1.0.4150 allows taking in user input without proper authorizati
+157,CVE-2018-14859,Incorrect access control in the password reset component in Odoo Community 11.0 and earlier and Odoo
+4921,CVE-2018-1481,IBM BigFix Platform 9.2.0 through 9.2.14 and 9.5 through 9.5.9 stores sensitive information in URL p
+5554,CVE-2018-3854,An exploitable information disclosure vulnerability exists in the password protection functionality 
+4545,CVE-2018-17489,"EasyLobby Solo could allow a local attacker to obtain sensitive information, caused by the storing o"
+865,CVE-2018-8580,An information disclosure vulnerability exists where certain modes of the search function in Microso
+4710,CVE-2021-41675,A Remote Code Execution (RCE) vulnerabilty exists in Sourcecodester E-Negosyo System 1.0 in /admin/p
+5678,CVE-2018-8715,"The Embedthis HTTP library, and Appweb versions before 7.0.3, have a logic flaw related to the authC"
+5662,CVE-2021-21972,The vSphere Client (HTML5) contains a remote code execution vulnerability in a vCenter Server plugin
+3388,CVE-2018-14885,Incorrect access control in the database manager component in Odoo Community 10.0 and 11.0 and Odoo 
+952,CVE-2018-19577,"Gitlab CE/EE, versions 8.6 up to 11.x before 11.3.11, 11.4 before 11.4.8, and 11.5 before 11.5.1, ar"
+3856,CVE-2017-12507,A Remote Code Execution vulnerability in HPE Intelligent Management Center (iMC) PLAT version PLAT 7
+1438,CVE-2018-15319,"On BIG-IP 14.0.0-14.0.0.2, 13.0.0-13.1.1.1, or 12.1.0-12.1.3.6, malicious requests made to virtual s"
+604,CVE-2021-33326,Cross-site scripting (XSS) vulnerability in the Frontend JS module in Liferay Portal 7.3.4 and earli
+239,CVE-2021-35235,The ASP.NET debug feature is enabled by default in Kiwi Syslog Server 9.7.2 and previous versions. A
+1183,CVE-2014-5394,Multiple Huawei Campus switches allow remote attackers to enumerate usernames via vectors involving 
+3658,CVE-2018-1685,"IBM DB2 for Linux, UNIX and Windows (includes DB2 Connect Server) 9.7, 10.1, 10.5, and 11.1 contains"
+1544,CVE-2021-34537,Windows Bluetooth Driver Elevation of Privilege Vulnerability
+5718,CVE-2018-18371,The ASG/ProxySG FTP proxy WebFTP mode allows intercepting FTP connections where a user accesses an F
+5808,CVE-2020-11044,"In FreeRDP greater than 1.2 and before 2.0.0, a double free in update_read_cache_bitmap_v3_order cra"
+156,CVE-2019-3950,Arlo Basestation firmware 1.12.0.1_27940 and prior contain a hardcoded username and password combina
+3849,CVE-2020-25540,ThinkAdmin v6 is affected by a directory traversal vulnerability. An unauthorized attacker can read 
+199,CVE-2018-0362,A vulnerability in BIOS authentication management of Cisco 5000 Series Enterprise Network Compute Sy
+2409,CVE-2018-20523,Xiaomi Stock Browser 10.2.4.g on Xiaomi Redmi Note 5 Pro devices and other Redmi Android phones allo
+233,CVE-2017-18460,cPanel before 62.0.17 allows arbitrary code execution during automatic SSL installation (SEC-221).
+2412,CVE-2019-6726,The WP Fastest Cache plugin through 0.8.9.0 for WordPress allows remote attackers to delete arbitrar
+5649,CVE-2018-16386,An issue was discovered in SWIFT Alliance Web Platform 7.1.23. A log injection (and an arbitrary log
+4240,CVE-2017-18326,Cryptographic keys are printed in modem debug messages in snapdragon mobile and snapdragon wear in v
+4231,CVE-2017-1000600,WordPress version <4.9 contains a CWE-20 Input Validation vulnerability in thumbnail processing that
+1965,CVE-2018-1000621,Mycroft AI mycroft-core version 18.2.8b and earlier contains a Incorrect Access Control vulnerabilit
+3085,CVE-2019-1805,A vulnerability in certain access control mechanisms for the Secure Shell (SSH) server implementatio
+3393,CVE-2019-13980,"In Directus 7 API through 2.3.0, uploading of PHP files is blocked only when the Apache HTTP Server "
+1485,CVE-2020-5332,"RSA Archer, versions prior to 6.7 P3 (6.7.0.3), contain a command injection vulnerability. AN authen"
+626,CVE-2017-12521,A Remote Code Execution vulnerability in HPE Intelligent Management Center (iMC) PLAT version PLAT 7
+4359,CVE-2018-0886,The Credential Security Support Provider protocol (CredSSP) in Microsoft Windows Server 2008 SP2 and
+132,CVE-2019-1752,A vulnerability in the ISDN functions of Cisco IOS Software and Cisco IOS XE Software could allow an
+5793,CVE-2019-2254,Position determination accuracy may be degraded due to wrongly decoded information in Snapdragon Aut
+2440,CVE-2017-15111,keycloak-httpd-client-install versions before 0.8 insecurely creates temporary file allowing local a
+167,CVE-2020-10775,"An Open redirect vulnerability was found in ovirt-engine versions 4.4 and earlier, where it allows r"
+3489,CVE-2018-5377,Discuz! DiscuzX X3.4 allows remote attackers to bypass intended access restrictions via the archiver
+346,CVE-2017-18345,"The Joomanager component through 2.0.0 for Joomla! has an arbitrary file download issue, resulting i"
+4161,CVE-2018-0384,A vulnerability in the detection engine of Cisco FireSIGHT System Software could allow an unauthenti
+5054,CVE-2018-10915,"A vulnerability was found in libpq, the default PostgreSQL client library where libpq failed to prop"
+426,CVE-2018-20151,"In WordPress before 4.9.9 and 5.x before 5.0.1, the user-activation page could be read by a search e"
+1425,CVE-2017-7170,An issue was discovered in certain Apple products. macOS before 10.13.1 is affected. The issue invol
+4272,CVE-2021-35045,"Cross site scripting (XSS) vulnerability in Ice Hrm 29.0.0.OS, allows attackers to execute arbitrary"
+2954,CVE-2018-8111,A remote code execution vulnerability exists when Microsoft Edge improperly accesses objects in memo
+2894,CVE-2017-1669,"IBM Tivoli Key Lifecycle Manager 2.5, 2.6, and 2.7 stores sensitive information in URL parameters. T"
+439,CVE-2019-2118,"In various functions of Parcel.cpp, there are uninitialized or partially initialized stack variables"
+2570,CVE-2019-11521,OX App Suite 7.10.1 allows Content Spoofing.
+3768,CVE-2019-12150,Karamasoft UltimateEditor 1 does not ensure that an uploaded file is an image or document (neither f
+764,CVE-2018-1234,RSA Authentication Agent version 8.0.1 and earlier for Web for IIS is affected by a problem where ac
+1194,CVE-2018-3649,DLL injection vulnerability in the installation executables (Autorun.exe and Setup.exe) for Intel's 
+393,CVE-2018-7408,"An issue was discovered in an npm 5.7.0 2018-02-21 pre-release (marked as ""next: 5.7.0"" and therefor"
+2346,CVE-2019-1833,A vulnerability in the Secure Sockets Layer (SSL)/Transport Layer Security (TLS) protocol parser of 
+2445,CVE-2017-6169,"In versions 13.0.0, 12.0.0-12.1.3, or 11.6.0-11.6.2, an F5 BIG-IP virtual server using the URL categ"
+5599,CVE-2017-12499,A Remote Code Execution vulnerability in HPE Intelligent Management Center (iMC) PLAT version PLAT 7
+4046,CVE-2019-9935,Various Lexmark products have Incorrect Access Control (issue 2 of 2).
+1084,CVE-2019-3933,Crestron AM-100 with firmware 1.6.0.2 and AM-101 with firmware 2.7.0.2 allows anyone to bypass the p
