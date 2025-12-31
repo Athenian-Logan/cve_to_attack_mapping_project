@@ -20,35 +20,26 @@ API_KEYS = [
 ]
 
 RESULTS_PER_PAGE = 2000
+PAGES_PER_FILE = 10  # Save every 10 pages to a new file
 MAX_RETRIES = 3
 RETRY_DELAY = 5  # seconds
 
-def save_to_json_file(data, filename, mode='a'):
-    """Save data to JSON file incrementally."""
+def save_batch_to_json(data, batch_num):
+    """Save a batch of data to a new JSON file."""
     try:
-        # Create directory if it doesn't exist
-        os.makedirs(os.path.dirname(filename), exist_ok=True)
+        output_dir = "scripts/json_dumps/batches"
+        os.makedirs(output_dir, exist_ok=True)
         
-        with open(filename, mode, encoding='utf-8') as json_file:
-            if mode == 'a' and os.path.getsize(filename) > 0:
-                # Remove the closing bracket if appending to existing file
-                json_file.seek(0, os.SEEK_END)
-                json_file.seek(json_file.tell() - 1, os.SEEK_SET)
-                json_file.truncate()
-                json_file.write(',\n')
-            
+        filename = f"{output_dir}/nvd_batch_{batch_num:03d}.json"
+        
+        with open(filename, 'w', encoding='utf-8') as json_file:
             json.dump(data, json_file, indent=2)
-            
-            if mode == 'a':
-                json_file.write('\n]')
-            else:
-                json_file.write('\n')
                 
-        logging.info(f"Saved {len(data)} items to {filename}")
-        return True
+        logging.info(f"Saved batch {batch_num} with {len(data)} items to {filename}")
+        return filename
     except Exception as e:
-        logging.error(f"Error saving to file {filename}: {e}")
-        return False
+        logging.error(f"Error saving batch {batch_num}: {e}")
+        return None
 
 def make_nvd_request(url, headers, retry_count=0):
     """Make a request to NVD API with retry logic."""
@@ -79,20 +70,15 @@ def make_nvd_request(url, headers, retry_count=0):
     return None
 
 def download_nvd_data():
-    """Download all NVD CVE data incrementally."""
-    logging.info("Beginning NVD Downloader...")
-    
-    # Output file
-    output_file = "scripts/json_dumps/nvd_json_dump.json"
-    
-    # Initialize file with empty array
-    with open(output_file, 'w', encoding='utf-8') as f:
-        f.write('[\n')
+    """Download all NVD CVE data incrementally and save in batches."""
+    logging.info("Beginning NVD Downloader with batch saving...")
     
     key_index = 0
     start_index = 0
     total_cves = 0
-    batch_size = 100  # Save every 100 vulnerabilities to file
+    batch_num = 0
+    current_batch = []
+    page_count = 0
     
     while True:
         # Construct API URL
@@ -103,7 +89,7 @@ def download_nvd_data():
         
         headers = {"apiKey": API_KEYS[key_index]}
         
-        logging.info(f"Requesting data: startIndex={start_index}, total so far={total_cves}")
+        logging.info(f"Requesting data: startIndex={start_index}, page={page_count + 1}")
         
         try:
             # Make request with retry logic
@@ -118,16 +104,22 @@ def download_nvd_data():
             
             if not vulnerabilities:
                 logging.info("No more vulnerabilities found. Download complete.")
+                # Save the last batch if it has data
+                if current_batch:
+                    save_batch_to_json(current_batch, batch_num)
                 break
             
-            # Get total results for progress tracking
-            total_results = response_json.get("totalResults", 0)
-            logging.info(f"Retrieved {len(vulnerabilities)} vulnerabilities. Total in dataset: {total_results}")
+            # Add vulnerabilities to current batch
+            current_batch.extend(vulnerabilities)
+            page_count += 1
+            total_cves += len(vulnerabilities)
             
-            # Save current batch to file
-            if vulnerabilities:
-                save_to_json_file(vulnerabilities, output_file, mode='a')
-                total_cves += len(vulnerabilities)
+            # Check if we need to save this batch and start a new one
+            if page_count >= PAGES_PER_FILE:
+                save_batch_to_json(current_batch, batch_num)
+                batch_num += 1
+                current_batch = []
+                page_count = 0
             
             # Update start index for next request
             start_index += RESULTS_PER_PAGE
@@ -140,6 +132,9 @@ def download_nvd_data():
             
         except KeyboardInterrupt:
             logging.info("Download interrupted by user.")
+            # Save current batch before exiting
+            if current_batch:
+                save_batch_to_json(current_batch, batch_num)
             break
         except Exception as e:
             logging.error(f"Unexpected error: {e}")
@@ -148,7 +143,7 @@ def download_nvd_data():
             time.sleep(RETRY_DELAY)
     
     logging.info(f"Download complete. Total CVEs downloaded: {total_cves}")
-    logging.info(f"Data saved to: {output_file}")
+    logging.info(f"Data saved in batches to: scripts/json_dumps/batches/")
 
 def main():
     """Main function with error handling."""

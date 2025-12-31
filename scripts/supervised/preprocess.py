@@ -1,11 +1,11 @@
 import re
 from cwe2.database import Database
 import requests
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 
 db = Database()
 
-def preprocess_cvss_v2(cvss):
+""" def preprocess_cvss_v2(cvss):
     if cvss is None:
         return None
     
@@ -78,7 +78,7 @@ def preprocess_cvss_v3x(cvss):
             f"The CVE has {confidentiality_impact} Confidentiality Impact.\n"
             f"The CVE has {integrity_impact} Integrity Impact.\n"
             f"The CVE has {availability_impact} Availability Impact.\n"
-        )
+        ) """
 
 def preprocess_cwe_ids(ids):
     if not ids:
@@ -137,7 +137,7 @@ def preprocess_cpe(cpe):
     # Construct a human-readable description without the version
     return f"The CVE affects {vendor_name.capitalize()} {product_name.capitalize()} {component_type}."
 
-def get_capec_title(capec_id):
+""" def get_capec_title(capec_id):
     url = f"https://capec.mitre.org/data/definitions/{capec_id}.html"
     try:
         response = requests.get(url, timeout=5)
@@ -189,3 +189,4 @@ def preprocess_capec(cwe_ids):
     if not capec_titles:
         return None
     return ', '.join(sorted(capec_titles))
+ """
