@@ -3,8 +3,8 @@ import requests
 import time
 
 # File paths
-input_file = "scripts/supervised/datasets/enriched_with_capec_tactic/enriched_full_data.csv"
-output_file = "scripts/supervised/datasets/enriched_with_capec_tactic/enriched_full_data.csv"
+input_file = "scripts/supervised/datasets/multi_modal/enriched_full_data.csv"
+output_file = "scripts/supervised/datasets/multi_modal/enriched_full_data.csv"
 
 # Load the CSV file into a DataFrame
 df = pd.read_csv(input_file, encoding="utf-8")
