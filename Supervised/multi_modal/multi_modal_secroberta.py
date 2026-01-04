@@ -1,166 +1,100 @@
 import pandas as pd
 import numpy as np
-import pickle
-import matplotlib.pyplot as plt
-import seaborn as sns
-import re
-import copy
-from tqdm import tqdm
-import gc
-
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 from torch import optim
 from torch.utils.data import Dataset, DataLoader
-
-from sklearn.model_selection import train_test_split
-
-from sklearn.metrics import (
-    accuracy_score,
-    f1_score,
-    precision_score,
-    recall_score,
-    classification_report
-)
-
-from transformers import (
-    AutoTokenizer,
-    AutoModel,
-    get_linear_schedule_with_warmup
-)
-
-import nltk
+from tqdm import tqdm
 import re
-from nltk.corpus import stopwords
-from nltk.stem import PorterStemmer, WordNetLemmatizer
-from nltk.tokenize import word_tokenize
-
-from transformers import BertTokenizer, BertForMaskedLM
-from transformers import AutoTokenizer, AutoModelForMaskedLM
-
+import copy
+import sys
 from sklearn.metrics import (
-    recall_score,
-    precision_score
-  )
+    accuracy_score, f1_score, precision_score, recall_score,
+    multilabel_confusion_matrix
+)
+from transformers import (
+    AutoTokenizer, AutoModel, get_linear_schedule_with_warmup
+)
 
-from sklearn.metrics import multilabel_confusion_matrix
-
-best_model = None
-
-################################################################
+# ---------------------------------------------------------
+# 1. Configuration & Global State
+# ---------------------------------------------------------
+class Config:
+    def __init__(self):
+        self.SEED = 42
+        self.MODEL_PATH = 'jackaduma/SecRoBERTa'
+        self.NUM_LABELS = 14
+        self.TOKENIZER = AutoTokenizer.from_pretrained(self.MODEL_PATH)
+        self.MAX_LENGTH = 320 
+        self.BATCH_SIZE = 16
+        self.DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.LR = 3.884755049077609e-05 
+        self.EPOCHS = 5
+        self.N_VALIDATE_DUR_TRAIN = 3
 
 BEST_F1 = 0
 BEST_TRUE = []
 BEST_PREDICTED = []
 
-################################################################
+# ---------------------------------------------------------
+# 2. Feature Engineering Helpers
+# ---------------------------------------------------------
+CVSS_IMPACT_MAP_V3 = {"N": 0.0, "L": 0.22, "H": 0.56}
+CVSS_IMPACT_MAP_V2 = {"N": 0.0, "P": 0.275, "C": 0.66}
+
+def parse_cvss(cvss):
+    cont = torch.tensor([0.0, 0.0, 0.0])  # C, I, A
+    cat = torch.tensor([0, 0, 0, 0, 0])   # AV, AC, PR, UI, Scope
+    if not isinstance(cvss, str) or len(cvss) < 5: return cont, cat
+    
+    av_map, ac_map, pr_map, ui_map, s_map = {"N":0,"A":1,"L":2,"P":3}, {"L":0,"M":1,"H":2}, {"N":0,"L":1,"H":2}, {"N":0,"R":1}, {"U":0,"C":1}
+
+    try:
+        parts = dict(p.split(":") for p in cvss.split("/") if ":" in p)
+        if cvss.startswith("CVSS:3"):
+            cont = torch.tensor([CVSS_IMPACT_MAP_V3.get(parts.get(k, "N"), 0.0) for k in ["C", "I", "A"]])
+            cat = torch.tensor([av_map.get(parts.get("AV", "N"), 0), ac_map.get(parts.get("AC", "L"), 0),
+                                pr_map.get(parts.get("PR", "N"), 0), ui_map.get(parts.get("UI", "N"), 0),
+                                s_map.get(parts.get("S", "U"), 0)])
+        else:
+            cont = torch.tensor([CVSS_IMPACT_MAP_V2.get(parts.get(k, "N"), 0.0) for k in ["C", "I", "A"]])
+            cat = torch.tensor([av_map.get(parts.get("AV", "N"), 0), ac_map.get(parts.get("AC", "L"), 0),
+                                pr_map.get(parts.get("Au", "N"), 0), 0, 0])
+    except: pass
+    return cont, cat
+
+def extract_cpe_type(text):
+    t = str(text).lower()
+    return 0 if "operating system" in t else 1 if "application" in t else 2 if "hardware" in t else 3
 
 def clean_abstract(text):
-    # Replace versions with the word "VERSION"
-    version_pattern = r"\d+(\.\d+)+"
-    updated_text = re.sub(version_pattern, "version", text)
+    text = re.sub(r"\d+(\.\d+)+", "version", str(text))
+    return re.sub(r'CVE-\d{1,5}-\d{1,5}', "CVE", text)
 
-    # Replace other CVE references
-    version_pattern = r'CVE-\d{1,5}-\d{1,5}'
-    updated_text = re.sub(version_pattern, "CVE", updated_text)
-
-    return updated_text
-
-def clean_cpe(text):
-    """Replace general product names with 'Product' while preserving OS names."""
-
-    # OS names to preserve
-    os_keywords = ["Windows", "MacOS", "Linux", "Mac_os_x", "Linux_kernel"]
-
-    # Regex to match vendor, product, and component
-    product_pattern = (
-        r"The CVE affects (?P<vendor>[a-zA-Z0-9_ \-\\\/]+) "
-        r"(?P<product>[a-zA-Z0-9_ \-\\\/]+) "
-        r"(?P<component>Operating System|Application|Hardware)\."
+def clean_cpe_text(text):
+    match = re.search(
+        r"The CVE affects (?P<vendor>[^ ]+) (?P<product>[^ ]+) (?P<type>Operating System|Application|Hardware)\.",
+        str(text)
     )
-
-    match = re.search(product_pattern, text)
     if match:
-        vendor, product, component = match.group("vendor"), match.group("product"), match.group("component")
-        
-        # Preserve known OS names
-        if any(os_name.lower() in product.lower() for os_name in os_keywords):
-            return f"The CVE affects {vendor} {product} {component}."
-        
-        # Generalise other product names
-        return f"The CVE affects {vendor} Product {component}."
+        vendor, product, _ = match.groups()
+        return f"The CVE affects {vendor} {product}."
+    return str(text)
 
-    return text  # Return original text if no match
-
-def get_texts(df):
-    texts = df['Text'].apply(clean_abstract)
-    texts = texts.values.tolist()
-    return texts
-
-def get_epss(df):
-    return df['EPSS'].tolist()
-
-def get_cvss(df):
-    return df['CVSS'].tolist()
-
-def get_cwe(df):
-    return df['CWE'].tolist()
-
-def get_cpe(df):
-    cpe = df['CPE'].apply(clean_cpe)
-    # print(cpe.tolist())
-    return cpe.tolist()
-    # return df['CPE Description'].tolist()
-
-def get_labels(df):
-    labels = df.iloc[:, 6:].values
-    return labels
-
-def get_ids(df):
-    ids = df['ID'].values.tolist()
-    return ids
-
-"""# Config"""
-
-class Config:
-    def __init__(self):
-        super(Config, self).__init__()
-
-        self.SEED = 42
-        self.MODEL_PATH = 'jackaduma/SecRoBERTa'
-        self.NUM_LABELS = 14
-
-        self.TOKENIZER = AutoTokenizer.from_pretrained(self.MODEL_PATH)
-        self.MAX_LENGTH = 320
-        self.BATCH_SIZE = 16 # Same post hyperparameter training
-
-        self.DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        self.FULL_FINETUNING = True
-        self.LR = 3.884755049077609e-05 # Changed from 3e-5 post hyperparameter tuning
-        self.OPTIMIZER = 'AdamW'
-        self.CRITERION = 'BCEWithLogitsLoss'
-        self.N_VALIDATE_DUR_TRAIN = 3
-        self.N_WARMUP = 0
-        self.SAVE_BEST_ONLY = True
-        self.EPOCHS = 5 # Same post hyperparameter training
-
-"""## Dataset & Dataloader"""
-
-class TransformerDataset(Dataset):
+# ---------------------------------------------------------
+# 3. Multi-Modal Dataset
+# ---------------------------------------------------------
+class MultiModalDataset(Dataset):
     def __init__(self, df, indices, set_type=None):
-        super(TransformerDataset, self).__init__()
-
         df = df.iloc[indices]
-        self.texts = get_texts(df)
-        self.epss = get_epss(df)
-        self.cvss = get_cvss(df)
-        self.cwe = get_cwe(df)
-        self.cpe = get_cpe(df)
+        self.texts = df['Text'].apply(clean_abstract).tolist()
+        self.cwes = df['CWE'].fillna("Unknown CWE").tolist()
+        self.cpe_desc = df['CPE'].apply(clean_cpe_text).tolist()
+        self.epss = df['EPSS'].astype(float).tolist()
+        self.cvss_raw = df['CVSS'].tolist()
         self.set_type = set_type
         if self.set_type != 'test':
-            self.labels = get_labels(df)
-
+            self.labels = df.iloc[:, 6:].values
         self.tokenizer = Config().TOKENIZER
         self.max_length = Config().MAX_LENGTH
 
@@ -168,347 +102,191 @@ class TransformerDataset(Dataset):
         return len(self.texts)
 
     def __getitem__(self, index):
-        # Concatenate all text fields into one string
-        text = " ".join([
-            str(self.texts[index]),
-            str(self.epss[index]),
-            str(self.cvss[index]),
-            str(self.cwe[index]),
-            str(self.cpe[index])
-        ])
+        # Concatenate text with SHAP tags. EPSS and CVSS are REMOVED from the string.
+        raw_text = (
+            "[ABSTRACT] " + str(self.texts[index]) +
+            " [CWE] " + str(self.cwes[index]) +
+            " [CPE] " + str(self.cpe_desc[index])
+        )
+        
         tokenized = self.tokenizer.encode_plus(
-            text,
-            max_length=self.max_length,
-            padding="max_length",
-            truncation=True,
-            return_attention_mask=True,
-            return_token_type_ids=False,
-            return_tensors='pt'
+            raw_text, max_length=self.max_length, padding="max_length",
+            truncation=True, return_attention_mask=True, return_tensors='pt'
         )
-
-        input_ids = tokenized['input_ids'].squeeze()
-        attention_mask = tokenized['attention_mask'].squeeze()
-
-        if self.set_type != 'test':
-            return {
-                'input_ids': input_ids.long(),
-                'attention_mask': attention_mask.long(),
-                'labels': torch.Tensor(self.labels[index]).float(),
-            }
-
-        return {
-            'input_ids': input_ids.long(),
-            'attention_mask': attention_mask.long(),
+        cvss_cont, cvss_cat = parse_cvss(self.cvss_raw[index])
+        
+        item = {
+            'input_ids': tokenized['input_ids'].squeeze().long(),
+            'attention_mask': tokenized['attention_mask'].squeeze().long(),
+            'epss': torch.tensor(self.epss[index], dtype=torch.float),
+            'cvss_cont': cvss_cont.float(),
+            'cvss_cat': cvss_cat.long(),
+            'cpe_type': torch.tensor(extract_cpe_type(self.cpe_desc[index]), dtype=torch.long)
         }
+        if self.set_type != 'test':
+            item['labels'] = torch.Tensor(self.labels[index]).float()
+        return item
 
-"""# Model"""
-
-class Model(nn.Module):
+# ---------------------------------------------------------
+# 4. Multi-Modal Model Architecture
+# ---------------------------------------------------------
+class MultiModalModel(nn.Module):
     def __init__(self):
-        super(Model, self).__init__()
+        super(MultiModalModel, self).__init__()
+        self.transformer = AutoModel.from_pretrained(Config().MODEL_PATH)
+        self.dropout = nn.Dropout(0.4864913766068174)
+        
+        self.av_emb = nn.Embedding(4, 4); self.ac_emb = nn.Embedding(3, 2)
+        self.pr_emb = nn.Embedding(3, 2); self.ui_emb = nn.Embedding(2, 2)
+        self.s_emb = nn.Embedding(2, 2);  self.cpe_emb = nn.Embedding(4, 4)
 
-        self.transformer_model = AutoModel.from_pretrained(
-                Config().MODEL_PATH
-        )
-        self.dropout = nn.Dropout(0.4864913766068174) # Changed from 0.3 post hyperparameter tuning
+        self.numeric_mlp = nn.Sequential(nn.Linear(20, 64), nn.ReLU(), nn.Dropout(0.2))
+        self.output = nn.Linear(768 + 64, Config().NUM_LABELS)
 
-        self.output = nn.Linear(768, Config().NUM_LABELS)
+    def forward(self, input_ids, attention_mask, epss, cvss_cont, cvss_cat, cpe_type):
+        _, o2 = self.transformer(input_ids=input_ids, attention_mask=attention_mask, return_dict=False)
+        text_feats = self.dropout(o2)
 
-    def forward(
-        self,
-        input_ids,
-        attention_mask=None,
-        token_type_ids=None
-        ):
+        embs = torch.cat([self.av_emb(cvss_cat[:, 0]), self.ac_emb(cvss_cat[:, 1]),
+                          self.pr_emb(cvss_cat[:, 2]), self.ui_emb(cvss_cat[:, 3]),
+                          self.s_emb(cvss_cat[:, 4]), self.cpe_emb(cpe_type)], dim=1)
 
-        _, o2 = self.transformer_model(
-            input_ids=input_ids,
-            attention_mask=attention_mask,
-            token_type_ids=token_type_ids,
-            return_dict=False
-        )
+        num_feats = self.numeric_mlp(torch.cat([epss.unsqueeze(1), cvss_cont, embs], dim=1))
+        return self.output(torch.cat([text_feats, num_feats], dim=1))
 
-        x = self.dropout(o2)
-        out = self.output(x)
-
-        return out
-
-"""# Train and test"""
-
-def compute_metrics(predicted_y, true_y, metric_function, columns, limit):
-  results = pd.DataFrame(columns = columns)
-  if (metric_function == accuracy_score):
-    results.loc[len(results)] = metric_function(true_y, predicted_y)
-  else:
-    results.loc[len(results)] = metric_function(true_y, predicted_y, average=None)
-
-  sorted_results = results.sort_values(by=0, axis=1, ascending=False)
-
-  for col in sorted_results.columns[:limit]:
-        print(f"{col}: {sorted_results[col].values[0]}")
-
-  return sorted_results.iloc[:, :limit]
-
-
-def print_F1_based_on_distribution(y_true, y_pred, Y, columns):
-  fig,ax = plt.subplots()
-
-  results = pd.DataFrame(columns = columns)
-  results.loc[len(results)] = f1_score(y_true, y_pred, average=None)
-
-  Y_count = Y.apply(np.sum, axis=0)
-  Y_count_sorted = Y_count.sort_values(ascending=False)
-
-  ax.bar(Y_count_sorted.index, Y_count_sorted.values)
-  ax.set_xlabel("Tactics")
-  ax.set_ylabel("Number of CVEs")
-  plt.xticks(rotation=90)
-
-  ax2=ax.twinx()
-  ax2.plot(Y_count_sorted.index, results[Y_count_sorted.index].iloc[0], color='red')
-  ax2.set_ylabel("F1 Score")
-
-  ax = plt.gca()
-  plt.show()
-
+# ---------------------------------------------------------
+# 5. Training & Validation Utilities
+# ---------------------------------------------------------
 def val(model, val_dataloader, criterion, is_final_test=False):
     global BEST_F1, BEST_TRUE, BEST_PREDICTED, device
-
-    val_loss = 0
-    true, pred = [], []
-
+    val_loss, true, pred = 0, [], []
     model.eval()
 
-    for step, batch in enumerate(val_dataloader):
-        b_input_ids = batch['input_ids'].to(device)
-        b_attention_mask = batch['attention_mask'].to(device)
-        b_labels = batch['labels'].to(device)
-
+    for batch in val_dataloader:
+        batch = {k: v.to(device) if isinstance(v, torch.Tensor) else v for k, v in batch.items()}
         with torch.no_grad():
-            logits = model(input_ids=b_input_ids, attention_mask=b_attention_mask)
+            logits = model(
+                batch['input_ids'],
+                batch['attention_mask'],
+                batch['epss'],
+                batch['cvss_cont'],
+                batch['cvss_cat'],
+                batch['cpe_type']
+            )
 
-            loss = criterion(logits, b_labels)
-            val_loss += loss.item()
+            preds = torch.sigmoid(logits).cpu().numpy()
+            pred.extend(np.round(preds))
 
-            logits = torch.sigmoid(logits)
-            logits = np.round(logits.cpu().numpy())
-            labels = b_labels.cpu().numpy()
+            if not is_final_test:
+                val_loss += criterion(logits, batch['labels']).item()
+                true.extend(batch['labels'].cpu().numpy())
 
-            pred.extend(logits)
-            true.extend(labels)
+    # --------------------
+    # Metrics
+    # --------------------
+    if is_final_test:
+        tqdm.write("Test predictions completed (no labels available).")
+        BEST_PREDICTED = pred
+        return None
 
-    avg_val_loss = val_loss / len(val_dataloader)
-    print('Val loss:', avg_val_loss)
-    print('Val accuracy:', accuracy_score(true, pred))
+    avg_f1 = f1_score(true, pred, average='weighted')
 
-    print('Val precision:', precision_score(true, pred, average='weighted'))
-    print('Val recall:', recall_score(true, pred, average='weighted'))
+    output_lines = [
+        f"Val loss: {val_loss / len(val_dataloader)}",
+        f"Val accuracy: {accuracy_score(true, pred)}",
+        f"Val precision: {precision_score(true, pred, average='weighted', zero_division=0)}",
+        f"Val recall: {recall_score(true, pred, average='weighted', zero_division=0)}",
+        f"Val micro f1 score: {f1_score(true, pred, average='micro')}",
+        f"Val macro f1 score: {f1_score(true, pred, average='macro')}",
+        f"Val weighted f1 score: {avg_f1}"
+    ]
+    for line in output_lines:
+        tqdm.write(line)
 
-    val_micro_f1_score = f1_score(true, pred, average='micro')
-    print('Val micro f1 score:', val_micro_f1_score)
+    if avg_f1 > BEST_F1:
+        BEST_F1, BEST_TRUE, BEST_PREDICTED = avg_f1, true, pred
 
-    val_macro_f1_score = f1_score(true, pred, average='macro')
-    print('Val macro f1 score:', val_macro_f1_score)
-
-    val_weighted_f1_score = f1_score(true, pred, average='weighted')
-    print('Val weighted f1 score:', val_weighted_f1_score)
-
-    if (is_final_test is True):
-      BEST_F1 = val_weighted_f1_score
-      BEST_TRUE = true
-      BEST_PREDICTED = pred
-    elif (val_weighted_f1_score > BEST_F1):
-      BEST_F1 = val_weighted_f1_score
-      BEST_TRUE = true
-      BEST_PREDICTED = pred
-
-    return val_weighted_f1_score
+    return avg_f1
 
 def train(model, train_dataloader, val_dataloader, criterion, optimizer, scheduler, epoch):
     global device
     nv = Config().N_VALIDATE_DUR_TRAIN
-    temp = len(train_dataloader) // nv
-    temp = temp - (temp % 100)
+    total_steps = len(train_dataloader)
+    
+    # Validation step logic matching the 100/200/300 step format
+    temp = total_steps // nv
+    temp = temp - (temp % 100) if temp > 100 else temp
     validate_at_steps = [temp * x for x in range(1, nv + 1)]
-
-    train_loss = 0
-    for step, batch in enumerate(tqdm(train_dataloader,
-                                      desc='Epoch ' + str(epoch))):
-        model.train()
-
-        b_input_ids = batch['input_ids'].to(device)
-        b_attention_mask = batch['attention_mask'].to(device)
-        b_labels = batch['labels'].to(device)
-
+    
+    model.train()
+    for step, batch in enumerate(tqdm(train_dataloader, desc=f'Epoch {epoch}', file=sys.stdout)):
+        batch = {k: v.to(device) if isinstance(v, torch.Tensor) else v for k, v in batch.items()}
         optimizer.zero_grad()
-
-        logits = model(input_ids=b_input_ids, attention_mask=b_attention_mask)
-
-        loss = criterion(logits, b_labels)
-        train_loss += loss.item()
-
+        
+        logits = model(batch['input_ids'], batch['attention_mask'], batch['epss'], 
+                       batch['cvss_cont'], batch['cvss_cat'], batch['cpe_type'])
+        
+        loss = criterion(logits, batch['labels'])
         loss.backward()
-
         optimizer.step()
-
         scheduler.step()
 
         if step in validate_at_steps:
-            print(f'-- Step: {step}')
-            _ = val(model, val_dataloader, criterion)
+            tqdm.write(f"\n-- Step: {step}")
+            val(model, val_dataloader, criterion)
+            model.train()
 
-    avg_train_loss = train_loss / len(train_dataloader)
-    print('Training loss:', avg_train_loss)
-
-"""# Run"""
-
-def run():
-    global train_data, val_data, test_data, train_dataloader, val_dataloader, test_dataloader, model, best_model
-    torch.manual_seed(Config().SEED)
-
-    criterion = nn.BCEWithLogitsLoss()
-
-    if Config().FULL_FINETUNING:
-        param_optimizer = list(model.named_parameters())
-        no_decay = ["bias", "LayerNorm.bias", "LayerNorm.weight"]
-        optimizer_parameters = [
-            {
-                "params": [
-                    p for n, p in param_optimizer if not any(nd in n for nd in no_decay)
-                ],
-                "weight_decay": 0.001,
-            },
-            {
-                "params": [
-                    p for n, p in param_optimizer if any(nd in n for nd in no_decay)
-                ],
-                "weight_decay": 0.0,
-            },
-        ]
-        optimizer = optim.AdamW(optimizer_parameters, lr=Config().LR)
-
-    num_training_steps = len(train_dataloader) * Config().EPOCHS
-    scheduler = get_linear_schedule_with_warmup(
-        optimizer,
-        num_warmup_steps=0,
-        num_training_steps=num_training_steps
-    )
-
-    max_val_weighted_f1_score = float('-inf')
-    for epoch in range(Config().EPOCHS):
-        train(model, train_dataloader, val_dataloader, criterion, optimizer, scheduler, epoch)
-        val_weighted_f1_score = val(model, val_dataloader, criterion)
-
-        if Config().SAVE_BEST_ONLY:
-            if val_weighted_f1_score > max_val_weighted_f1_score:
-                best_model = copy.deepcopy(model)
-
-                save_dir = 'Supervised/models/secroberta_best_model.pt'
-                torch.save(best_model.state_dict(), save_dir)
-
-                print(f'--- Best Model. Val: {max_val_weighted_f1_score} -> {val_weighted_f1_score}')
-                max_val_weighted_f1_score = val_weighted_f1_score
-
-    return best_model, max_val_weighted_f1_score
-
+# ---------------------------------------------------------
+# 6. Main Runner
+# ---------------------------------------------------------
 def main():
-    global train_data, val_data, test_data, train_dataloader, val_dataloader, test_dataloader, model, device
-
-    print("Using device:", torch.cuda.get_device_name() if torch.cuda.is_available() else "CPU")
+    global device, model, BEST_F1, BEST_TRUE, BEST_PREDICTED
+    config = Config()
+    device = config.DEVICE
+    print(f"Using device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}")
 
     project_dir = 'scripts/supervised/datasets/enriched_with_epss_to_tactic/'
-    config = Config()
-
-    # Read CSV files
     df_train = pd.read_csv(project_dir + 'enriched_train_val_data.csv')
-    print("Train data shape:", df_train.shape)
-    print(df_train)
-    df_val = pd.read_csv(project_dir + 'enriched_train_val_data.csv')
-    print("Validation data shape:", df_val.shape)
     df_test = pd.read_csv(project_dir + 'enriched_test_data.csv')
-    print("Test data shape:", df_test.shape)
 
-    # Create datasets and dataloaders
-    train_data = TransformerDataset(df_train, range(len(df_train)))
-    print("Train Data Transformer:", train_data)
-    val_data = TransformerDataset(df_val, range(len(df_val)))
-    print("Val Data Transformer:", val_data)
-    test_data = TransformerDataset(df_test, range(len(df_test)))
-    print("Test Data Transformer:", test_data)
+    # Printing dataset shapes and head to match previous model
+    print(f"Train data shape: {df_train.shape}\n{df_train.head(5)}")
+    print(f"Validation data shape: {df_train.shape}\nTest data shape: {df_test.shape}")
 
-    train_dataloader = DataLoader(train_data, batch_size=Config().BATCH_SIZE, num_workers=0)
-    print("Train Dataloader:", train_dataloader)
-    val_dataloader = DataLoader(val_data, batch_size=Config().BATCH_SIZE, num_workers=0)
-    print("Val Dataloader:", val_dataloader)
-    test_dataloader = DataLoader(test_data, batch_size=Config().BATCH_SIZE, num_workers=0)
-    print("Test Dataloader:", test_dataloader)
+    train_ds = MultiModalDataset(df_train, range(len(df_train)))
+    val_ds = MultiModalDataset(df_train, range(len(df_train))) 
+    test_ds = MultiModalDataset(df_test, range(len(df_test)), set_type="test")
 
-    b = next(iter(train_dataloader))
-    for k, v in b.items():
-        print(f'{k} shape: {v.shape}')
+    # Printing Dataset object addresses as seen in your logs
+    print(f"Train Data Transformer: {train_ds}")
+    print(f"Val Data Transformer: {val_ds}")
+    print(f"Test Data Transformer: {test_ds}")
 
-    device = Config().DEVICE
+    train_loader = DataLoader(train_ds, batch_size=config.BATCH_SIZE, shuffle=True)
+    val_loader = DataLoader(val_ds, batch_size=config.BATCH_SIZE)
+    test_loader = DataLoader(test_ds, batch_size=config.BATCH_SIZE)
 
-    model = Model()
-    model.to(device);
+    print(f"Train Dataloader: {train_loader}")
+    print(f"Val Dataloader: {val_loader}")
+    print(f"Test Dataloader: {test_loader}")
 
-    best_model, best_val_weighted_f1_score = run()
+    # Printing batch tensor shapes
+    fb = next(iter(train_loader))
+    print(f"input_ids shape: {fb['input_ids'].shape}\nattention_mask shape: {fb['attention_mask'].shape}\nlabels shape: {fb['labels'].shape}")
 
-    print("------Validation results --------")
-    print(BEST_F1)
+    model = MultiModalModel().to(device)
+    optimizer = optim.AdamW(model.parameters(), lr=config.LR, weight_decay=0.01)
+    scheduler = get_linear_schedule_with_warmup(optimizer, 0, len(train_loader) * config.EPOCHS)
+    criterion = nn.BCEWithLogitsLoss()
 
-    print("F1 scores per class")
-    y_train_df = df_train.drop(df_train.columns[0:6], axis=1)
+    BEST_F1 = 0
+    for epoch in range(config.EPOCHS):
+        train(model, train_loader, val_loader, criterion, optimizer, scheduler, epoch)
+        val(model, val_loader, criterion)
 
-    f1_best_metrics = compute_metrics(BEST_PREDICTED, BEST_TRUE, f1_score, df_test.columns[6:], 14)
-
-    print("Recall scores per class")
-    recall_best_metrics = compute_metrics(BEST_PREDICTED, BEST_TRUE, recall_score, df_test.columns[6:], 14)
-
-    print("Precision scores per class")
-    precision_best_metrics = compute_metrics(BEST_PREDICTED, BEST_TRUE, precision_score, df_test.columns[6:], 14)
-
-    print("Accuracy scores per class")
-    acc_best_metrics = compute_metrics(BEST_PREDICTED, BEST_TRUE, accuracy_score, df_test.columns[6:], 14)
-
-    print_F1_based_on_distribution(BEST_PREDICTED, BEST_TRUE, y_train_df,  df_test.columns[6:])
-
-    print("------cTesting results --------")
-    test_weighted_f1_score = val(model, test_dataloader, nn.BCEWithLogitsLoss(), True)
-
-    print("F1 scores")
-    print(BEST_F1)
-
-    f1_metrics = compute_metrics(BEST_PREDICTED, BEST_TRUE, f1_score, df_test.columns[6:], 14)
-
-    print(f1_metrics)
-
-    print("Recall scores")
-    recall_metrics = compute_metrics(BEST_PREDICTED, BEST_TRUE, recall_score, df_test.columns[6:], 14)
-
-    print("Precision scores")
-    precision_best_metrics = compute_metrics(BEST_PREDICTED, BEST_TRUE, precision_score, df_test.columns[6:], 14)
-
-    print("Accuracy scores")
-    acc_metrics = compute_metrics(BEST_PREDICTED, BEST_TRUE, accuracy_score, df_test.columns[6:], 14)
-
-    print_F1_based_on_distribution(BEST_PREDICTED, BEST_TRUE, y_train_df,  df_test.columns[6:])
-
-    for col in df_test.columns:
-        print(col)
-
-    print("Class counts true")
-    class_counts = np.sum(BEST_TRUE, axis=0)
-    print(class_counts)
-
-    print("Class counts predicted")
-    class_counts = np.sum(BEST_PREDICTED, axis=0)
-    print(class_counts)
-
-    conf_matrix = multilabel_confusion_matrix(BEST_TRUE, BEST_PREDICTED)
-    
-    for i, matrix in enumerate(conf_matrix):
-        print(f"Confusion Matrix for Class {i + 1}:\n{matrix}\n")
+    print("\nFINAL EVALUATION ON TEST SET")
+    val(model, test_loader, criterion, is_final_test=True)
+    torch.save(model.state_dict(), 'multi_modal_secroberta_final.pt')
 
 if __name__ == "__main__":
     main()
