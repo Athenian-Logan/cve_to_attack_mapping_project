@@ -75,17 +75,18 @@ def objective(trial):
     print(f"Starting trial {trial.number}")
 
     # -------------------------
-    # Hyperparameters
+    # Hyperparameters (narrowed)
     # -------------------------
-    lr = trial.suggest_float("lr", 1e-5, 5e-5, log=True)
-    dropout = trial.suggest_float("dropout", 0.2, 0.6)
-    numeric_hidden = trial.suggest_categorical("numeric_hidden", [32, 64, 128])
-    numeric_dropout = trial.suggest_float("numeric_dropout", 0.1, 0.4)
-    batch_size = trial.suggest_categorical("batch_size", [8, 16])
-    epochs = 2   # FIXED (important)
+    lr = trial.suggest_float("lr", 2e-5, 6e-5, log=True)
+    dropout = trial.suggest_float("dropout", 0.05, 0.25)
+    numeric_hidden = trial.suggest_categorical("numeric_hidden", [64, 128])
+    numeric_dropout = trial.suggest_float("numeric_dropout", 0.0, 0.2)
+
+    batch_size = 16
+    epochs = 4   # 🔥 match real convergence window
 
     # -------------------------
-    # Data (subsampled)
+    # Data (fixed subsample)
     # -------------------------
     df = pd.read_csv(TRAIN_CSV)
     df = df.sample(frac=0.3, random_state=42)
@@ -94,7 +95,7 @@ def objective(trial):
     loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
     # -------------------------
-    # Model
+    # Model (UNFROZEN)
     # -------------------------
     model = MultiModalModel(
         transformer_dropout=dropout,
@@ -102,18 +103,16 @@ def objective(trial):
         numeric_dropout=numeric_dropout
     ).to(DEVICE)
 
-    # 🔒 FREEZE TRANSFORMER
-    for p in model.transformer.parameters():
-        p.requires_grad = False
-
     criterion = nn.BCEWithLogitsLoss()
-    optimizer = optim.AdamW(model.parameters(), lr=lr)
+    optimizer = optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
 
     # -------------------------
-    # Training
+    # Training + tracking
     # -------------------------
-    model.train()
-    for _ in range(epochs):
+    best_f1 = 0.0
+
+    for epoch in range(epochs):
+        model.train()
         for batch in loader:
             batch = {k: v.to(DEVICE) for k, v in batch.items()}
             optimizer.zero_grad()
@@ -131,29 +130,32 @@ def objective(trial):
             loss.backward()
             optimizer.step()
 
-    # -------------------------
-    # Validation (same data, acceptable for tuning)
-    # -------------------------
-    model.eval()
-    preds, true = [], []
+        # -------------------------
+        # Validation (late-epoch focus)
+        # -------------------------
+        model.eval()
+        preds, true = [], []
 
-    with torch.no_grad():
-        for batch in loader:
-            batch = {k: v.to(DEVICE) for k, v in batch.items()}
-            logits = model(
-                batch['input_ids'],
-                batch['attention_mask'],
-                batch['epss'],
-                batch['cvss_cont'],
-                batch['cvss_cat'],
-                batch['cpe_type']
-            )
-            probs = torch.sigmoid(logits).cpu().numpy()
-            preds.extend(np.round(probs))
-            true.extend(batch['labels'].cpu().numpy())
+        with torch.no_grad():
+            for batch in loader:
+                batch = {k: v.to(DEVICE) for k, v in batch.items()}
+                logits = model(
+                    batch['input_ids'],
+                    batch['attention_mask'],
+                    batch['epss'],
+                    batch['cvss_cont'],
+                    batch['cvss_cat'],
+                    batch['cpe_type']
+                )
 
-    weighted_f1 = f1_score(true, preds, average="weighted")
-    return weighted_f1
+                probs = torch.sigmoid(logits).cpu().numpy()
+                preds.extend((probs > 0.5).astype(int))
+                true.extend(batch['labels'].cpu().numpy())
+
+        f1 = f1_score(true, preds, average="weighted")
+        best_f1 = max(best_f1, f1)
+
+    return best_f1
 
 # ---------------------------------------------------------
 # Run Optuna
