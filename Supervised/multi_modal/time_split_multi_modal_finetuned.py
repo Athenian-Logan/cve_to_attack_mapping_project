@@ -25,12 +25,19 @@ class Config:
         self.MODEL_PATH = 'jackaduma/SecRoBERTa'
         self.NUM_LABELS = 14
         self.TOKENIZER = AutoTokenizer.from_pretrained(self.MODEL_PATH)
-        self.MAX_LENGTH = 320 
+        self.MAX_LENGTH = 320
+
+        # ✅ OPTUNA BEST
         self.BATCH_SIZE = 16
-        self.DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        self.LR = 3.884755049077609e-05 
+        self.LR = 5.6304809477691835e-05
         self.EPOCHS = 5
         self.N_VALIDATE_DUR_TRAIN = 3
+
+        self.TRANSFORMER_DROPOUT = 0.17541571246097215
+        self.NUMERIC_HIDDEN = 64
+        self.NUMERIC_DROPOUT = 0.02833849086637827
+
+        self.DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 BEST_F1 = 0
 BEST_TRUE = []
@@ -85,16 +92,17 @@ def clean_cpe_text(text):
 # 3. Multi-Modal Dataset
 # ---------------------------------------------------------
 class MultiModalDataset(Dataset):
-    def __init__(self, df, indices, set_type=None):
+    def __init__(self, df, indices):
         df = df.iloc[indices]
         self.texts = df['Text'].apply(clean_abstract).tolist()
         self.cwes = df['CWE'].fillna("Unknown CWE").tolist()
         self.cpe_desc = df['CPE'].apply(clean_cpe_text).tolist()
         self.epss = df['EPSS'].astype(float).tolist()
         self.cvss_raw = df['CVSS'].tolist()
-        self.set_type = set_type
-        if self.set_type != 'test':
-            self.labels = df.iloc[:, 6:].values
+
+        # ALWAYS load labels
+        self.labels = df.iloc[:, 6:].values
+
         self.tokenizer = Config().TOKENIZER
         self.max_length = Config().MAX_LENGTH
 
@@ -123,8 +131,7 @@ class MultiModalDataset(Dataset):
             'cvss_cat': cvss_cat.long(),
             'cpe_type': torch.tensor(extract_cpe_type(self.cpe_desc[index]), dtype=torch.long)
         }
-        if self.set_type != 'test':
-            item['labels'] = torch.Tensor(self.labels[index]).float()
+        item['labels'] = torch.Tensor(self.labels[index]).float()
         return item
 
 # ---------------------------------------------------------
@@ -132,16 +139,25 @@ class MultiModalDataset(Dataset):
 # ---------------------------------------------------------
 class MultiModalModel(nn.Module):
     def __init__(self):
-        super(MultiModalModel, self).__init__()
-        self.transformer = AutoModel.from_pretrained(Config().MODEL_PATH)
-        self.dropout = nn.Dropout(0.4864913766068174)
-        
-        self.av_emb = nn.Embedding(4, 4); self.ac_emb = nn.Embedding(3, 2)
-        self.pr_emb = nn.Embedding(3, 2); self.ui_emb = nn.Embedding(2, 2)
-        self.s_emb = nn.Embedding(2, 2);  self.cpe_emb = nn.Embedding(4, 4)
+        super().__init__()
 
-        self.numeric_mlp = nn.Sequential(nn.Linear(20, 64), nn.ReLU(), nn.Dropout(0.2))
-        self.output = nn.Linear(768 + 64, Config().NUM_LABELS)
+        self.transformer = AutoModel.from_pretrained(Config().MODEL_PATH)
+        self.dropout = nn.Dropout(Config().TRANSFORMER_DROPOUT)
+
+        self.av_emb = nn.Embedding(4, 4)
+        self.ac_emb = nn.Embedding(3, 2)
+        self.pr_emb = nn.Embedding(3, 2)
+        self.ui_emb = nn.Embedding(2, 2)
+        self.s_emb = nn.Embedding(2, 2)
+        self.cpe_emb = nn.Embedding(4, 4)
+
+        self.numeric_mlp = nn.Sequential(
+            nn.Linear(20, Config().NUMERIC_HIDDEN),
+            nn.ReLU(),
+            nn.Dropout(Config().NUMERIC_DROPOUT)
+        )
+
+        self.output = nn.Linear(768 + Config().NUMERIC_HIDDEN, Config().NUM_LABELS)
 
     def forward(self, input_ids, attention_mask, epss, cvss_cont, cvss_cat, cpe_type):
         _, o2 = self.transformer(input_ids=input_ids, attention_mask=attention_mask, return_dict=False)
@@ -157,13 +173,14 @@ class MultiModalModel(nn.Module):
 # ---------------------------------------------------------
 # 5. Training & Validation Utilities
 # ---------------------------------------------------------
-def val(model, val_dataloader, criterion, is_final_test=False):
-    global BEST_F1, BEST_TRUE, BEST_PREDICTED, device
-    val_loss, true, pred = 0, [], []
+def val(model, dataloader, criterion, split_name="Val"):
     model.eval()
+    val_loss, true, pred = 0, [], []
 
-    for batch in val_dataloader:
-        batch = {k: v.to(device) if isinstance(v, torch.Tensor) else v for k, v in batch.items()}
+    for batch in dataloader:
+        batch = {k: v.to(device) if isinstance(v, torch.Tensor) else v
+                 for k, v in batch.items()}
+
         with torch.no_grad():
             logits = model(
                 batch['input_ids'],
@@ -174,39 +191,23 @@ def val(model, val_dataloader, criterion, is_final_test=False):
                 batch['cpe_type']
             )
 
-            preds = torch.sigmoid(logits).cpu().numpy()
-            pred.extend(np.round(preds))
+            probs = torch.sigmoid(logits)
+            preds = (probs > 0.5).int()
 
-            if not is_final_test:
-                val_loss += criterion(logits, batch['labels']).item()
-                true.extend(batch['labels'].cpu().numpy())
+            pred.append(preds.cpu().numpy())
+            true.append(batch['labels'].cpu().numpy())
+            val_loss += criterion(logits, batch['labels']).item()
 
-    # --------------------
-    # Metrics
-    # --------------------
-    if is_final_test:
-        tqdm.write("Test predictions completed (no labels available).")
-        BEST_PREDICTED = pred
-        return None
+    true = np.vstack(true)
+    pred = np.vstack(pred)
 
-    avg_f1 = f1_score(true, pred, average='weighted')
+    print(f"\n[{split_name} RESULTS]")
+    print(f"Loss: {val_loss / len(dataloader):.4f}")
+    print(f"Micro F1:   {f1_score(true, pred, average='micro', zero_division=0):.4f}")
+    print(f"Macro F1:   {f1_score(true, pred, average='macro', zero_division=0):.4f}")
+    print(f"Weighted F1:{f1_score(true, pred, average='weighted', zero_division=0):.4f}")
 
-    output_lines = [
-        f"Val loss: {val_loss / len(val_dataloader)}",
-        f"Val accuracy: {accuracy_score(true, pred)}",
-        f"Val precision: {precision_score(true, pred, average='weighted', zero_division=0)}",
-        f"Val recall: {recall_score(true, pred, average='weighted', zero_division=0)}",
-        f"Val micro f1 score: {f1_score(true, pred, average='micro')}",
-        f"Val macro f1 score: {f1_score(true, pred, average='macro')}",
-        f"Val weighted f1 score: {avg_f1}"
-    ]
-    for line in output_lines:
-        tqdm.write(line)
-
-    if avg_f1 > BEST_F1:
-        BEST_F1, BEST_TRUE, BEST_PREDICTED = avg_f1, true, pred
-
-    return avg_f1
+    return true, pred
 
 def train(model, train_dataloader, val_dataloader, criterion, optimizer, scheduler, epoch):
     global device
@@ -246,16 +247,27 @@ def main():
     print(f"Using device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}")
 
     project_dir = 'scripts/supervised/datasets/multi_modal/'
-    df_train = pd.read_csv(project_dir + 'enriched_train_val_data.csv')
-    df_test = pd.read_csv(project_dir + 'enriched_test_data.csv')
+    df_full = pd.read_csv(project_dir + 'enriched_full_data.csv')
 
-    # Printing dataset shapes and head to match previous model
-    print(f"Train data shape: {df_train.shape}\n{df_train.head(5)}")
-    print(f"Validation data shape: {df_train.shape}\nTest data shape: {df_test.shape}")
+    # Extract CVE year
+    df_full['year'] = df_full['ID'].str.extract(r'CVE-(\d{4})').astype(int)
+
+    # Temporal split
+    df_train = df_full[df_full['year'] <= 2021]
+    df_val   = df_full[df_full['year'] == 2022]
+    df_test  = df_full[df_full['year'] >= 2023]
+
+    print(f"Train years: ≤2021 → {df_train.shape}")
+    print(f"Val years: 2022 → {df_val.shape}")
+    print(f"Test years: ≥2023 → {df_test.shape}")
+
+    df_train = df_train.drop(columns=["year"])
+    df_val   = df_val.drop(columns=["year"])
+    df_test  = df_test.drop(columns=["year"])
 
     train_ds = MultiModalDataset(df_train, range(len(df_train)))
-    val_ds = MultiModalDataset(df_train, range(len(df_train))) 
-    test_ds = MultiModalDataset(df_test, range(len(df_test)), set_type="test")
+    val_ds   = MultiModalDataset(df_val, range(len(df_val)))
+    test_ds = MultiModalDataset(df_test, range(len(df_test)))
 
     # Printing Dataset object addresses as seen in your logs
     print(f"Train Data Transformer: {train_ds}")
@@ -284,9 +296,32 @@ def main():
         train(model, train_loader, val_loader, criterion, optimizer, scheduler, epoch)
         val(model, val_loader, criterion)
 
+    torch.save(model.state_dict(), 'Supervised/models/time_series_split_multi_modal_tuned.pt')
+
+    TACTICS = [
+        "Reconnaissance", "Resource Development", "Initial Access",
+        "Execution", "Persistence", "Privilege Escalation",
+        "Defense Evasion", "Credential Access", "Discovery",
+        "Lateral Movement", "Collection", "Command and Control",
+        "Exfiltration", "Impact"
+    ]
+
     print("\nFINAL EVALUATION ON TEST SET")
-    val(model, test_loader, criterion, is_final_test=True)
-    torch.save(model.state_dict(), 'Supervised/models/non_tuned_multi_modal_secroberta_final.pt')
+    y_true, y_pred = val(model, test_loader, criterion, split_name="Test")
+
+    print("\nPer-Tactic F1 Scores:")
+    per_tactic_f1 = f1_score(y_true, y_pred, average=None, zero_division=0)
+    for tactic, score in zip(TACTICS, per_tactic_f1):
+        print(f"{tactic:25s}: {score:.4f}")
+
+    cms = multilabel_confusion_matrix(y_true, y_pred)
+
+    for i, tactic in enumerate(TACTICS):
+        tn, fp, fn, tp = cms[i].ravel()
+        print(f"\n{tactic}")
+        print(f"TP={tp} FP={fp} FN={fn} TN={tn}")
+
+
 
 if __name__ == "__main__":
     main()

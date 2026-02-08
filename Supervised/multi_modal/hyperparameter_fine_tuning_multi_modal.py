@@ -17,7 +17,7 @@ NUM_LABELS = 14
 MAX_LENGTH = 320
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-TRAIN_CSV = "scripts/supervised/datasets/enriched_with_epss_to_tactic/enriched_train_val_data.csv"
+TRAIN_CSV = "scripts/supervised/datasets/multi_modal/enriched_train_val_data.csv"
 
 # ---------------------------------------------------------
 # Multi-Modal Model (parametrised)

@@ -6,6 +6,7 @@ from transformers import AutoTokenizer, AutoModel
 from collections import defaultdict
 from tqdm import tqdm
 import warnings
+import os
 warnings.filterwarnings("ignore")
 
 # -----------------------
@@ -17,9 +18,10 @@ NUM_LABELS = 14
 MAX_LENGTH = 320
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-DATA_PATH = "scripts/supervised/datasets/enriched_with_epss_to_tactic/enriched_train_val_data.csv"
+DATA_PATH = "scripts/supervised/datasets/enriched_with_epss_to_tactic/enriched_train_val_data.csv" # Base non multi modal model.
 OUTPUT_CSV = "Supervised/SHAP/global_analysis/global_feature_importance_by_tactic.csv"
 SELECTED_CVES_CSV = "Supervised/SHAP/global_analysis/selected_cves_for_analysis.csv"
+GRAPH_DIR = "Supervised/SHAP/global_analysis/graphs"
 
 # Limit to reasonable sample size for global analysis
 MAX_SAMPLES_FOR_GLOBAL = 200  # Adjust based on your patience
@@ -191,7 +193,15 @@ def plot_feature_importance(feature_scores, tactic):
                 va="bottom",
             )
 
-    plt.show()
+    # ✅ SAVE
+    save_path = os.path.join(
+        GRAPH_DIR,
+        f"{tactic.replace(' ', '_').lower()}_feature_importance.png"
+    )
+    plt.savefig(save_path, dpi=300, bbox_inches="tight")
+    plt.close()
+
+    print(f"Saved plot: {save_path}")
 
 # -----------------------
 # Main: FAST Global analysis

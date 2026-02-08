@@ -13,10 +13,13 @@ warnings.filterwarnings("ignore")
 # CONFIG
 # =========================================================
 MODEL_PATH = "jackaduma/SecRoBERTa"
-MODEL_WEIGHTS = "Supervised/models/multi_modal_secroberta_final.pt"
 
-DATA_PATH = "scripts/supervised/datasets/enriched_with_epss_to_tactic/enriched_train_val_data.csv"
-OUTPUT_CSV = "Supervised/SHAP/global_analysis_multi_modal/multimodal_feature_importance_by_tactic.csv"
+MODEL_WEIGHTS = "Supervised/models/non_tuned_multi_modal_secroberta_final.pt" # non fine tuned multi modal analysis - need to do
+"""
+MODEL_WEIGHTS = "Supervised/models/multi_modal_secroberta_final.pt" # fine tuned multi modal analysis - done
+"""
+DATA_PATH = "scripts/supervised/datasets/multi_modal/enriched_train_val_data.csv"
+OUTPUT_CSV = "Supervised/SHAP/global_analysis_multi_modal/untuned_multimodal_feature_importance_by_tactic.csv" # added untuned to name for now
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 MAX_LENGTH = 320

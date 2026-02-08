@@ -27,11 +27,15 @@ class Config:
         self.TOKENIZER = AutoTokenizer.from_pretrained(self.MODEL_PATH)
         self.MAX_LENGTH = 320
 
-        # 🔧 Optuna best values
+        # ✅ OPTUNA BEST
         self.BATCH_SIZE = 16
-        self.LR = 5.364246196593838e-05
+        self.LR = 5.6304809477691835e-05
         self.EPOCHS = 5
         self.N_VALIDATE_DUR_TRAIN = 3
+
+        self.TRANSFORMER_DROPOUT = 0.17541571246097215
+        self.NUMERIC_HIDDEN = 64
+        self.NUMERIC_DROPOUT = 0.02833849086637827
 
         self.DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -135,21 +139,25 @@ class MultiModalDataset(Dataset):
 # ---------------------------------------------------------
 class MultiModalModel(nn.Module):
     def __init__(self):
-        super(MultiModalModel, self).__init__()
+        super().__init__()
+
         self.transformer = AutoModel.from_pretrained(Config().MODEL_PATH)
-        self.dropout = nn.Dropout(0.09873373311817378)
-        
-        self.av_emb = nn.Embedding(4, 4); self.ac_emb = nn.Embedding(3, 2)
-        self.pr_emb = nn.Embedding(3, 2); self.ui_emb = nn.Embedding(2, 2)
-        self.s_emb = nn.Embedding(2, 2);  self.cpe_emb = nn.Embedding(4, 4)
+        self.dropout = nn.Dropout(Config().TRANSFORMER_DROPOUT)
+
+        self.av_emb = nn.Embedding(4, 4)
+        self.ac_emb = nn.Embedding(3, 2)
+        self.pr_emb = nn.Embedding(3, 2)
+        self.ui_emb = nn.Embedding(2, 2)
+        self.s_emb = nn.Embedding(2, 2)
+        self.cpe_emb = nn.Embedding(4, 4)
 
         self.numeric_mlp = nn.Sequential(
-            nn.Linear(20, 64),
+            nn.Linear(20, Config().NUMERIC_HIDDEN),
             nn.ReLU(),
-            nn.Dropout(0.08565785467519303)
+            nn.Dropout(Config().NUMERIC_DROPOUT)
         )
 
-        self.output = nn.Linear(768 + 64, Config().NUM_LABELS)
+        self.output = nn.Linear(768 + Config().NUMERIC_HIDDEN, Config().NUM_LABELS)
 
     def forward(self, input_ids, attention_mask, epss, cvss_cont, cvss_cat, cpe_type):
         _, o2 = self.transformer(input_ids=input_ids, attention_mask=attention_mask, return_dict=False)
@@ -253,7 +261,7 @@ def main():
     device = config.DEVICE
     print(f"Using device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}")
 
-    project_dir = 'scripts/supervised/datasets/enriched_with_epss_to_tactic/'
+    project_dir = 'scripts/supervised/datasets/multi_modal/'
     df_train = pd.read_csv(project_dir + 'enriched_train_val_data.csv')
     df_test = pd.read_csv(project_dir + 'enriched_test_data.csv')
 
@@ -294,7 +302,7 @@ def main():
 
     print("\nFINAL EVALUATION ON TEST SET")
     val(model, test_loader, criterion, is_final_test=True)
-    torch.save(model.state_dict(), 'multi_modal_secroberta_final.pt')
+    torch.save(model.state_dict(), 'Supervised/models/multi_modal_secroberta_final.pt')
 
 if __name__ == "__main__":
     main()
